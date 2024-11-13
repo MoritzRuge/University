@@ -9,10 +9,16 @@
 
 import random
 
-# function which return a random number
-def rand_number():
-    n = random.randint()
-    return n
-
 # function which should count all random numbers and store them in a set of numbers
-def 
+def numberStore():
+    numberset = set(())
+    counter = 0
+    for i in range(10):
+        n = random.randint(1, 10)
+        numberset.add(n)
+        counter += 1
+
+    print(numberset , " and Counter:" ,counter)
+
+
+numberStore()
