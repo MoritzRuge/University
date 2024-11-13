@@ -1,10 +1,10 @@
 n = 7 # anzahl zeilen
-for i in range(1, n + 1):  #Schleife die n mal durchläuft
-    space = " " # Variable um ein leeres Feld zu zeichnen
-    print(space * (n - i), end="") # dekrement um den Betrag von i
-    for j in range(1, i + 1): # Ausgabe der aufsteigenden Zahlenreihe
+for i in range(1, n + 1): # erstellt die anzahl der Zeilen über die wir Itterieren
+    space = " " # variable leeres feld auszugeben
+    print(space * (n - i), end="") # für jeden durchgang wird vor der Zahl ein leeres Feld ausgegeben
+    for j in range(1, i + 1): # Ausgabe der rechten Zahlenhälfte
         print(j, end="")
-    for k in range(i - 1, 0, -1): # Ausgabe der absteigenden Zahlenreihe
+    for k in range(i - 1, 0, -1): # Ausgabe der linken Zahlenhälfte
         print(k, end="")
 
-    print("") #Zeilenumbruch
+    print("") # print der neuen Zeile
