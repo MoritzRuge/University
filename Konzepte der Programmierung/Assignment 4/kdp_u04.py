@@ -30,17 +30,22 @@ def run_experiment(scope, limit=100):
 
 def count_number(number):
     number_dictionary = dict()
-    
-    number_dictionary[number] = 
-    # search for the number and raising the value by one
-    number_dictionary[number] += 1
-    
     number_value = 0
+    number_key = 0
+    
+    # if number is not in dic , add it to the dictionary with value 1
+    if number not in number_dictionary:
+        number_dictionary = {number: 1}
+    # if number is present, update the key value to plus 1
+    else:
+        dic_update = {number: number_dictionary[number].get() + 1}
+        number_dictionary.update(dic_update)
+
     # loop through the dic to get the highest value
     for _ in number_dictionary:
         if number_dictionary[number] > number_value:
-            number_value = number_dictionary[number].get()
-            number_key = number_dictionary[number]
+            number_value = number_dictionary[number]
+            number_key = number
 
 
     # return the highest number and the count
