@@ -1,0 +1,322 @@
+\documentclass[a4paper]{assignment}
+\coursetitle{Auswirkung der Informatik}
+\courselabel{AdI}
+\exercisesheet{Assignment 5}{Digitale Transformation}
+\student{Moritz Ruge \& Amelie Dzierzawa}
+\school{Bachelor Informatik}
+\university{Freie Universitäten Berlin}
+\semester{Winter 2024}
+\date{17 November 2024}
+%\usepackage[pdftex]{graphicx}
+%\usepackage{subfigure} 
+\usepackage[backend=biber,style=numeric,url=true]{biblatex} % für Quellenangaben und Bibliotheken
+\usepackage[]{hyperref} % für hyperlinks
+\usepackage{array} % für die Tabelle
+\usepackage{xcolor} %für Farben bei Text
+\addbibresource{ref.bib}  % Add your .bib file here
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\begin{document}
+
+% Aufgabe C)
+\begin{problemlist}
+
+%Probelmnummer und Frage
+\pbitem Recherchieren Sie: Welche Interessen vergolgt der CCC als Verein?
+
+%Beginn der Antwort
+\begin{answer}
+
+%Beantwortung der Recherche
+Präambel des CCC:\cite{ccc-satzung}
+\begin{itemize}
+\item Menschenrecht auf ungehinderter Kommunikation
+\item Informationsfreiheit für jedermann
+\item Beschäftigung mit der Auswirkung von Technologie aud die Gesellschaft und auf das Individum
+\item Förderung von Wissen
+\end{itemize}
+
+Der CCC hat folgende Motivationen und Grenzen.\\
+Hackerethik:\cite{ccc-hackerethik}
+\begin{itemize}
+\item Der Zugang zu Computern und allem, was einem zeigen kann, wie diese Welt funktioniert, sollte unbegrenzt und vollständig sein.
+\item Alle Informationen müssen frei sein.
+\item Misstraue Autoritäten – fördere Dezentralisierung.
+\item Beurteile einen Hacker nach dem, was er tut, und nicht nach üblichen Kriterien wie Aussehen, Alter, Herkunft, Spezies, Geschlecht oder gesellschaftliche Stellung.
+\item Man kann mit einem Computer Kunst und Schönheit schaffen.
+\item Computer können dein Leben zum Besseren verändern.
+\item Mülle nicht in den Daten anderer Leute.
+\item Öffentliche Daten nützen, private Daten schützen.
+\end{itemize}
+
+% Ende Aufgabe C)
+\end{answer}
+
+
+
+% Aufgabe D+E)
+
+%Probelmnummer und Frage
+\newpage
+\pbitem Führen Sie eine Analyse der Interessen folgender Beteiligten zur Digitalisierung des deutschen Gesundheitssystems durch \& Ordnen Sie den Interessen Werte zu, die diesen zugrunde liegen. Beispielweise: ‘Gerechtigkeit’, ‘Transparenz’. Finden Sie möglichst andere oder spezifischere Werte:
+
+%begin der Problemaufzählung
+\begin{itemize}
+
+\item Interessen der BürgerInnen Deutschlands. Beispielsweise: ‘Verbesserung der Versorgung im Notfall’
+
+\item Interessen des CCC (mit Bezug auf den Vortrag sowie weiterer Quellen) Beispielsweise: ‘Öffentlichkeit informieren’
+
+\item Interessen der Bundesregierung Beispielweise: ‘Zustimmung durch WählerInnenfinden
+\end{itemize}
+
+Suchen sie jeweils andere Interessen, als die oben genannten.
+Finde sie Belege für Ihre Aussagen, alle Interessen sollten sich klar auf Aussagen oder
+Dokumente der Akteure (oder deren Repräsentanten) zurück verfolgen lassen.
+
+%begin von Aufgabe d)
+
+\begin{enumerate}
+
+% Interesse von Ärzte
+\item Interesse der Ärzte\cite{ccc-epa}
+
+%Argument 1
+\begin{itemize}
+\item Datenübergabe in die ePA sollte ohne weitere "Mausklicks" vollzogen werden.\textcolor{red}{[Verbesserung]}
+
+\begin{itemize}
+\item Neben der ePA gibt es von Ärzten ein lokale Arztakte, ePA und das lokale system müssen sich immer wieder austauschen $\rightarrow$ mehr Aufwand
+
+\item Nicht möglich, die Datenübertragung geschieht laut Kassenärztlicher Bundesvereinigung(KBV) nicht Automatisch, muss Manuel übertragen wer.(von Arzt) $\rightarrow$ mehr Aufwand
+
+\item ePa vorhanden, Arzt muss Aufklären welche Metadaten gespeichert werden $\rightarrow$ mehr Aufwand
+\end{itemize}
+
+%Argument 2 - Patient hat kein ePA
+\item Patient muss vor der Behandlung gefragt werden, ob er ePA benutzt - kein ePA oder nicht möglich \textcolor{red}{[Verbesserung]}
+\begin{itemize}
+\item Risikoaufklärung, Dokumentation der Aufklärung vom Arzt nötig
+\item andere Ärzte hätten dann kein Zugriff auf die vollzogene Behandlung $\rightarrow$ mögliche Behandlungsfehler von anderen Ärzten.
+\end{itemize}
+
+%Argument 3 - Besondere Fälle
+\item Besondere Fälle mit stigmatisierender Wirkung \textcolor{red}{[Verbesserung]}
+
+\begin{itemize}
+\item bei Geschlechtserkrankungen $\rightarrow$ Aufklärung und Dokumentation, mehr Aufwand
+\item bei Schwangerschaftsabbrüchen $\rightarrow$ Aufklärung und Dokumentation, mehr Aufwand
+\item bei psychischen Erkrankungen $\rightarrow$ Aufklärung und Dokumentation, mehr Aufwand
+\end{itemize}
+
+%Argument 4 - Nicht Erwachsen
+\item Jugendliche und ePA \textcolor{red}{[Verbesserung]}
+
+\begin{itemize}
+\item Bei Jugendlichen ist Automatisierung gar nicht möglich$\rightarrow$ Riesiger mehr Aufwand
+\begin{itemize}
+	\item "Problem der geteilten Wissenssphären"
+	\begin{itemize}
+		\item Welche vom Minderjährigen erlangten Informationen über den Minderjährigen dürfen Eltern sehen?
+		\item Welche vom Minderjährigen erlangten Informationen über die Eltern dürfen Eltern sehen?
+	\end{itemize}
+\end{itemize}
+\end{itemize}
+
+%Zsmfassung
+\newpage
+\begin{answer}
+\textbf{Entweder} kein zusätzlicher Aufwand (\textcolor{red}{automatisierte Datenübertragung}) der Arztakte $\rightarrow$ systematischer Verstoß der Ärzte gegen Aufklärungs- \& Dokumentationspflichten (BGB), die Löschpflicht (DSGVO) und die ärztliche Schweigepflicht (StGB) \\
+\textbf{Oder Checkliste} Aufklärung und Dokumentation, \textbf{Kuratieren der Daten} auf Daten über Dritte und löschpflichtige Daten vor der Übertragung zu ePA \\
+$\rightarrow$ ePA-Befüllung brauch mehr Zeit als die Patientenversorgung!
+\end{answer}
+\end{itemize}
+
+
+% Interesse von Bürgern
+
+\item Interesse von Bürgern:
+
+\begin{itemize}
+
+%Sicherheit
+\item Sicherheit
+\begin{itemize}
+	\item Daten sollten von niemanden außer dem Endnutzer und Arzt einsehbar sein.
+	\item Hohe Verschlüsselung der Daten
+\end{itemize}
+
+%Transparenz
+\item Transparenz
+\begin{itemize}
+	\item Leichter Zugang zu all meinen persönlichen Daten
+\end{itemize}
+
+%Kontrolle
+\item Kontrolle
+\begin{itemize}
+	\item Der Endnutzer hat volle Kontrolle über seine Daten und das Recht auf Löschung dieser
+\end{itemize}
+
+%Information leicht zugänglich
+\item Zugänglichkeit
+\begin{itemize}
+	\item Keine allzu verwirrenden Apps, einfache Strukturierung
+	\item möglichst einfache Vorgänge, trotz hoher Sicherheit
+	\item Daten immer und überall abrufbar
+\end{itemize}
+
+%Verbesserung der Notfallversorgung
+\item Verbesserung
+\begin{itemize}
+	\item Verbesserung der Notfallversorgung
+\end{itemize}
+
+%Verringerung der Kosten
+\item Kosten/Gelder
+\begin{itemize}
+	\item Verringerung der Krankenkassenbeiträge bzw. besserer Ausgleich
+\end{itemize}
+\end{itemize}
+
+
+%Interessen des CCC:
+
+\item Interessen des CCC:
+
+\begin{itemize}
+
+%Transparenz
+\item Transparenz
+\begin{itemize}
+	\item Vollständige Aufklärung der Öffentlichkeit in einfacher Sprache
+\end{itemize}
+
+%Sicherheit
+\item Sicherheit
+\begin{itemize}
+	\item Verbesserung der Sicherheit, bevor man Digitalisiert
+\end{itemize}
+\end{itemize}
+
+% Interessen der Bundesregierung
+
+\item Interessen der Bundesregierung:\cite{bgm-digitalisierung-im-gesundheitswesen}
+\begin{itemize}
+
+%Verbesserung
+\item Verbesserung
+\begin{itemize}
+	\item Schnellere Kommunikation
+	\item Schnellere Verwaltungsabläufe
+	\item Abschaffung von Fax- \& Papiernachrichten
+	\item Möglichkeit der systematischen Auswertung von Patientendaten
+	\begin{itemize}
+		\item Früherkennung von Krankheiten
+		\item Neue Heilungschancen
+		\item Individuell ausgerichtete Therapien
+	\end{itemize}
+\end{itemize}
+
+%Zugänglichkeit
+\item Zugänglichkeit
+\begin{itemize}
+	\item Bereitstellung von Patientendaten immer und überall
+\end{itemize}
+\end{itemize}
+
+% Ende der Aufzählung von Aufgabe D+E
+
+\end{enumerate}
+
+% Beginn der Antwort Aufgabe D+E
+
+\begin{answer}
+\begin{itemize}
+\item "Die Technik ist für den medizinischen Alltag nahezu ungeeignet."(...). "Sie raubt Zeit. Und Ärzte haben keine Zeit." -Peter Gocke Digitalchef der Charité
+\item Bundesregierung möchte vorwiegend eine Verbesserung im Verwaltungsablauf für sich und die Bürger
+\item CCC möchte eine Verbesserung in der Sicherheit und Transparenz
+\item Bürger möchte Verbesserungen in Sachen Sicherheit, Transparenz, Kontrolle, Zugänglichkeit und Kosten/Gelder
+\end{itemize}
+\end{answer}
+
+%Ende Aufgabe D+E)
+
+
+
+%Aufgabe f)
+\pbitem Identifizieren Sie Konflikte zwischen den verschiedenen Interessen und Wertvorstellungen. Begründen Sie.
+
+%Tabelle
+\begin{center}
+\begin{tabular}{| m{3.5cm} | m{10cm} |}
+\hline
+Konflikt & Begründung \\
+\hline
+Gelder$\leftrightarrow$Verbesserung & Verbesserung bringt meist Kosten mit sich, vor allem wenn es sich um technologische Verbesserungen handelt \\
+\hline
+Sicherheit & Bei der Bemühung um digitale Transparenz könnten leicht Lücken in der Cybersecurity entstehen \\
+\hline
+\end{tabular}
+\end{center}
+
+%Aufgabe g)
+\pbitem Sind die Interessen der BürgerInnen Deutschlands bei der ePA-Einführung gut bedient worden? Wo ja? Wo nein? Insgesamt? Begründen Sie.
+
+\begin{itemize}
+	\item Sicherheit
+	\begin{itemize}
+		\item Unzureichend
+		\begin{itemize}
+			\item Heilberufskarten zu leicht zugänglich
+		\end{itemize}
+	\end{itemize}		
+	
+	\item Transparenz
+	\begin{itemize}
+		\item Ja
+	\end{itemize}
+	\item Kontrolle
+	\begin{itemize}
+		\item Ja
+	\end{itemize}
+	\item Gelder
+	\begin{itemize}
+		\item $\rightarrow$ nicht wichtiges Kriterium für ePA
+	\end{itemize}	
+	\item Zugänglichkeit
+	\begin{itemize}
+		\item Ja
+	\end{itemize}	
+	\item Verbesserung
+	\begin{itemize}
+		\item Ja
+	\end{itemize}	
+	\item Kontrolle
+	\begin{itemize}
+		\item Ja
+	\end{itemize}	
+	\item Insgesamt
+	\begin{itemize}
+		\item Nein
+		\begin{itemize}
+			\item Sicherheit, der größte Faktor, wurde meiner Meinung nach nicht ausreichend bearbeitet
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+\end{problemlist}
+
+%Quellen Reference
+\newpage
+\printbibliography
+
+\end{document}

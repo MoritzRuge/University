@@ -1,0 +1,199 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[]{hyperref}
+\usepackage[backend=biber,style=numeric,url=true]{biblatex}
+\addbibresource{ref.bib}  % Add your .bib file here
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+
+\author{Amelie Dzierzawa \& Moritz Ruge}
+\title{Assignment 4 - Flugzeugabsturz}
+\begin{document}
+\maketitle
+\newpage
+
+\section*{Aufgabe 4 - 1: Recherche - Boeing Absturz}
+\subsection*{a) Maßnahmen:}
+
+\begin{center}
+\begin{itemize}
+\item Startverbot nach dem 2. Absturz von der FAA
+\item Entwicklung einer neuen Software-Architektur für Flugkontrollsysteme der Boeing 737 max (Fail-Safe-Prinzip $\longrightarrow$  mehr Sicherheit)
+\end{itemize}
+\end{center}
+
+\subsection*{Ursachen:}
+\begin{itemize}
+\item Stabilisierungssoftware MCAS(Maneuvering Characteristics Augmentation System) (soll Flugzeug vor Stromabrissretten) war fehlerhaft: hat Nase von Flugzeug nach unten gedrückt weil es falsche Daten von defektem Anstellwinkelsensor bekam
+\item 2 Bordcomputer kontrollieren sich nicht gegenseitig sondern abwechselnd
+\item Gerücht über Softwarefehler: Warnlicht funktioniert nicht $\longrightarrow$ sollte anzeigen wenn 2 Anstellwinkelsensoren unterschiedliche Daten anzeigen
+\item Co-Pilot hat Anweisungen des Piloten sehr langsam und unzureichend umgesetzt
+\item Schon zuvor im Training durch Schwächen aufgefallen
+\end{itemize}
+
+\textbf{Mitte 2024 kommt raus: }
+
+\begin{flushleft}
+Boeing bekennt sich schuldig, US-Regierung betrogen zu haben um Gerichtsprozess der 2 Abstürze zu entkommen (Haben gegen Compliance- und Ethik-programm verstoßen, trotz Deal)
+\end{flushleft}
+
+\subsection*{b): Warum entwickelt? Was sind die Unterschiede?}
+\begin{itemize}
+\item Weiterentwicklung des Vorgägners
+\begin{itemize}
+\item Andere Triebwerke
+\item Mehr Platz
+\item Größere Effizienz ( Aerodynamische Änderungen )
+\end{itemize}
+\item Wurde als Kurzstreckenflugzeug Entwickelt
+\item Sollte an Airbus verlorene Markanteile aufholen
+\end{itemize}
+
+\subsection*{Ziele:}
+\begin{itemize}
+\item Entwicklung eines Flugzeuges, dass mit der Konkurrenz (Airbus - A320neo) mithalten kann\cite{B-Wikipedia}
+\begin{itemize}
+	\item Reduzierung des Treibstoffverbrauchs um 15\% (wie vom A320neo)
+	\item Erste Schätzung lagen bei 10-12\%, später bei 14,5\%
+\end{itemize}
+\item MCAS
+\begin{itemize}
+\item Für alle ungewöhnlichen Fluglagen
+\item Vergleich der Messdaten zweier Sensoren zur Erfassung des 			Anstellwinkels
+\item MCAS läst nur aus wenn beide Daten übereinstimmen
+\begin{itemize}
+\item Kann nur einmal ausgelösen
+\end{itemize}
+\item MCAS kann Steuereingabe über Steuerhorn des Piloten nicht mehr außer Kraft setzten
+\end{itemize}
+\item Vorher:
+\begin{itemize}
+\item MCAS bekam Daten nur von einem einzelnen Sensor
+\item Auslösung wiederholte sich immer wieder $\longrightarrow$ Sensor meldete erneut erhöhten Anstellwinkel
+\end{itemize}
+\item Neu:
+\begin{itemize}
+\item Beide Sensoren liefern die Daten an MCAS
+\begin{itemize}
+\item Und beide Datensätze müssen übereinstimmen
+\end{itemize}
+\end{itemize}
+\item Verhältnis zu Manual Electric Trim Wheel:
+\begin{itemize}
+\item Switch wurde ausgeschaltet
+\begin{itemize}
+\item Trim Wheel konnte nicht mehr genutzt werden
+\end{itemize}
+\item Switch wurde wieder angeschaltet $\longrightarrow$ MCAS wurde wieder Aktiviert
+\item Berücksichtigte Datenquelle durch MCAS:
+\begin{itemize}
+\item Nur einer von zwei Sensoren lieferte Daten an MCAS
+\end{itemize}
+\item Rolle von MCAS in Abstürze:
+\begin{itemize}
+\item MCAS hat nur von einen Sensor Daten erhalten
+\item Sensor war defekt, da druch den Anstellwinkel falsch berechnet
+\item MCAS hat die Nase des Flugzeugs immer wieder nach Unten gedrückt um den Anstellwinkel zu "Korrigieren"
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\newpage
+\subsection*{d) FAA und der Absturz}
+\begin{itemize}
+\item FAA
+\begin{itemize}
+\item Federal Abiation Administration
+\item Bundesluftfahrtbehörde der USA
+\item Regulierung der zivilen Luftfahrt und des kommerziellen Lufttransports in den USA
+\item Nach den beiden Abstürzen wurde die Zertifizierung von der FAA im Jahre 2020 überholt\cite{Boeing-737-MAX}
+\begin{itemize}
+\item Firmen müssen bei Design/- oder Änderungen von Flugeingenschaften, einen neuen Antrag stellen
+\end{itemize} 
+\end{itemize}
+\item Zertifizierungsprozess
+\begin{itemize}
+\item 4 Flugzeuge intensiv geprüft
+\item Sollte als Folgeversion des 737NG(Next Generation) zertifiziert werden (Supplemental type certificate – STC)
+\item FAA hat Boeing erlaubt für die FAA Sicherheitsanalysen anzufertigen\cite{B-flawd-analysis}
+\begin{itemize}
+\item Analyse wurde für die Zertifizierung benutzt ( auch in der EU )
+\end{itemize}
+\item es muss weniger neu Zertifiziert werden $\longrightarrow$ Pilotenausbildung muss nicht angepasst werden, bedarf an Pilotenausbildung wird reduziert $\longrightarrow$ weniger Kosten
+\end{itemize}
+
+	\item MCAS FAA
+	\begin{itemize}
+		\item MCAS wurde nicht auf Fehler geprüft (außer von Boeing selbst), da es nicht nötig war von den Protokollen her
+	\end{itemize}
+	\item MCAS Einstufung
+	\begin{itemize}
+		\item Major
+		\item Keine Fehlerbaumanalyse
+		\item Bewertung der Fehler erforderte keine wietere Analyse
+	\end{itemize}
+\end{itemize}
+
+\newpage
+\section*{4-2}
+\subsection*{Gründe \& Urgründe}
+\begin{itemize}
+	\item Unzureichende Überprüfung von MCAS
+	\item Analyse von Sicherheitsrelevanten Systeme von Boeing selbst
+	\item Zu wenig Sensoren
+	\item Fehlerhafte Architektur in MCAS
+	\item Unzureichende Ausbildung und Schulung der Piloten
+\end{itemize}
+
+\subsection*{Verantwortung}
+\begin{itemize}
+	\item FAA hätte besser kontrollieren müssen
+	\item Co-Pilot hätte sich selbst besser einschätzen können
+	\item Architekten und Techniker des Flugzeugs
+	\item Manager von Boeing, die auf höhere Gewinnmaximierung aus sind
+\end{itemize}
+
+\subsection*{Warum hat der Zertifizierungsprozess nicht geleistet was er sollte?}
+\begin{itemize}
+	\item FAA hat nicht genau genug kontrolliert $\longrightarrow$ MCAS wurde nicht analysiert
+	\item Boeing hat Sicherheitsrelevante Informationen unterschlagen um Geld zu Sparen (STC)
+\end{itemize}
+
+\subsection*{Vorbeugung}
+\begin{itemize}
+	\item Bessere Kontrollen
+	\item Bessere Schulung des Personals
+	\item Sicherheitsrelevante Überprüfungen von Öffentlichen Organisationen
+\end{itemize}
+
+\printbibliography
+
+\href{https://www.deutschlandfunk.de/nach-abstuerzen-der-boeing-737-max-us-luftfahrtbehoerde-im-100.html}{Nach Abstürzen der Boeing 737-Max}
+
+\href{https://www.nzz.ch/mobilitaet/luftfahrt/boeing-737-max-grundlegender-
+softwarefehler-gefunden-ld.1499955}{Grundlegender Softwarefehler in der Boeing 737 Max gefunden}
+
+\href{https://www.aerotelegraph.com/maengel-der-boeing-737-max-fuer-absturz-verantwortlich}{Mängel der Boeing 737 max für absturz verantwortlich}
+
+\href{https://de.wikipedia.org/wiki/Boeing_737#Boeing_737_Max_8}{Boeing 737 max}
+
+\href{https://www.boeing.com/737-max-updates/de/mcas/}{737 max updates}
+
+\href{http://www.b737.org.uk/mcas.html/mantrim}{mantrim}
+
+\href{https://deutsch.wikibrief.org/wiki/Boeing_737_MAX_certification}{Wikibrief - Boeing 737 MAX Certification}
+
+
+
+\end{document}
