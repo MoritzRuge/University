@@ -67,5 +67,11 @@ def main():
         #print(f"Highest number is {number_key} with {number_value}x pick")
 
 
+# Aufgabe 2 berechnung nach Newton-Verfahrens
+def Wurzel(n, max_iterations=1000):
+    x_n = a/2
+    for _ in range(max_iterations)
+    x_n = 0.5 * (x_n + a / x_n)
+
 if __name__ == "__main__":
     main()
