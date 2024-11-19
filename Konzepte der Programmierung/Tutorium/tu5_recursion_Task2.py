@@ -28,13 +28,13 @@ print(Product(a))
 #c) Schreiben Sie eine rekursive Funktion, die das Minimum einer Liste von Zahlen berechnet.
 
 def min_list(list):
-    if min_list == []:
-        result = 0
-    else:
-        
+    # Basisfall: wenn liste nur ein element hat, ist dieses das Minumum
+    if len(list) == 1:
+        return list[0]
+    
+    rest_minimum = min_list(list[1:])
+    return list[0] if list[0] < rest_minimum else rest_minimum
 
-        
-    return result
 
 a = [5,4,7,9,2]
 
