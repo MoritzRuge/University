@@ -19,7 +19,7 @@ def Blocksatz(input_list):
     linelimit = 80
     lines = []
     current_line = []
-    current_lenght = 0
+    current_length = 0
     
     
 
@@ -30,9 +30,16 @@ def Blocksatz(input_list):
         if len(word) > linelimit:
             word = word[:linelimit]
 
+        # check if the word is able to fit on the line
+        if current_length and len(word) > linelimit:
+            # if the word is to long to fit, format the current line into blocksatz and create a new line
+            lines.append(format_block(current_line, linelimit))
+            current_length = 0
+            current_line = []
+
         # append the word to the current line
         current_line.append(word)
-        current_lenght += len(word)
+        current_length += len(word)
 
     # concatenate the the current line in line
     if current_line != []:
@@ -41,6 +48,8 @@ def Blocksatz(input_list):
 
 
     return lines
+
+def format_block(current_line, linelimit):
 
 
 
