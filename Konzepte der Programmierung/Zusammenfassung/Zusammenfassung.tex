@@ -1,24 +1,131 @@
-\documentclass{book}
+\documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{xcolor}
 \usepackage{tcolorbox}
-\usepackage{blindtext}
+\usepackage{blindtext} %erstellt lore ipsum
+\usepackage{hyperref} % für links im Dokument
+\usepackage{minted}%Paket für Codeblockdarstellung
 
 \begin{document}
 
 \tableofcontents % Inhaltsverzeichnis
 \newpage
 
-\chapter{Einleitung}
-\blindtext
-test
+\section{Einleitung}
 
-\chapter{Hauptteil}
-\blindtext
-test
 
-\chapter{Fazit}
-\blindtext
+\section{Imperative Programmierung}
+
+
+\section{Algorithmen}
+
+
+\section{Funktionelle Programmierung}
+
+
+\section{Objekt Orientierte Programmierung}
+
+\section{OOP}
+
+
+\subsection{Begleitobjekte}
+\begin{itemize}
+	\item Teile globale Variablen zwischen Exemplaren einer Klasse.
+\end{itemize}
+\begin{minted}[frame=lines, linenos, fontsize=\small]{scala}
+object Studi:
+	private var mattrikel_zaehler: Int = 0
+
+class Studi(var name: String, var fach: String):
+	var mattrikel_nr = Studi.mattrikel_zaehler
+	Studi.mattrikel_zaehler = Studi.mattrikel_zaehler + 1
+	def getMat(): Int = mattrikel_nr
+
+@main
+def test(): Unit = 
+	var s1: Studi = new Studi("Max", "Info")
+	var s2: Studi = new Studi("Katharina", "Binfo")
+	var s3: Studi = new Studi("Günther", "Winfo")
+	println(s1.getMat())
+	println(s2.getMat())
+	println(s3.getMat())
+\end{minted}
+
+\subsection{Vererbung}
+\begin{itemize}
+\item Soll Ziele der Wiederverwendbarkeit \& Erweiterbarkeit unterstützen.
+\item Können Beziehungen zwischen Klassen herstellen
+\item Können neue Klassen zu \textbf{Unterklassen} von bestehenden Klassen machen!
+\item \textbf{Unterklasse} übernimmt damit automatisch alle Methoden und Attribute der \textbf{Oberklasse}
+\end{itemize}
+\begin{minted}[frame=lines, linenos, fontsize=\small]{scala}
+class Person(var name: String, private var age: Int):
+	def mature(): Unit = 
+		age = age + 1
+	def getAge(): Int = age
+	def work(): Unit = 
+		println("werkel werkel")
+\end{minted}
+
+\begin{itemize}
+	\item Inklusionspolymorphie:
+	\begin{itemize}
+		\item Objekte der Unterklasse sind typekompotibel mit der Oberklasse
+	\end{itemize}
+	\item Wir unterscheiden:
+\begin{itemize}
+	\item \textbf{Statischer} Typ einer Variable:
+	\begin{itemize}
+		\item Typ aus Variablendeklaration (ändert sich nicht - statisch)
+		\item legt fest auf welche Attribute und Methoden zugegriffen werden kann
+	\end{itemize}
+	\item \textbf{Dynamischen} Typ einer Variable:
+	\begin{itemize}
+		\item Typ des Objekts, auf das die Variable aktuell verweist
+	\end{itemize}
+\end{itemize}
+\end{itemize}
+Wir können den statischen Typ einer Variable mit einem Cast(Typumwandlung - nur wenn der dynamische Typ es erlaubt) ändern(asInstanceOf). Wenn er es nicht erlaubt, sonst bekommen wir eine Class:CastException als Error von Scala.
+
+\subsection{späte Bindung/Überschreiben}
+\begin{minted}[frame=lines, linenos, fontsize=\small]{scala}
+class Studi(name: String, private var age: Int, var fach: String) extends Person(name, age):
+	def getZurMensa(): Unit = println("Mjam, schlürf")
+	override def work(): Unit =
+		println("studier studier")
+		
+var s1: Studi = new Studi("Max", 12, "Data Science")
+var s1: Studi = Studi@6870f51a
+
+scala> s1.work()
+studier studier
+
+var p1: Person = s1
+var p1: Person = Studi@6870f52a
+
+scala> p1.work()
+studier studier
+
+# zweite person
+scala> var p2: Person = new Person("Moritz", 10)
+var p2: Person = Person@1107891a
+
+scala> p1 = p2
+p1: Person = Person@234234a
+
+scala> p1.work()
+werkle werkle
+
+# beispiel mit Array von Personen wird gezeigt...das schreibe ich jetzt nicht ab
+scala> var ps: Array[Person] = Array(p2, s1)
+
+for p <- ps do
+	p.work()
+	
+#ausgabe von scala
+werkel werkel
+studier studier
+\end{minted}
 
 \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Beispiel-Titel, width=\textwidth]
 Dies ist eine farbige Textbox mit einem Titel, einem blauen Hintergrund und einem Rahmen.
