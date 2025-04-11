@@ -1,93 +1,140 @@
-# BKS Exercises
+[[_TOC_]]
 
+# BKS Introduction
 
+Willkommen im GitLab-Repository zur Vorlesung Betriebs- und Kommunikationssysteme (BKS). In diesem Repository finden Sie den Programmierteil der Übungsaufgaben, ergänzendes Material, Lektionen sowie weitere Lehrinhalte rund um das Thema BKS.
 
-## Getting started
+Sie befinden sich derzeit im `main`-Branch dieses Projekts. Im Folgenden wird die Struktur des Repositories erläutert, auf besondere Aspekte hingewiesen und auf zahlreiche wichtige Links sowie weitere Branches verwiesen.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+Bitte nehmen Sie sich die Zeit, diese Einführung sorgfältig durchzulesen, bevor Sie Fragen stellen.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+---
 
-## Add your files
+# Was ist GitLab?
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+Um nachvollziehen zu können, wo Aufgaben und weiteres Material zu finden sind, ist ein grundlegendes Verständnis von Git und GitLab hilfreich. Dieses Kapitel kann jedoch bei vorhandenem Vorwissen übersprungen werden.
 
+- **Git**:  
+  Git ist ein verteiltes Versionskontrollsystem, das es Entwicklerinnen und Entwicklern ermöglicht, Änderungen an Dateien – insbesondere Quellcode – nachzuvollziehen, zu verwalten und gemeinsam daran zu arbeiten. Es unterstützt die Arbeit mit verschiedenen Entwicklungszweigen (_Branches_) und ermöglicht es, jederzeit zu einem früheren Stand des Projekts zurückzukehren.
+
+  Änderungen können zunächst in separaten Branches umgesetzt werden, ohne den Code im `main`-Branch zu beeinflussen. Sobald ein Feature oder eine Änderung fertiggestellt und getestet wurde, kann es in den Hauptbranch integriert werden.  
+
+  Git ist ein essenzielles Werkzeug in der Softwareentwicklung. Auch wenn es anfangs ungewohnt oder komplex erscheint, lohnt es sich, den Umgang damit zu erlernen – in der Praxis ist es unverzichtbar. Für die Bearbeitung der BKS-Aufgaben wird ein grundlegendes Verständnis von Git vorausgesetzt. Dieses Wissen kann mithilfe des Git-Einsteiger-Guides [hier]() erarbeitet oder aufgefrischt werden. Außerdem sind zahlreiche Informationen und Tutorials im Internet zu finden.
+
+- **GitLab**:  
+  GitLab ist eine webbasierte Plattform zur Verwaltung von Git-Repositories. Nachdem Code lokal entwickelt wurde, kann er in ein sogenanntes _Remote Repository_ hochgeladen (_gepusht_) werden – zum Beispiel auf Plattformen wie GitLab oder GitHub. Von dort aus können berechtigte Nutzerinnen und Nutzer den Code herunterladen (_pullen_) und weiterentwickeln.
+
+  Neben Funktionen wie Code-Verwaltung, Merge Requests und Branch-Management bietet GitLab integrierte Werkzeuge für Continuous Integration und Delivery (CI/CD), Projektmanagement, Wikis und mehr.  
+
+  Für die Arbeit an diesem Projekt reicht es zunächst aus zu wissen, dass Sie sich aktuell in einem GitLab-Projekt mit mehreren Branches und Wiki-Seiten befinden. Weiterführende Informationen zu Git und GitLab finden Sie [hier]().
+
+---
+
+# Projektstruktur
+
+Alle wichtigen Informationen und Ressourcen sind von diesem Projekt aus zugänglich. Der aktuelle Branch (`main`) enthält allgemeine Informationen.
+
+**Übungsaufgaben:**  
+Die Übungsaufgaben befinden sich jeweils in einem eigenen Branch innerhalb dieses Projekts. Diese Übungs-Branches sind aufsteigend nummeriert und folgen dem Format `uebung-##`. Die Branches `uebung-00x` gehören zur Einführung in die C-Programmierung.
+
+---
+
+# Bearbeitung der Übungsaufgaben
+
+Die Übungsaufgaben bearbeiten Sie in einem eigenen GitLab-Projekt. Erstellen Sie dazu einen `Fork`, um alle Inhalte aus diesem Projekt in Ihr eigenes Repository zu übernehmen. Klonen Sie anschließend das Projekt lokal und wechseln Sie in den entsprechenden Übungs-Branch, den Sie bearbeiten möchten.
+
+> [!important]  
+> Da sich das Projekt aktuell noch im Aufbau befindet, kann es vorkommen, dass nach dem Erstellen Ihres Forks Änderungen veröffentlicht werden. Forks aktualisieren sich nicht automatisch!  
+> Sollten Inhalte fehlen oder Ihre Tutorin bzw. Ihr Tutor Sie dazu auffordern, aktualisieren Sie Ihren Fork wie unter [Fork aktualisieren](#fork-aktualisieren) beschrieben.
+
+---
+
+## Anforderungen
+
+Die Übungsaufgaben beschäftigen sich mit der C-Programmierung. C ist eine systemabhängige Programmiersprache – das bedeutet: Nur weil der Code auf Tobis Laptop funktioniert, heißt das nicht, dass er auch auf Ronjas PC korrekt läuft. Ohne zu sehr ins Detail zu gehen: **An dieser Stelle endet die Nutzung von Windows-Systemen.**
+
+Ihr Code wird auf einem der folgenden `x86_64`-Systeme getestet und muss daher auf diesen Plattformen lauffähig sein:
+
+- Debian (GCC Base Image)  
+- Alpine (GitLab Runner Base Image)  
+- Fedora
+
+Die Nutzung eines eigenen Linux-Systems wird ausdrücklich empfohlen. Falls dies nicht möglich ist, stehen folgende Alternativen zur Verfügung:
+
+- [Andorra-System](extra/andorra_anmeldung.pdf)  
+- Pool-Rechner in der T9  
+- Linux in einer virtuellen Maschine  
+- [USB-Live-System]()
+
+Ein Dual-Boot zwischen Windows und Linux ist nicht ideal und kann zu Problemen führen. Besitzen Sie jedoch einen USB-Stick (empfohlen: mindestens 16 GB), können Sie darauf ein Linux-System installieren, das unabhängig vom Windows-System direkt vom Stick gebootet werden kann. Weitere Informationen dazu finden Sie [hier]().
+
+Insgesamt ist dieses Thema sehr gut dokumentiert – fünf Minuten Eigenrecherche können oft schon weiterhelfen.
+
+Für den Übergang lassen sich einfache Übungen auch [online über GitLab]() bearbeiten. Dies ist allerdings wenig komfortabel und sollte nur als kurzfristige Notlösung dienen.
+
+## Korrektur mit CI-Pipeline
+
+Für alle Übungsaufgaben existieren entsprechende CI-Pipelines (Continuous Integration), die Ihren Code automatisch testen. Sobald Sie einen Commit in Ihren Fork pushen, wird die Pipeline des jeweiligen Branches ausgeführt.
+
+Ein erfolgreicher Durchlauf der Pipeline (alle Tests bestanden) wird durch ein **grünes Häkchen** am Commit angezeigt. Ein **rotes Kreuz** signalisiert, dass die Pipeline fehlgeschlagen ist.  
+
+Ein **orangenes Ausrufezeichen (`!`)** weist auf das Fehlschlagen eines Tests hin, der fehlschlagen darf – z. B. ein Test für eine optionale Zusatzaufgabe. Ein **orangenes Pausensymbol** zeigt an, dass der aktuell zuständige GitLab Runner ausgelastet ist. In diesem Fall wird Ihr Job nach kurzer Wartezeit automatisch ausgeführt, sobald Ressourcen verfügbar sind.
+
+Wenn Sie nicht möchten, dass die Pipeline ausgeführt wird (z. B. beim Push unvollständigen Codes oder während der Testentwicklung), können Sie dies verhindern, indem Sie `[skip ci]` oder `[ci skip]` – in beliebiger Groß- und Kleinschreibung – in Ihre Commit-Nachricht einfügen.
+
+---
+
+### Debugging mit Pipelines
+
+Wenn Sie auf das Statussymbol des aktuellen Commits klicken
+
+<img src="imgs/view_pipelines.png" alt="Pipeline Symbol" width="300">
+
+oder in der linken Seitenleiste unter `Build` → `Pipelines` die aktuelle Pipeline auswählen,
+
+<img src="imgs/navigate_to_pipelines.png" alt="Navigate to Pipeline" width="200">
+
+erhalten Sie eine Übersicht über alle ausgeführten Jobs, gegliedert nach ihren jeweiligen `Stages`.
+
+Durch Klicken auf einen einzelnen Job erhalten Sie Zugriff auf den Log. Dieser enthält – je nach Job – Informationen wie Build-Fehler, erfolgreiche oder fehlgeschlagene Tests sowie weitere Hinweise zur Fehlersuche und zum Debuggen Ihres Codes.
+
+---
+
+## Fragen zum Code
+
+Die Arbeit mit Git und GitLab erleichtert die Zusammenarbeit an Code und den Austausch mit Kommilitoninnen, Kommilitonen oder Tutor:innen.  
+
+Wenn Sie Hilfe benötigen, fügen Sie die betreffende Person einfach als Developer zu Ihrem Repository hinzu. Geben Sie bei der Problembeschreibung auch den relevanten Commit an – das erleichtert das Verständnis und die gezielte Unterstützung.
+
+---
+
+# Fork aktualisieren
+
+Vereinfacht gesagt, dienen Forks dazu, Änderungen an einem Projekt vorzunehmen, ohne direkten Schreibzugriff auf das Original-Repository zu benötigen. Über einen Merge Request können diese Änderungen anschließend in das ursprüngliche Projekt eingebracht werden. So ist es auch Nutzer:innen ohne Schreibrechte möglich, aktiv zur Weiterentwicklung beizutragen.
+
+Auf die gleiche Weise können Sie auch an diesem Projekt mitwirken – weitere Informationen dazu finden Sie in der Datei [Contributing.md](contributing.md).
+
+Das Aktualisieren eines Forks wird von GitLab jedoch nur eingeschränkt unterstützt. Daher haben wir ein (eher sehr buggy) Skript entwickelt, das Ihren Fork aktualisiert, ohne dabei die bestehende Projektstruktur zu verändern.
+
+> [!note]  
+> Es wird dringend empfohlen, einen [SSH-Key]() bei GitLab zu hinterlegen. Andernfalls müssen Sie für jeden Branch separat Ihren Benutzernamen und Ihr Passwort eingeben.
+
+Das Bash-Skript finden Sie im `main`-Branch unter [sync_forks.sh](sync_forks.sh). Um Ihren Fork zu aktualisieren, öffnen Sie das Repository lokal, wechseln Sie in den `main`-Branch und stellen Sie sicher, dass alle Änderungen committet sind.
+
+Falls das Skript noch nicht als ausführbare Datei erkannt wird, führen Sie folgenden Befehl aus:
+
+```bash
+chmod +x sync_forks.sh
 ```
-cd existing_repo
-git remote add origin https://git.imp.fu-berlin.de/bks-tuts/bks-exercises.git
-git branch -M main
-git push -uf origin main
+
+Führen Sie dann das Script aus:
+
+```bash
+./sync_forks.sh
 ```
 
-## Integrate with your tools
+Wenn Sie keinen SSH-Key verwenden, müssen Sie bei jedem Zugriff auf das Remote-Repository – insbesondere bei mehreren Branches – wiederholt Ihren Benutzernamen und Ihr Passwort eingeben.  
 
-- [ ] [Set up project integrations](https://git.imp.fu-berlin.de/bks-tuts/bks-exercises/-/settings/integrations)
+Es wird daher dringend empfohlen, einen SSH-Key bei GitLab zu hinterlegen. Dies erleichtert die Arbeit erheblich und ermöglicht eine sichere, passwortlose Authentifizierung.  
 
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Anleitungen zur Einrichtung eines SSH-Keys finden Sie zahlreich und gut erklärt im Internet – eine kurze Suche genügt.
