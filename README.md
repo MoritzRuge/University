@@ -112,7 +112,7 @@ Wenn Sie Hilfe benötigen, fügen Sie die betreffende Person einfach als Develop
 
 Erstellen Sie ihren Fork, indem Sie oben rechts auf die `Fork`-Schaltfläche klicken.
 
-> [!hint]
+> [!tip]
 >Vereinfacht gesagt, dienen Forks dazu, Änderungen an einem Projekt vorzunehmen, ohne direkten Schreibzugriff auf das Original-Repository zu benötigen. Über einen Merge Request können diese Änderungen anschließend in das ursprüngliche Projekt eingebracht werden. So ist es auch Nutzer:innen ohne Schreibrechte möglich, aktiv zur Weiterentwicklung beizutragen.
 >
 >Auf die gleiche Weise können Sie auch an diesem Projekt mitwirken – weitere Informationen dazu finden Sie in der Datei [Contributing.md](/contributing.md).
