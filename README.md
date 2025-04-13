@@ -19,14 +19,14 @@ Um nachvollziehen zu können, wo Aufgaben und weiteres Material zu finden sind, 
 
   Änderungen können zunächst in separaten Branches umgesetzt werden, ohne den Code im `main`-Branch zu beeinflussen. Sobald ein Feature oder eine Änderung fertiggestellt und getestet wurde, kann es in den Hauptbranch integriert werden.  
 
-  Git ist ein essenzielles Werkzeug in der Softwareentwicklung. Auch wenn es anfangs ungewohnt oder komplex erscheint, lohnt es sich, den Umgang damit zu erlernen – in der Praxis ist es unverzichtbar. Für die Bearbeitung der BKS-Aufgaben wird ein grundlegendes Verständnis von Git vorausgesetzt. Dieses Wissen kann mithilfe des Git-Einsteiger-Guides [hier]() erarbeitet oder aufgefrischt werden. Außerdem sind zahlreiche Informationen und Tutorials im Internet zu finden.
+  Git ist ein essenzielles Werkzeug in der Softwareentwicklung. Auch wenn es anfangs ungewohnt oder komplex erscheint, lohnt es sich, den Umgang damit zu erlernen – in der Praxis ist es unverzichtbar. Für die Bearbeitung der BKS-Aufgaben wird ein grundlegendes Verständnis von Git vorausgesetzt. Dieses Wissen kann mithilfe des Git-Einsteiger-Guides [hier](https://git.imp.fu-berlin.de/bks-tuts/bks-exercises/-/wikis/Git-Guide) erarbeitet oder aufgefrischt werden. Außerdem sind zahlreiche Informationen und Tutorials im Internet zu finden.
 
 - **GitLab**:  
   GitLab ist eine webbasierte Plattform zur Verwaltung von Git-Repositories. Nachdem Code lokal entwickelt wurde, kann er in ein sogenanntes _Remote Repository_ hochgeladen (_gepusht_) werden – zum Beispiel auf Plattformen wie GitLab oder GitHub. Von dort aus können berechtigte Nutzerinnen und Nutzer den Code herunterladen (_pullen_) und weiterentwickeln.
 
   Neben Funktionen wie Code-Verwaltung, Merge Requests und Branch-Management bietet GitLab integrierte Werkzeuge für Continuous Integration und Delivery (CI/CD), Projektmanagement, Wikis und mehr.  
 
-  Für die Arbeit an diesem Projekt reicht es zunächst aus zu wissen, dass Sie sich aktuell in einem GitLab-Projekt mit mehreren Branches und Wiki-Seiten befinden. Weiterführende Informationen zu Git und GitLab finden Sie [hier]().
+  Für die Arbeit an diesem Projekt reicht es zunächst aus zu wissen, dass Sie sich aktuell in einem GitLab-Projekt mit mehreren Branches und Wiki-Seiten befinden. Weiterführende Informationen zu Git und GitLab finden Sie [hier](https://git.imp.fu-berlin.de/bks-tuts/bks-exercises/-/wikis/Git-Guide).
 
 ---
 
@@ -45,7 +45,7 @@ Die Übungsaufgaben bearbeiten Sie in einem eigenen GitLab-Projekt. Erstellen Si
 
 > [!important]  
 > Da sich das Projekt aktuell noch im Aufbau befindet, kann es vorkommen, dass nach dem Erstellen Ihres Forks Änderungen veröffentlicht werden. Forks aktualisieren sich nicht automatisch!  
-> Sollten Inhalte fehlen oder Ihre Tutorin bzw. Ihr Tutor Sie dazu auffordern, aktualisieren Sie Ihren Fork wie unter [Fork aktualisieren](#fork-aktualisieren) beschrieben.
+> Damit sich ihr Repository automatisch oder manuell aktualisieren kann muss ein Repository-Mirror eingerichtet werden [Mirror Repositories](#mirror-repositories) beschrieben. Sie finde eine Schritt für Schritt Anleitung folgend.
 
 ---
 
@@ -59,18 +59,18 @@ Ihr Code wird auf einem der folgenden `x86_64`-Systeme getestet und muss daher a
 - Alpine (GitLab Runner Base Image)  
 - Fedora
 
-Die Nutzung eines eigenen Linux-Systems wird ausdrücklich empfohlen. Falls dies nicht möglich ist, stehen folgende Alternativen zur Verfügung:
+Die Nutzung eines eigenen Linux-Systems wird ausdrücklich empfohlen. Welche Linux-Distro Sie verwenden sollte in der Regel keine Rolle spielen. Beispiele werden jedoch nur für Debian based und Fedora (Redhat) aufgeführt. Falls dies nicht möglich ist, stehen folgende Alternativen zur Verfügung:
 
-- [Andorra-System](extra/andorra_anmeldung.pdf)  
+- Andorra-System (Sehen Sie die Whiteboard-Lessons)  
 - Pool-Rechner in der T9  
 - Linux in einer virtuellen Maschine  
-- [USB-Live-System]()
+- [USB-Live-System](https://git.imp.fu-berlin.de/bks-tuts/bks-exercises/-/wikis/BKS-Wiki/USB-Live-System)
 
-Ein Dual-Boot zwischen Windows und Linux ist nicht ideal und kann zu Problemen führen. Besitzen Sie jedoch einen USB-Stick (empfohlen: mindestens 16 GB), können Sie darauf ein Linux-System installieren, das unabhängig vom Windows-System direkt vom Stick gebootet werden kann. Weitere Informationen dazu finden Sie [hier]().
+Ein Dual-Boot zwischen Windows und Linux ist nicht ideal und kann zu Problemen führen. Besitzen Sie jedoch einen USB-Stick (empfohlen: mindestens 16 GB), können Sie darauf ein Linux-System installieren, das unabhängig vom Windows-System direkt vom Stick gebootet werden kann. Weitere Informationen dazu finden Sie [hier](https://git.imp.fu-berlin.de/bks-tuts/bks-exercises/-/wikis/BKS-Wiki/USB-Live-System).
 
 Insgesamt ist dieses Thema sehr gut dokumentiert – fünf Minuten Eigenrecherche können oft schon weiterhelfen.
 
-Für den Übergang lassen sich einfache Übungen auch [online über GitLab]() bearbeiten. Dies ist allerdings wenig komfortabel und sollte nur als kurzfristige Notlösung dienen.
+Für den Übergang lassen sich einfache Übungen auch [online über GitLab](https://git.imp.fu-berlin.de/bks-tuts/bks-exercises/-/wikis/BKS-Wiki/Web-IDE) bearbeiten. Dies ist allerdings wenig komfortabel und sollte nur als kurzfristige Notlösung dienen.
 
 ## Korrektur mit CI-Pipeline
 
@@ -108,33 +108,15 @@ Wenn Sie Hilfe benötigen, fügen Sie die betreffende Person einfach als Develop
 
 ---
 
-# Fork aktualisieren
+# Mirror Repositories
 
-Vereinfacht gesagt, dienen Forks dazu, Änderungen an einem Projekt vorzunehmen, ohne direkten Schreibzugriff auf das Original-Repository zu benötigen. Über einen Merge Request können diese Änderungen anschließend in das ursprüngliche Projekt eingebracht werden. So ist es auch Nutzer:innen ohne Schreibrechte möglich, aktiv zur Weiterentwicklung beizutragen.
+Erstellen Sie ihren Fork, indem Sie oben rechts auf die `Fork`-Schaltfläche klicken.
 
-Auf die gleiche Weise können Sie auch an diesem Projekt mitwirken – weitere Informationen dazu finden Sie in der Datei [Contributing.md](contributing.md).
+> [!hint]
+>Vereinfacht gesagt, dienen Forks dazu, Änderungen an einem Projekt vorzunehmen, ohne direkten Schreibzugriff auf das Original-Repository zu benötigen. Über einen Merge Request können diese Änderungen anschließend in das ursprüngliche Projekt eingebracht werden. So ist es auch Nutzer:innen ohne Schreibrechte möglich, aktiv zur Weiterentwicklung beizutragen.
+>
+>Auf die gleiche Weise können Sie auch an diesem Projekt mitwirken – weitere Informationen dazu finden Sie in der Datei [Contributing.md](/contributing.md).
 
-Das Aktualisieren eines Forks wird von GitLab jedoch nur eingeschränkt unterstützt. Daher haben wir ein (eher sehr buggy) Skript entwickelt, das Ihren Fork aktualisiert, ohne dabei die bestehende Projektstruktur zu verändern.
+So haben Sie nun ihr eigenes Repository, welches den aktuellen Stand dieses Repositorys wiederspiegelt. Hier können Sie nun die Übungsaufgaben bearbeiten und testen.
 
-> [!note]  
-> Es wird dringend empfohlen, einen [SSH-Key]() bei GitLab zu hinterlegen. Andernfalls müssen Sie für jeden Branch separat Ihren Benutzernamen und Ihr Passwort eingeben.
-
-Das Bash-Skript finden Sie im `main`-Branch unter [sync_forks.sh](sync_forks.sh). Um Ihren Fork zu aktualisieren, öffnen Sie das Repository lokal, wechseln Sie in den `main`-Branch und stellen Sie sicher, dass alle Änderungen committet sind.
-
-Falls das Skript noch nicht als ausführbare Datei erkannt wird, führen Sie folgenden Befehl aus:
-
-```bash
-chmod +x sync_forks.sh
-```
-
-Führen Sie dann das Script aus:
-
-```bash
-./sync_forks.sh
-```
-
-Wenn Sie keinen SSH-Key verwenden, müssen Sie bei jedem Zugriff auf das Remote-Repository – insbesondere bei mehreren Branches – wiederholt Ihren Benutzernamen und Ihr Passwort eingeben.  
-
-Es wird daher dringend empfohlen, einen SSH-Key bei GitLab zu hinterlegen. Dies erleichtert die Arbeit erheblich und ermöglicht eine sichere, passwortlose Authentifizierung.  
-
-Anleitungen zur Einrichtung eines SSH-Keys finden Sie zahlreich und gut erklärt im Internet – eine kurze Suche genügt.
+Eigenständig aktuallisieren tuen sich Forks leider nicht. Um dieses Problem zu lösen, müssen Sie ihr Repository als `Pull-Mirror` einrichten (2min). Navigieren Sie hierzu in ihrem Projekt zu **Settings > Repository**, klappen Sie **Mirroring repositories** aus und klicken Sie auf **Add new**. Als **Git repository URL** geben Sie die URL der Upstreamrepository (diese Repository) ein: `https://git.imp.fu-berlin.de/bks-tuts/bks-exercises.git`. Stellen Sie sicher, dass **Mirror direction** auf `Pull` und **Authentication method** auf `Username and Password` gesetzt ist. Geben Sie nun ihren GitLab Username und Password an. Die restlichen Optionen sollten bereits korrekt gesetzt sein. Stellen Sie sicher, dass **Mirror all branches** ausgewählt ist. Klicken Sie nun auf **Mirror repository**. Damit sind Sie fertig. Ihr repository aktuallisiert sich nun regelmäßig automatisch oder kann durch klicken auf den _Refresh-Button_ manuell aktualisiert werden.
