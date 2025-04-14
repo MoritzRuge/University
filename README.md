@@ -19,14 +19,14 @@ Um nachvollziehen zu können, wo Aufgaben und weiteres Material zu finden sind, 
 
   Änderungen können zunächst in separaten Branches umgesetzt werden, ohne den Code im `main`-Branch zu beeinflussen. Sobald ein Feature oder eine Änderung fertiggestellt und getestet wurde, kann es in den Hauptbranch integriert werden.  
 
-  Git ist ein essenzielles Werkzeug in der Softwareentwicklung. Auch wenn es anfangs ungewohnt oder komplex erscheint, lohnt es sich, den Umgang damit zu erlernen – in der Praxis ist es unverzichtbar. Für die Bearbeitung der BKS-Aufgaben wird ein grundlegendes Verständnis von Git vorausgesetzt. Dieses Wissen kann mithilfe des Git-Einsteiger-Guides [hier](https://git.imp.fu-berlin.de/bks-tuts/bks-exercises/-/wikis/Git-Guide) erarbeitet oder aufgefrischt werden. Außerdem sind zahlreiche Informationen und Tutorials im Internet zu finden.
+  Git ist ein essenzielles Werkzeug in der Softwareentwicklung. Auch wenn es anfangs ungewohnt oder komplex erscheint, lohnt es sich, den Umgang damit zu erlernen – in der Praxis ist es unverzichtbar. Für die Bearbeitung der BKS-Aufgaben wird ein grundlegendes Verständnis von Git vorausgesetzt. Dieses Wissen kann mithilfe des Git-Einsteiger-Guides [hier](https://docs.gitlab.com/tutorials/learn_git/) erarbeitet oder aufgefrischt werden. Außerdem sind zahlreiche Informationen und Tutorials im Internet zu finden.
 
 - **GitLab**:  
   GitLab ist eine webbasierte Plattform zur Verwaltung von Git-Repositories. Nachdem Code lokal entwickelt wurde, kann er in ein sogenanntes _Remote Repository_ hochgeladen (_gepusht_) werden – zum Beispiel auf Plattformen wie GitLab oder GitHub. Von dort aus können berechtigte Nutzerinnen und Nutzer den Code herunterladen (_pullen_) und weiterentwickeln.
 
   Neben Funktionen wie Code-Verwaltung, Merge Requests und Branch-Management bietet GitLab integrierte Werkzeuge für Continuous Integration und Delivery (CI/CD), Projektmanagement, Wikis und mehr.  
 
-  Für die Arbeit an diesem Projekt reicht es zunächst aus zu wissen, dass Sie sich aktuell in einem GitLab-Projekt mit mehreren Branches und Wiki-Seiten befinden. Weiterführende Informationen zu Git und GitLab finden Sie [hier](https://git.imp.fu-berlin.de/bks-tuts/bks-exercises/-/wikis/Git-Guide).
+  Für die Arbeit an diesem Projekt reicht es zunächst aus zu wissen, dass Sie sich aktuell in einem GitLab-Projekt mit mehreren Branches und Wiki-Seiten befinden. Weiterführende Informationen zu Git und GitLab finden Sie [hier](https://docs.gitlab.com/tutorials/gitlab_navigation/).
 
 ---
 
