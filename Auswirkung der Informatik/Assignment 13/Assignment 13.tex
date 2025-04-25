@@ -1,0 +1,123 @@
+\documentclass[a4paper]{assignment}
+\coursetitle{Auswirkung der Informatik}
+\courselabel{AdI}
+\exercisesheet{Assignment 13}{Datenschutz}
+\student{Moritz Ruge \& Amelie Dzierzawa}
+\school{Bachelor Informatik}
+\university{Freie Universitäten Berlin}
+\semester{Winter 2024}
+\date{26 Januar 2025}
+%\usepackage[pdftex]{graphicx}
+%\usepackage{subfigure} 
+\usepackage[backend=biber,style=numeric,url=true]{biblatex} % für Quellenangaben und Bibliotheken
+\usepackage[]{hyperref} % für hyperlinks
+\usepackage{array} % für die Tabelle
+\usepackage{xcolor} %für Farben bei Text
+\addbibresource{ref.bib}  % Add your .bib file here
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,}
+    
+\begin{document}
+	\begin{problemlist}
+		\pbitem Aufgabe 13-1: Datenschutzgrundverordnung
+		\begin{problem}
+
+Beurteilen Sie jedes der nachfolgenden Szenarien nach der Datenschutzgrundverordnung (DSGVO): Ist es (1) zulässig, (2) unzulässig, oder (3) nur mit zusätzlichen Voraussetzungen (welche sind das?) zulässig? 
+Geben Sie jeweils an, welche Artikel (ggf. inkl. Absatz, Satz und Nummer) Ihrer Entscheidung zu Grunde liegen. Ziehen Sie zwecks erhöhter Genauigkeit nicht nur den Foliensatz heran, sondern auch den Gesetzestext (z.B. unter \url{https://dsgvo-gesetz.de}). Recherchieren Sie ggf. benötigte technische Hintergrundinformation nach Bedarf.		
+
+\textbf{a)} Am "Tag der offenen Tür" im Gesundheitsamt werden von Hunderten von Besuchern Größe und Gewicht gemessen. Jeder erhält dabei Auskunft, ob oder wie viel er/sie Übergewicht oder Untergewicht hat. Die erhobenen Daten werden zusammen mit Alter und Geschlecht der jeweiligen Person in einem Rechner für Statistikzwecke gespeichert.
+
+\textbf{b)} Der Web-Server www.fu-berlin.de speichert von jeder einzelnen Anfrage, die er erhält, den angefragten URL und die IP-Nummer des anfragenden Rechners. (Was ändert sich, wenn man stattdessen die Server www.malermeister-haase.de, www.t-online.de oder www.amazon.de betrachtet?) Was ist eine IP-Nummer (IP-Adresse)? Siehe \url{http://de.wikipedia.org/wiki/IP-Adresse}.
+
+\textbf{c)} Eine Demoskopiefirma erfragt per Telefoninterview bei 1000 Bürger/inne/n ab, welche Partei diese und, soweit bekannt, ihre Familienmitglieder bei der letzten Wahl gewählt haben und speichert zu jeder solchen Aussage Alter, Geschlecht, Telefonnummer und Partei (oder ggf. "weiß nicht" oder "hat nicht gewählt").
+
+
+			\begin{answer}
+				\textbf{a)}
+				\begin{itemize}
+					\item (3) - Zulässig mit zusätzlicher Voraussetzung
+						\begin{itemize}
+						\item Art.5 (1) b)\cite{dsgvo5} \& Art.7 (1)\cite{dsgvo7} \& Art.6 (1)\cite{dsgvo6} - Wenn die Personen aufgeklärt werden über die Erhebung der Daten und die Verarbeitung dürfte das gehen.
+						\item Art.89 DSGVO (1)\cite{dsgvo89} - für Wissenschaftliche Zwecke oder statistische Zwecke
+						\end{itemize}
+				\end{itemize}
+				
+				\textbf{b)}
+				\begin{itemize}
+					\item (3) - Zulässig mit zusätzlicher Voraussetzung
+					\begin{itemize}
+						\item Es ist etwas umstritten und schwierig. Amtsgericht Mitte(Berlin) hat 2017 entschieden, das IP-Adressen als personenbezogene Daten zählen und somit wäre eine Speicherung unzulässig. Jedoch entschied das Amtsgericht München 2008, das IP-Adressen nicht personenbezogene Daten sind, außer man kann mit den Daten identifizieren um Welche Person es sich handelt, somit wären es personenbezogene Daten und wieder unzulässig.\cite{wiki-ip-adressen}
+						\item Eine IP Adresse ist ein eindeutige Identifikation von technischen Geräten im Internet, dabei können aber auch mehrere Geräte in einem Netzwerk nach außen hin die selbe IP Adresse haben. Der Router des eigenen Netzwerks besitzt eine öffentliche IP oder private IP, wobei die öffentliche IP nur für diesen Router besteht und private IP's meist mehrere Geräte zusammenfässt(NAT - Network Address Translation). Private Netze reduzieren den Bedarf an öffentlichen IP Adressen.
+						\item Da sich die IP Adresse beim Wechsel von Websites nicht ändert und man nach außen hin immer die gleiche IP Adresse hat, dürfte sich nichts ändern.\cite{wiki-ip-adressen}
+					\end{itemize}
+				\end{itemize}
+
+				\textbf{c)}
+				\begin{itemize}
+					\item (3) - Zulässig mit zusätzlicher Voraussetzung
+					\begin{itemize}
+						\item Art.9 (1) \& Art.9 (2) a) DSGVO\cite{dsgvo9}
+						\item Sofern mit der Verarbeitung einverstanden können aufgrund Statistik Erhebungen, Daten verarbeitet werden. Wobei ich mir bei der Telefonnummer Speicherung nicht sicher bin.
+					\end{itemize}
+				\end{itemize}								
+			\end{answer}
+		\end{problem}
+		
+		\pbitem Aufgabe 13-2: Anderes Datenschutzrecht
+		\begin{problem}
+		
+			\textbf{a)} Recherchieren Sie (Quellen angeben!) den Begriff Bankgeheimnis. Versuchen Sie eine klare und knappe Definition.
+			
+			\textbf{b)} Vergleichen Sie die Datenschutzsituation in Deutschland mit der in den USA am Beispiel des Bankgeheimnisses. Lesen Sie dazu \url{http://www.cbsnews.com/news/your-privacy-for-sale/} und \url{http://de.wikipedia.org/wiki/Bankgeheimnis}.
+			
+			\textbf{c)} Liegt der Unterschied in der Datenschutzgrundverordnung begründet?
+			
+			\textbf{d)} Was sagt uns das darüber, auf welche Weise das Recht auf informationelle Selbstbestimmung in der Praxis tatsächlich funktioniert?			
+			
+			\begin{answer}
+			
+				\textbf{a)}
+				\begin{itemize}
+					\item Das Bankengeheimnis ist die Rechtliche Verpflichtung für Banken, vertrauliche Kundeninformationen geheim zu halten und nur in gesetzlich geregelten Situationen Auskünfte zu erteilen.\cite{FIV-Banken}
+				\end{itemize}
+				
+				\textbf{b)}
+				\begin{itemize}
+					\item Die Banken in Amerika sind nicht Vertraglich gebunden mit seinen Kunden eine Schweigepflicht einzuhalten, sondern können die Daten frei verwenden und an dritte weitergeben.
+				\end{itemize}
+				
+				\textbf{c)}
+				\begin{itemize}
+					\item Nicht unbedingt oder nur. In Deutschland gilt hierbei das Grundrecht (Art.1,2 Abs. 1 GG) wobei Banken nebenverträgliche Pflichten, neben den Bankvertrag haben.\cite{FIV-Banken}
+					
+				\end{itemize}
+
+				\textbf{d)}
+				\begin{itemize}
+					\item Grundsätzlich kann jeder in Deutschland über seine personenbezogenen Daten bestimmen, nach Datenschutz-Grundverordnung.\cite{wiki-selbstbestimmung}
+					\item Jedoch wissen die meisten Menschen nicht über ihre Rechte in Bezug auf ihre personenbezogenen Daten.\cite{dsgvo-rechte}
+					\begin{itemize}
+						\item Recht auf Auskunft (Art. 15 DSGVO)
+						\item Recht auf Berichtigung (Art. 16 DSGVO)
+    						\item Recht auf Löschung (Art. 17 DSGVO)
+    						\item Recht auf Einschränkung (Art. 18 DSGVO)
+    						\item Recht auf Datenübertragbarkeit (Art. 20 DSGVO)
+    						\item Recht auf Widerspruch (Art. 21 DSGVO)
+    						\item Recht auf Widerruf der Einwilligung (Art. 7 Abs. 3 DSGVO)
+    						\item Recht keiner automatisierten Entscheidung unterworfen zu werden (Art. 22 DSGVO)
+    						\item Beschwerderecht bei der Aufsichtsbehörde (Art. 77 DSGVO i.V.m. § 19 BDSG)
+					\end{itemize}
+					\item Das Recht auf Löschung z.B. besagt, das man anordnen kann seine personenbezogenen Daten zu löschen, ggf. der Verantwortliche hat keine Rechtsgrundlage mehr zur Datenverarbeitung.\cite{dsgvo-löschung}
+				\end{itemize}				
+				
+			\end{answer}
+		\end{problem}
+		
+	\end{problemlist}
+\printbibliography
+\end{document}

@@ -1,0 +1,193 @@
+\documentclass[a4paper]{assignment}
+\coursetitle{Algorithmen und Datenstrukturen}
+\courselabel{AuD}
+\exercisesheet{Assignment 1}{Algorithmen und Datenstrukturen}
+\student{Moritz Ruge \& Lennard}
+\school{Bachelor Informatik}
+\university{Freie Universitäten Berlin}
+\semester{Sommer Semester 2025}
+\date{20 April 2025}
+%\usepackage[pdftex]{graphicx}
+%\usepackage{subfigure} 
+\usepackage[backend=biber,style=numeric,url=true]{biblatex} % für Quellenangaben und Bibliotheken
+\usepackage[]{hyperref} % für hyperlinks
+\usepackage{array} % für die Tabelle
+\usepackage{xcolor} %für Farben bei Text
+\addbibresource{ref.bib}  % Add your .bib file here
+
+% Paket für die Baumdiagramdarstellung
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\begin{document}
+
+% Aufgabe 1 Binäre Suchbäume)
+\begin{problemlist}
+
+\pbitem{Binäre Suchbäume}
+
+	\begin{enumerate}
+			% Aufgabe 1 a
+			\item Fügen Sie die Schlüssel A, L, G, O, D, T, S, X, Y, Z in dieser Reihenfolge in einen anfangs leeren binären Suchbaum ein. Löschen Sie sodann die Schlüssel Z, A, L. Zeichnen Sie den Baum nach jedem Einfüge- und Löschvorgang.
+
+			% Antwort 1 a			
+			\begin{answer}
+
+\begin{itemize}
+\item Einfügen des gesamten Schlüssels:
+\end{itemize}
+
+% Alle schlüssel eingefügt
+\begin{tikzpicture}[scale=0.5]
+
+\node {A}
+	child[missing]
+	child{ node{L}
+	  child{ node{G}
+	    child{ node{D}}
+	    child[missing]}
+	  child{ node{O}
+	    child[missing]
+	    child{ node{T}
+	      child{node{S}}
+	      child{node{X}
+	        child[missing]
+	        child{node{Y}
+	          child[missing]
+	          child{node{Z}}}}}}};
+\end{tikzpicture}
+
+% Löschen von Schlüssel Z
+\begin{itemize}
+\item Löschen von Schlüssel $Z$
+\end{itemize}
+
+\begin{tikzpicture}[scale=0.5]
+
+\node {A}
+	child[missing]
+	child{ node{L}
+	  child{ node{G}
+	    child{ node{D}}
+	    child[missing]}
+	  child{ node{O}
+	    child[missing]
+	    child{ node{T}
+	      child{node{S}}
+	      child{node{X}
+	        child[missing]
+	        child{node{Y}}}}}};
+\end{tikzpicture}
+
+% Löschen von Schlüssel A
+\begin{itemize}
+\item Löschen von Schlüssel $A$
+\end{itemize}
+
+\begin{tikzpicture}[scale=0.5]
+
+\node {L}
+	  child{ node{G}
+	    child{ node{D}}
+	    child[missing]}
+	  child{ node{O}
+	    child[missing]
+	    child{ node{T}
+	      child{node{S}}
+	      child{node{X}
+	        child[missing]
+	        child{node{Y}}}}};
+\end{tikzpicture}
+
+% Löschen von Schlüssel L
+\begin{itemize}
+\item Löschen von Schlüssel $L$
+\end{itemize}
+
+\begin{tikzpicture}[scale=0.5]
+
+\node {G}
+	    child{ node{D}
+	    child[missing]}
+	  child{ node{O}
+	    child[missing]
+	    child{ node{T}
+	      child{node{S}}
+	      child{node{X}
+	        child[missing]
+	        child{node{Y}}}}};
+\end{tikzpicture}
+
+\end{answer}	
+
+			% Aufgabe 1 b
+			\item Seien T1 und T2 zwei binäre Suchbäume, in denen jeweils die gleiche Menge S von Einträgen gespeichert ist, mit $|S| = n$. Zeigen Sie: Es gibt eine Folge von höchstens 2n einfachen Rotationen, die T1 nach T2 überführt. \\
+	Zusatzfrage (5 Zusatzpunkte): Geht es auch mit weniger Rotationen?
+
+
+			% Antwort 1 b
+			\begin{answer}
+
+
+
+			\end{answer}	
+	\end{enumerate}
+	
+% Aufgabe 2 Geordnete Wörterbücher und Sortieren
+\pbitem{Geordnete Wörterbücher und Sortieren}
+
+\begin{enumerate}
+
+\item Zeigen Sie: Wenn eine Implementierung des abstrakten Datentypen geordnetes Wörterbuch zur Verfügung steht, dann kann man diese verwenden, um eine gegebene Folge von n Elementen aus einer geordneten Menge zu sortieren.
+
+% Antwort 2 a
+\begin{answer}
+
+\end{answer}
+
+\item Aus “Konzepte der Programmierung” kennen Sie eine untere Schranke für vergleichsbasiertes Sortieren. Wie lautet diese?
+
+% Antwort 2 b
+\begin{answer}
+$A$ sei ein vergleichbasierter Sortieralgorithmus und $n$ die Eingabe Größe. Dann Existiert eine Eingabe $I$ sodass $A$ mindestens $\frac{n}{2} (\log n - 1)$ vergleiche braucht. \\
+Das zeigt, dass das Sortier Problem eine lower bound von $n \log n$ hat.
+\end{answer}
+
+\item Kombinieren Sie (a) und (b), um die untere Schranke für vergleichsbasiertes Sortieren auf geordnete Wörterbücher zu übertragen. Was folgt daraus über binäre Suchbäume?
+
+% Antwort 2 c
+\begin{answer}
+
+\end{answer}
+
+\end{enumerate}
+
+\pbitem{Manipulation elementarer Funktionen}
+
+Finden Sie Paare von äquivalenten Termen und formen Sie diese schrittweise ineinander um. Geben Sie die verwendeten Regeln an.
+
+\[
+\log_a\left(n^{\log_b a}\right), \quad b{\sqrt{a^n}}, \quad \frac{a^n}{a^m}
+\]
+
+
+	
+	
+	
+\end{problemlist}
+
+%Quellen Reference
+%\newpage
+%\printbibliography
+
+\end{document}
