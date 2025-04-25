@@ -1,0 +1,12 @@
+# ignore LaTeX files
+*.log
+*.bbl
+*.bcf
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# ignore a LaTeX build folder
+/home/legion/University/Konzepte der Programmierung/Zusammenfassung/build
+/home/legion/University/Konzepte der Programmierung/Zusammenfassung/_minted-Zusammenfassung
