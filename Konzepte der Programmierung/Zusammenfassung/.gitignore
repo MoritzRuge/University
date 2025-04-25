@@ -1,0 +1,14 @@
+# ignore LaTeX files
+*.log
+*.bbl
+*.bcf
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.blg
+*.aux
+
+# ignore a LaTeX build folder
+build/
+_minted-Zusammenfassung/
