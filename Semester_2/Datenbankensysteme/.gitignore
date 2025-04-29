@@ -1,2 +1,11 @@
-# Ignore the LaTex build folder
-Assignment\ 1/build/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.tex.bbl
+*.tex.blg
+*.dvi

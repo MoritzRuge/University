@@ -1,4 +1,6 @@
-\documentclass[10pt,a4paper]{article}
+%%% https://www.overleaf.com/learn/latex/Page_size_and_margins
+\documentclass{article}
+\usepackage[a4paper, margin=2cm]{geometry} %% margin settings for the hole paper
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -20,6 +22,18 @@
     urlcolor=cyan,
     pdftitle={Overleaf Example},
     pdfpagemode=FullScreen,}
+    
+%%% package for picture integration
+%%% https://www.overleaf.com/learn/latex/Inserting_Images %%%
+\usepackage{graphicx}
+
+
+%%% Indentation setting
+\setlength{\parindent}{0pt}
+
+%%% Path to Pictures for \includegraphics
+\graphicspath{ {./Pictures/} }
+
 
 \begin{document}
 \begin{titlepage}
@@ -73,7 +87,9 @@
 	\end{itemize}
 \end{enumerate}
 
+
 %%% TASK 2 %%%
+
 
 \section*{Task 2: Data Independence}
 \begin{enumerate}
@@ -88,9 +104,25 @@
 \end{itemize}
 \end{enumerate}
 
+
 %%% TASK 3 %%%
 
+
 \section*{Task 3: Taxonomy of Database Systems}
+
+
+\begin{minipage}[t][10cm]{0.5\textwidth}
+\begin{itemize}
+	\item punkt 1
+	\item punkt 2
+	\item punkt 3
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t][10cm]{0.5\textwidth}
+\includegraphics[width=1\textwidth]{hierarchical-dbms-model.jpg}
+\end{minipage}
+
 \begin{enumerate}
 \item \textbf{Research the types of database systems that exist and how they can be grouped.}
 \begin{itemize}
@@ -101,8 +133,32 @@
 		\item Relational Database System
 		\item Object-Oriented Database System
 	\end{itemize}
+	
+	\item \textbf{Hierarchical Database System}\cite{database_systems}
+
+	\begin{itemize}
+		\item Is a tree like data structure to present the data
+		\item Data can be represented either in a Top-Down structure or Down-Top. 
+		\item In a One-to-one relationship has a parent only one child
+		\item In a One-to-many relationship, the parent can have more than one child
+		\item Some popular Hierarchical Database Systems: IBM Information Management Systems (IMS), Windows Registry, RDM Mobile, XML, and XAML
+	\end{itemize}
+
+
+		\item \textbf{Network Database Systems}
+	\begin{itemize}
+		\item deals mostly in Many-to-Many relationships, which makes it more complicated and intricated than other DBMS
+		\item Network Databases can be accessed by the user in a variety of ways, because the data is arranged in a graphical format
+		\item While the Database is structured to be a M-to-M relationship, a child can have more than one parent and vise versa. 
+		\item Popular Network Database Systems: Integrated Database Management System(IDMS), Raima Database Manager, TurboIMAGE, Integrated Data Store (IDS) and Univac DMS-1100.
+	\end{itemize}
+	
+							%%% Insert Network Database System Picture %%%	
+	
 \end{itemize}
 \end{enumerate}
+
+
 
 
 %%% TAST 4 %%%
