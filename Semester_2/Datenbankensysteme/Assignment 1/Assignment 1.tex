@@ -4,13 +4,37 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 
-\title{Datenbankensysteme - Assignment 1}
-\author{Moritz Ruge}
-\date{\today} % oder \date{April 2025} oder leer lassen: \date{}
+%%% Bibliography pakage and backend
+\usepackage{csquotes}             % Für korrektes Zitieren
+\usepackage[backend=biber,style=numeric,url=true]{biblatex} % Stil auswählen
+\addbibresource{quellen.bib}      % Pfad zur Bib-Datei
+
+%%% Pakages for hyperlinks inside the document
+\usepackage[]{hyperref} % für hyperlinks
+\usepackage{array} % für die Tabelle
+\usepackage{xcolor} %für Farben bei Text
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,}
 
 \begin{document}
-
-\maketitle  % Erstellt die Titelseite
+\begin{titlepage}
+    \centering
+    \vspace*{3cm}
+    {\Huge\bfseries Datenbanksysteme SoSe25 \par}
+    \vspace{0.5cm}
+    {\Huge -Assignment 1- \par}
+    \vspace{1cm}
+    {\Large Moritz Ruge \par}
+    \vspace{1cm}
+    {\large Matrikelnummer: \{123456\} \par}
+    \vfill
+    {\large April 2025}
+\end{titlepage}
 
 
 %%% TASK 1 %%%
@@ -68,7 +92,16 @@
 
 \section*{Task 3: Taxonomy of Database Systems}
 \begin{enumerate}
-\item Research the types of database systems that exist and how they can be grouped.
+\item \textbf{Research the types of database systems that exist and how they can be grouped.}
+\begin{itemize}
+	\item There are four types of Database Systems: \cite{database_systems}
+	\begin{itemize}
+		\item Hierarchical Database System
+		\item Network Database System
+		\item Relational Database System
+		\item Object-Oriented Database System
+	\end{itemize}
+\end{itemize}
 \end{enumerate}
 
 
@@ -133,4 +166,9 @@ the same author are ever published in a journal.
 
 \item If articles do not fit the theme of the journal, they will not be published in that journal.
 \end{enumerate}
+
+
+%%% Literaturverzeichnis
+\printbibliography
+
 \end{document}
