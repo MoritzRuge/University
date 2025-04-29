@@ -1,0 +1,105 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\title{Datenbankensysteme - Assignment 1}
+\author{Moritz Ruge}
+\date{\today} % oder \date{April 2025} oder leer lassen: \date{}
+
+\begin{document}
+
+\maketitle  % Erstellt die Titelseite
+
+
+
+\section*{Task 1: Terms and Definitions}
+\begin{enumerate}
+	\item Was ist eine Datenbank?
+	
+	\begin{itemize}
+		\item Test
+	\end{itemize}
+	
+	\item What is a database management system?
+	
+	\item What is a database system?
+	
+	\item What is a data model?
+	
+	\item What are metadata and what are they used for?
+\end{enumerate}
+
+
+\section*{Task 2: Data Independence}
+\begin{enumerate}
+\item What is physical data independence?
+
+\item What is logical data independence?
+\end{enumerate}
+
+\section*{Tast 3: Taxonomy of Database Systems}
+\begin{enumerate}
+\item Research the types of database systems that exist and how they can be grouped.
+\end{enumerate}
+
+
+%%% TAST 4 %%%
+\section*{Task 4: Entity Relationship Model - Basics}
+\begin{enumerate}
+\item What are the basic building blocks of the ER model?
+
+\item How are attributes classified in the ER model?
+
+\item What is the significance of cardinality ratios in relationships within the ER model?
+\end{enumerate}
+
+
+%%% TASK 5 %%%
+\section*{Task 5: Entity Relationship Model I}
+Model the facts below as an Entity Relationship Model using the notation taught in the lecture (Chen notation):
+
+\begin{enumerate}
+\item An author has a name, an institution and an email address.
+
+\item An article has a title, three keywords, an abstract, and a DOI(Document Object Identifier).
+
+\item Articles are written by multiple authors, and one author may be involved in multiple articles.
+\end{enumerate}
+
+
+%%% TASK 6 %%%
+\section*{Task 6: Entity Relationship Model II}
+\begin{enumerate}
+\item A publisher has a unique name
+
+\item A scientist can be an author or a reviewer. Scientists have a name and an e-mail address.
+Authors additionally have an institution.
+
+\item Publishers employ reviewers for up to six months to review authors’ articles.
+
+\item An article has a title and a DOI (Document Object Identifier) and is assigned to at least one
+reviewer for review.
+
+\item Publishers release articles after reviewing them in a given year.
+\end{enumerate}
+
+
+%%% TASK 7 %%%
+\section*{Task 7: Entity Relationship Model III}
+\begin{enumerate}
+\item An author has a name, an institution and an email address.
+
+\item An article has a title, three keywords, an abstract, and a DOI (Document Object Identifier).
+
+\item A journal has a unique name and topic.
+
+\item Articles are written by multiple authors, and one author may be involved in multiple articles.
+
+\item Authors publish articles in a given year in a journal, and no more than 10 publications by
+the same author are ever published in a journal.
+
+\item If articles do not fit the theme of the journal, they will not be published in that journal.
+\end{enumerate}
+\end{document}
