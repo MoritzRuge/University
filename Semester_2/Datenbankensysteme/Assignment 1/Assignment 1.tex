@@ -44,8 +44,11 @@
     {\Huge -Assignment 1- \par}
     \vspace{1cm}
     {\Large Moritz Ruge \par}
-    \vspace{1cm}
-    {\large Matrikelnummer: \{123456\} \par}
+    \vspace{0.1cm}
+    {\small Matrikelnummer: 5600961 \par}
+    {\Large Attila Haraszti \par}
+    \vspace{0.1cm}
+    {\small Matrikelnummer: 5602072\par}
     \vfill
     {\large April 2025}
 \end{titlepage}
@@ -107,21 +110,9 @@
 
 %%% TASK 3 %%%
 
-
+\newpage
 \section*{Task 3: Taxonomy of Database Systems}
 
-
-\begin{minipage}[t][10cm]{0.5\textwidth}
-\begin{itemize}
-	\item punkt 1
-	\item punkt 2
-	\item punkt 3
-\end{itemize}
-\end{minipage}
-\hfill
-\begin{minipage}[t][10cm]{0.5\textwidth}
-\includegraphics[width=1\textwidth]{hierarchical-dbms-model.jpg}
-\end{minipage}
 
 \begin{enumerate}
 \item \textbf{Research the types of database systems that exist and how they can be grouped.}
@@ -144,6 +135,13 @@
 		\item Some popular Hierarchical Database Systems: IBM Information Management Systems (IMS), Windows Registry, RDM Mobile, XML, and XAML
 	\end{itemize}
 
+							%%% Insert hierarchical Database System Picture %%%	
+	\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{hierarchical-dbms-model}
+	\caption{e.g.: Hierarchical-dbms-model}
+	\end{figure}
+
 
 		\item \textbf{Network Database Systems}
 	\begin{itemize}
@@ -154,6 +152,19 @@
 	\end{itemize}
 	
 							%%% Insert Network Database System Picture %%%	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.2\textwidth]{network-dbms-model}
+		\caption{e.g.: Network-dbms-model}
+	\end{figure}
+	
+	\item \textbf{Relational Database Systems}
+	\begin{itemize}
+		\item A relational Database System is one of the most extensive and complicated systems
+		\item It allows the programmers to organize information in a table structure
+		\item Connections between the tables are made with "Select" and "Join" operations
+		\item 
+	\end{itemize}		
 	
 \end{itemize}
 \end{enumerate}
@@ -181,17 +192,37 @@ Model the facts below as an Entity Relationship Model using the notation taught 
 \begin{enumerate}
 \item An author has a name, an institution and an email address.
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.3\textwidth]{5.1.png}
+\end{figure}
+
 \item An article has a title, three keywords, an abstract, and a DOI(Document Object Identifier).
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{5.2.png}
+\end{figure}
 
 \item Articles are written by multiple authors, and one author may be involved in multiple articles.
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{5.3.png}
+\end{figure}
 \end{enumerate}
 
 
 %%% TASK 6 %%%
+\newpage
 
 \section*{Task 6: Entity Relationship Model II}
+
 \begin{enumerate}
 \item A publisher has a unique name
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.3\textwidth]{6.1.png}
+\end{figure}
 
 \item A scientist can be an author or a reviewer. Scientists have a name and an e-mail address.
 Authors additionally have an institution.
