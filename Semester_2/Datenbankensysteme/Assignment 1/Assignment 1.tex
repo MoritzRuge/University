@@ -26,6 +26,7 @@
 %%% package for picture integration
 %%% https://www.overleaf.com/learn/latex/Inserting_Images %%%
 \usepackage{graphicx}
+\usepackage{float} %%% für die bilder option [H], damit die bilder genau da gesetzt werden wo sie im code stehen
 
 
 %%% Indentation setting
@@ -227,17 +228,32 @@ Model the facts below as an Entity Relationship Model using the notation taught 
 \item A scientist can be an author or a reviewer. Scientists have a name and an e-mail address.
 Authors additionally have an institution.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.3\textwidth]{6.2}
+\end{figure}
+
 \item Publishers employ reviewers for up to six months to review authors’ articles.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{6.3}
+\end{figure}
 
 \item An article has a title and a DOI (Document Object Identifier) and is assigned to at least one
 reviewer for review.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{6.4}
+\end{figure}
 
 \item Publishers release articles after reviewing them in a given year.
 \end{enumerate}
 
 
 %%% TASK 7 %%%
-
+\newpage
 \section*{Task 7: Entity Relationship Model III}
 \begin{enumerate}
 \item An author has a name, an institution and an email address.
@@ -256,6 +272,7 @@ the same author are ever published in a journal.
 
 
 %%% Literaturverzeichnis
+\newpage
 \printbibliography
 
 \end{document}
