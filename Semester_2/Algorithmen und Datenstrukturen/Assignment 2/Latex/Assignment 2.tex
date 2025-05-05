@@ -19,7 +19,7 @@ Ein binärer Baum heißt vollständig, falls jeder Knoten entweder null oder zwe
 \item Formulieren Sie eine ähnliche Aussage für allgemeine binäre Suchbäume und beweisen Sie sie.
 \end{enumerate}
 
-
+\newpage
 \pbitem{Binäre Suchbäume}
 \begin{enumerate}
 \item Angenommen, wir haben einen binären Suchbaum T , welcher die Zahlen von
@@ -27,10 +27,124 @@ Ein binärer Baum heißt vollständig, falls jeder Knoten entweder null oder zwe
 Bestimmen Sie für jede der folgenden Schlüsselfolgen, ob sie als Folge der
 Einträge auf dem Suchpfad nach 363 auftreten kann. Begründen Sie jeweils
 Ihre Antwort.
+
+
 \begin{enumerate}
-\item 2, 252, 401, 398, 330, 344, 397, 363.
-\item 924, 220, 911, 244, 898, 258, 362, 363.
-\item 925, 202, 911, 240, 912, 245, 363.
+\item \textbf{2, 252, 401, 398, 330, 344, 397, 363.}
+
+\begin{answer}
+\begin{tikzpicture}[scale=0.5]
+
+\node {2}
+	child{node{...}}
+	child{ node{252}
+		child{node{...}}
+		child{node {401}
+			child{node{398}
+				child{node{330}
+					child{node{...}}
+					child{node{344}
+						child{node{...}}
+						child{node{397}
+							child{node{363}}
+							child{node{...}}}}}
+				child{node{...}}}
+			child{node{...}}}};
+\end{tikzpicture}
+
+\begin{center}
+\small
+\hspace*{-4cm}
+\begin{tabular}{@{} c c l c c @{}}
+\toprule
+\textbf{Schritt} & \textbf{Aktueller Knoten} & \textbf{Vergleich mit Ziel 363} & \textbf{Nächster Schritt} & \textbf{Intervall für nächsten Knoten} \\
+\midrule
+1 & 2   & \( 363 > 2 \Rightarrow \) rechts & 252 & \([3, 1000]\) \\
+2 & 252 & \( 363 > 252 \Rightarrow \) rechts & 401 & \([253, 1000]\) \\
+3 & 401 & \( 363 < 401 \Rightarrow \) links & 398 & \([253, 400]\) \\
+4 & 398 & \( 363 < 398 \Rightarrow \) links & 330 & \([253, 397]\) \\
+5 & 330 & \( 363 > 330 \Rightarrow \) rechts & 344 & \([331, 397]\) \\
+6 & 344 & \( 363 > 344 \Rightarrow \) rechts & 397 & \([345, 397]\) \\
+7 & 397 & \( 363 < 397 \Rightarrow \) links & 363 & \([345, 396]\) \\
+8 & 363 & Ziel erreicht & — & — \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{answer}
+
+\item \textbf{924, 220, 911, 244, 898, 258, 362, 363.}
+
+\begin{answer}
+\begin{tikzpicture}[scale=0.5]
+\node{924}
+	child{node{220}
+		child{node{...}}
+		child{node{911}
+			child{node{244}
+				child{node{...}}
+				child{node{898}
+					child{node{258}
+						child{node{...}}
+						child{node{362}
+							child{node{...}}
+							child{node{363}}}}
+					child{node{...}}}}
+			child{node{...}}}}
+	child{node{...}};
+\end{tikzpicture}
+
+\begin{center}
+\small
+\hspace*{-4cm}
+\begin{tabular}{@{} c c l c c @{}}
+\toprule
+\textbf{Schritt} & \textbf{Aktueller Knoten} & \textbf{Vergleich mit Ziel 363} & \textbf{Nächster Schritt} & \textbf{Intervall für nächsten Knoten} \\
+\midrule
+1 & 924 & \( 363 < 924 \Rightarrow \) links & 220 & \([1, 923]\) \\
+2 & 220 & \( 363 > 220 \Rightarrow \) rechts & 911 & \([221, 923]\) \\
+3 & 911 & \( 363 < 911 \Rightarrow \) links & 244 & \([221, 910]\) \\
+4 & 244 & \( 363 > 244 \Rightarrow \) rechts & 898 & \([245, 910]\) \\
+5 & 898 & \( 363 < 898 \Rightarrow \) links & 258 & \([245, 897]\) \\
+6 & 258 & \( 363 > 258 \Rightarrow \) rechts & 362 & \([259, 897]\) \\
+7 & 362 & \( 363 > 362 \Rightarrow \) rechts & 363 & \([363, 897]\) \\
+8 & 363 & Ziel erreicht & — & — \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{answer}
+
+
+\item \textbf{925, 202, 911, 240, 912, 245, 363.}
+
+\begin{answer}
+\begin{tikzpicture}[scale=0.5]
+\node{925}
+	child{node{202}
+		child{node{...}}
+		child{node{911}
+			child{node{240}
+				child{node{...}}
+				child{node{\textcolor{red}{912}}}}
+			child{node{\textcolor{red}{912}}}}}
+	child{node{...}};
+\end{tikzpicture}
+
+\begin{center}
+\small
+\hspace*{-4cm}
+\begin{tabular}{@{} c c l c c @{}}
+\toprule
+\textbf{Schritt} & \textbf{Aktueller Knoten} & \textbf{Vergleich mit Ziel 363} & \textbf{Nächster Schritt} & \textbf{Intervall für nächsten Knoten} \\
+\midrule
+1 & 925 & \( 363 < 925 \Rightarrow \) links & 202 & \([1, 924]\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{answer}
+
 \item 2, 399, 387, 219, 266, 382, 381, 278, 363.
 \item 935, 278, 347, 621, 299, 392, 358, 363.
 \end{enumerate}
