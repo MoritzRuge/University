@@ -13,12 +13,94 @@
 \pbitem{Induktion und binäre Bäume} \\
 Ein binärer Baum heißt vollständig, falls jeder Knoten entweder null oder zwei Kinder besitzt.
 \begin{enumerate}
+
 \item Zeichnen Sie einen binären Suchbaum, der vollständig ist, und einen binären Suchbaum, der nicht vollständig ist.
+
+\begin{answer}
+\begin{itemize}
+	\item Balancierter vollständiger BTS:
+\end{itemize}
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm}]
+\node{6}
+	child{node{4}
+		child{node{3}}
+		child{node{5}}}
+	child{node{8}
+		child{node{7}}
+		child{node{9}}};
+\end{tikzpicture}
+
+\begin{itemize}
+	\item Unvollständiger BTS:
+\end{itemize}
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm}]
+\node{6}
+	child{node{4}
+		child{node{3}
+			child{node{1}}
+			child[missing]}
+		child{node{5}}}
+	child{node{8}
+		child{node{7}}
+		child{node{9}}};
+\end{tikzpicture}
+
+\end{answer}
 
 \item Beweisen Sie durch eine geeignete Induktion: In jedem vollständigen binären Suchbaum ist die Anzahl der Blätter genau um eins größer als die Anzahl der inneren Knoten.
 
+\begin{answer}
+\begin{itemize}
+	\item n jedem vollständigem BTS gilt: jeder Knoten n hat 0 oder genau 2 Kindknoten. 
+    \item innerer Knoten: jeder Knoten v gilt als innerer Knoten gdw. v min. 1 Kindknoten hat.
+    \item Blätter Knoten: Jeder Knoten v gilt als Blatt, wenn v keine Kinderknoten hat.
+\end{itemize}
+
+\textbf{Annahme:} In jedem vollständigen binären Suchbaum ist die Anzahl der Blätter genau um eins größer als die Anzahl der inneren Knoten. \\
+
+base-case BTS mit einem inneren Knoten (root): \\
+Angenommen der BTS erfüllt die Bedingungen eines vollständigen BTS und die Werte der Knoten spielen keine Rolle, dann muss gelten:  \\
+$num_{\text{Blätter}}=num_{\text{innerer Knoten}}+1$
+
+
+\begin{tikzpicture}[scale=0.5]
+\node{a}
+	child{node{b}}
+	child{node{c}};
+\end{tikzpicture}
+
+Da die Werte in diesem Fall unerheblich sind, gilt die Zeichnung für einen vollständingen BTS mit einem inneren Knoten: \\
+\begin{itemize}
+	\item $num_{\text{innerer Knoten}}=a \text{ } num_{\text{innere Knoten}}=1$ 
+	\item $num_{\text{Blätter}}=b,c \text{ } num_{\text{Blätter}}=2$ 
+\end{itemize}
+
+Die Anahme gilt im base-case. \\
+
+\textbf{I.S:} Wenn die Annahme bei n inneren Knoten gilt, gilt sie auch $n+1$ inneren Knoten. 
+Ein vollständiger BTS mit n inneren Knoten erfüllt die Gleichung:  \\
+$num_{\text{Blätter}} = num_{\text{innerer Knoten}} + 1$ \\
+Wenn es einen inneren Knoten zusätzlich geben soll, wird ein Blattknoten zu diesem Knoten und bekommt nach der Definition von vollständigen BTS 2 neue Kindknoten, da:
+
+\begin{enumerate}
+	\item nur 1 Kind Widerspruch mit Definition von vollständigen BTS.
+	\item 0 Kindknoten, dann bleibt $num_{\text{innerer Knoten}}$ gleich, da das Blatt nicht zum Inneren Knoten werden konnte.
+\end{enumerate}
+
+\end{answer}
+
+
 \item Formulieren Sie eine ähnliche Aussage für allgemeine binäre Suchbäume und beweisen Sie sie.
 \end{enumerate}
+
+\newpage
+\input{Aufgabe_1.tex}
+\newpage
 
 \newpage
 \pbitem{Binäre Suchbäume}

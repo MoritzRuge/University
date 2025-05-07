@@ -1,0 +1,81 @@
+\section*{Aufgabe 1 – Induktion und binäre Bäume}
+
+\subsection*{b) Aussage für vollständige binäre Suchbäume}
+
+In jedem vollständigen binären Suchbaum gilt: Jeder innere Knoten hat genau zwei Kindknoten.
+
+\textbf{Definitionen:}
+\begin{itemize}
+    \item Ein \textbf{innerer Knoten} ist ein Knoten $v$, der mindestens einen Kindknoten besitzt.
+    \item Ein \textbf{Blattknoten} ist ein Knoten $v$, der keine Kindknoten besitzt.
+\end{itemize}
+
+\textbf{Behauptung:} In jedem vollständigen binären Suchbaum gilt:
+\[
+\text{Anzahl der Blätter} = \text{Anzahl der inneren Knoten} + 1
+\]
+
+\textbf{Beweis durch Induktion:}
+
+\textbf{Induktionsanfang (IA):} Ein vollständiger binärer Baum mit genau einem inneren Knoten:
+
+\[
+\begin{tikzpicture}[scale=0.6, level distance=1.2cm, sibling distance=2cm]
+\node{a}
+	child {node {b}}
+	child {node {c}};
+\end{tikzpicture}
+\]
+
+Ein innerer Knoten (a), zwei Blattknoten (b, c). Die Aussage gilt: $2 = 1 + 1$.
+
+\textbf{Induktionsvoraussetzung (IV):} Die Aussage gelte für einen vollständigen Baum mit $n$ inneren Knoten:
+\[
+\text{Blätter} = n + 1
+\]
+
+\textbf{Induktionsschritt (IS):} Füge einen weiteren inneren Knoten hinzu. Dies kann nur durch Umwandlung eines bisherigen Blattes erfolgen, das dann zwei neue Kinder erhält. Dadurch:
+\begin{itemize}
+    \item Wird 1 Blatt zu einem inneren Knoten $\Rightarrow$ $-1$ Blatt
+    \item Zwei neue Blätter entstehen $\Rightarrow$ $+2$ Blätter
+\end{itemize}
+
+Gesamtänderung: $+1$ innerer Knoten, $+1$ Blatt. Damit gilt auch für $n+1$:
+\[
+\text{Blätter} = (n+1) + 1
+\]
+
+\subsection*{c) Allgemeine Aussage für beliebige binäre Bäume}
+
+\textbf{Behauptung:} Für jeden Baum gilt:
+\[
+\text{Anzahl der Knoten} = \text{Anzahl der Kanten} + 1
+\]
+
+\textbf{Begründung:}
+\begin{itemize}
+    \item Jeder Knoten (außer der Wurzel) hat genau eine eingehende Kante vom Elternknoten.
+    \item Beim Einfügen eines neuen Knotens entsteht genau eine neue Kante.
+\end{itemize}
+
+\textbf{Induktionsanfang:}
+Ein einzelner Knoten (z.B: "a") hat 0 Kanten, 1 Knoten. Gilt: $1 = 0 + 1$.
+
+\textbf{Induktionsvoraussetzung:} Für einen Baum mit $n$ Knoten gilt:
+\[
+n = \text{Kantenanzahl} + 1
+\]
+
+\textbf{Induktionsschritt:}
+Ein neuer Knoten wird eingefügt:
+\begin{itemize}
+    \item Eine neue Kante entsteht.
+    \item Knotenanzahl wird $n+1$
+\end{itemize}
+Dann gilt:
+\[
+n + 1 = (\text{Kantenanzahl} + 1) + 1 - 1 = \text{Kantenanzahl}_{neu} + 1
+\]
+$\Box$
+
+
