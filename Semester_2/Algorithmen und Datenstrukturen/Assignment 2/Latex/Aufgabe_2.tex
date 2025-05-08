@@ -233,20 +233,31 @@ Nun müssen wir die Schlüssel $K = \{k_{1} < k_{2} < ... < k_{n}\}$ auf die Kno
 	\item Dabei bekommt der Wuzelknoten von $T$ den Schlüssel $k_{n_{L}+1}$
 	\item die kleineren Schlüssel landen in den linken Teilbaum $K_{L}$
 	\begin{itemize}
-		\item also kriegt der linke Teilbaum die Schlüssel $\{k_{1},...,k_{n_{L}}\}$
+		\item also kriegt der linke Teilbaum die $n_{L}$ Schlüssel $\{k_{1},...,k_{n_{L}}\}$
 	\end{itemize}
 	\item Schlüssel größer als der Wurzelknoten landen in dem rechten Teilbaum $T_{R}$
 	\begin{itemize}
-		\item also kriegt der rechte Teilbaum die Schlüssel $\{k_{n_{L}+2},...,k_{n}\}$
+		\item also kriegt der rechte Teilbaum die $n_{R}$ Schlüssel $\{k_{n_{L}+2},...,k_{n}\}$
 	\end{itemize}
 \end{itemize}
 
+$\Rightarrow$ Wenn wir das ganze nun auf die Induktionsvoraussetzung anwenden, erhalten wir für:
+\begin{itemize}
+	\item $T_{L}$ mit den Schlüsseln $n_{L}$ $\{k_{1},...,k_{n_{L}}\}$ $\Rightarrow$ genau eine Möglichkeit die Schlüssel zu verteilen, damit die BST-Eigenschaft gilt.
+	\item $T_{R}$ mit den Schlüsseln $n_{R}$ $\{k_{n_{L}+2},...,k_{n}\}$ $\Rightarrow$ auch genau eine Möglichkeit die Schlüssel zu verteilen, damit die BST-Eigenschaft gilt.
+	\item Damit das ganze funktioniert, muss die Wurzel genau den Schlüssel $k_{n_{L}+1}$ erhalten
+\end{itemize}
+
+Es gibt also für jeden binären Baum mit $n$ Knoten und jede total geordnete Menge von $n$ Schlüsseln genau eine Möglichkeit, die Schlüssel auf die Knoten zu verteilen, damit die BST-Eigenschaft erfüllt ist.
+\begin{flushright}
+$\Box$
+\end{flushright}
 
 
 
 
 
-
+ 
 
 
 
