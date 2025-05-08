@@ -1,16 +1,14 @@
-\pbitem{Binäre Suchbäume}
-\begin{enumerate}
-\item Angenommen, wir haben einen binären Suchbaum T , welcher die Zahlen von
+\section*{{Problem 2: Binäre Suchbäume}} 
+\subparagraph*{a) Angenommen, wir haben einen binären Suchbaum T , welcher die Zahlen von
 1 bis 1000 als Schlüssel speichert. Wir suchen in T nach dem Schlüssel 363.
 Bestimmen Sie für jede der folgenden Schlüsselfolgen, ob sie als Folge der
 Einträge auf dem Suchpfad nach 363 auftreten kann. Begründen Sie jeweils
-Ihre Antwort.
+Ihre Antwort.}
 
 
 \begin{enumerate}
 \item \textbf{2, 252, 401, 398, 330, 344, 397, 363.}
 
-\begin{answer}
 \begin{tikzpicture}[scale=0.5]
 
 \node {2}
@@ -32,7 +30,7 @@ Ihre Antwort.
 
 \begin{center}
 \small
-\hspace*{-3cm}
+\hspace*{-1.5cm}
 \begin{tabular}{@{} c c l c c @{}}
 \toprule
 \textbf{Schritt} & \textbf{Aktueller Knoten} & \textbf{Vergleich mit Ziel 363} & \textbf{Nächster Schritt} & \textbf{Intervall für nächsten Knoten} \\
@@ -49,11 +47,9 @@ Ihre Antwort.
 \end{tabular}
 \end{center}
 
-\end{answer}
 
 \item \textbf{924, 220, 911, 244, 898, 258, 362, 363.}
 
-\begin{answer}
 \begin{tikzpicture}[scale=0.5]
 \node{924}
 	child{node{220}
@@ -74,7 +70,7 @@ Ihre Antwort.
 
 \begin{center}
 \small
-\hspace*{-3cm}
+\hspace*{-1.5cm}
 \begin{tabular}{@{} c c l c c @{}}
 \toprule
 \textbf{Schritt} & \textbf{Aktueller Knoten} & \textbf{Vergleich mit Ziel 363} & \textbf{Nächster Schritt} & \textbf{Intervall für nächsten Knoten} \\
@@ -91,12 +87,10 @@ Ihre Antwort.
 \end{tabular}
 \end{center}
 
-\end{answer}
 
 
 \item \textbf{925, 202, 911, 240, 912, 245, 363.}
 
-\begin{answer}
 \begin{tikzpicture}[scale=0.5]
 \node{925}
 	child{node{202}
@@ -111,7 +105,7 @@ Ihre Antwort.
 
 \begin{center}
 \small
-\hspace*{-3cm}
+\hspace*{-1.5cm}
 \begin{tabular}{@{} c c l c c @{}}
 \toprule
 \textbf{Schritt} & \textbf{Aktueller Knoten} & \textbf{Vergleich mit Ziel 363} & \textbf{Nächster Schritt} & \textbf{Intervall für nächsten Knoten} \\
@@ -128,11 +122,9 @@ Ihre Antwort.
 \begin{itemize}
 	\item Der Knoten 912 liegt nicht mehr im Intervall von [241,910] und somit ist der Knoten nicht in der \textbf{Schlüsselfolge}.
 \end{itemize}
-\end{answer}
 
 \item \textbf{2, 399, 387, 219, 266, 382, 381, 278, 363.}
 
-\begin{answer}
 \begin{tikzpicture}[scale=0.5]
 \node{2}
 	child{node{...}}
@@ -155,7 +147,7 @@ Ihre Antwort.
 
 \begin{center}
 \small
-\hspace*{-3cm}
+\hspace*{-1.5cm}
 \begin{tabular}{@{} c c l c c @{}}
 \toprule
 \textbf{Schritt} & \textbf{Aktueller Knoten} & \textbf{Vergleich mit Ziel 363} & \textbf{Nächster Schritt} & \textbf{Intervall für nächsten Knoten} \\
@@ -173,11 +165,9 @@ Ihre Antwort.
 \end{tabular}
 \end{center}
 
-\end{answer}
 
 \item \textbf{935, 278, 347, 621, 299, 392, 358, 363.}
 
-\begin{answer}
 \begin{tikzpicture}[scale=0.5]
 \node{935}
 	child{node{278}
@@ -192,7 +182,7 @@ Ihre Antwort.
 
 \begin{center}
 \small
-\hspace*{-3cm}
+\hspace*{-1.5cm}
 \begin{tabular}{@{} c c l c c @{}}
 \toprule
 \textbf{Schritt} & \textbf{Aktueller Knoten} & \textbf{Vergleich mit Ziel 363} & \textbf{Nächster Schritt} & \textbf{Intervall für nächsten Knoten} \\
@@ -210,12 +200,12 @@ Ihre Antwort.
 	\item Der Knoten 299 liegt nicht mehr im Intervall von [348,620] und somit ist der Knoten nicht in der \textbf{Schlüsselfolge}.
 \end{itemize}
 
-\end{answer}
 
 \end{enumerate}
 
-\item Sei T ein binärer Baum mit n Knoten, und sei K eine total geordnete Menge
+\subsection*{b) Sei T ein binärer Baum mit n Knoten, und sei K eine total geordnete Menge
 von n Schlüsseln. Zeigen Sie, dass es genau eine Möglichkeit gibt, die Schlüssel
 aus K auf die Knoten von T zu verteilen, so dass die binäre Suchbaumeigen-
-schaft erfüllt ist.
-\end{enumerate}
+schaft erfüllt ist.} 
+
+
