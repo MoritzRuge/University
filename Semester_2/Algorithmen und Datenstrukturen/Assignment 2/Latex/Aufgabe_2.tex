@@ -208,4 +208,49 @@ von n Schlüsseln. Zeigen Sie, dass es genau eine Möglichkeit gibt, die Schlüs
 aus K auf die Knoten von T zu verteilen, so dass die binäre Suchbaumeigen-
 schaft erfüllt ist.} 
 
+\textbf{Gegeben:}
+
+\begin{itemize}
+	\item $T$ ist ein binärer Baum mit $n$ Knoten
+	\item $K = \{k_{1} < k_{2} < ... < k_{n}\}$ eine total geordnete Menge von $n$ Schlüsseln
+	\item Dann gibt es genau eine Möglichkeit, die Schlüssel aus $K$ auf die Knoten von $T$ zu verteilen, sodass die binäre Suchbaumeigenschaft erfüllt ist.
+\end{itemize}
+
+\textbf{Induktionsanfang} \\
+Ein Baum mit nur einen Knoten $n=1$ kann nur genau einen Schlüssel enthalten ( $K_{1}$ ), damit sind die BST(binary search tree)-Eigenschaften erfüllt.
+
+\textbf{Induktionsvoraussetzung}\\
+
+
+\textbf{Induktionsschritt} \\
+$T$ ist nun ein binärer Baum mit $n \geq 2$ Knoten. \\
+Dabei ist der linke Teilbaum $T_{L}$ und seine Knoten $n_{L}$, der rechte Teilbaum $T_{R}$ und seine Knoten $n_{R}$ \\
+Es gilt: $n=n_{L} + 1 + n_{R}$ \\
+
+Nun müssen wir die Schlüssel $K = \{k_{1} < k_{2} < ... < k_{n}\}$ auf die Knoten verteilen damit die BST-Eigenschaft noch erfüllt ist. \\
+
+\begin{itemize}
+	\item Dabei bekommt der Wuzelknoten von $T$ den Schlüssel $k_{n_{L}+1}$
+	\item die kleineren Schlüssel landen in den linken Teilbaum $K_{L}$
+	\begin{itemize}
+		\item also kriegt der linke Teilbaum die Schlüssel $\{k_{1},...,k_{n_{L}}\}$
+	\end{itemize}
+	\item Schlüssel größer als der Wurzelknoten landen in dem rechten Teilbaum $T_{R}$
+	\begin{itemize}
+		\item also kriegt der rechte Teilbaum die Schlüssel $\{k_{n_{L}+2},...,k_{n}\}$
+	\end{itemize}
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
