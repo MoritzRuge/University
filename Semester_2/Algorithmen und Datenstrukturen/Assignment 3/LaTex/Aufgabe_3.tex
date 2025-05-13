@@ -1,0 +1,152 @@
+\section*{{Problem 3: Rot-Schwarz Bäume}} 
+
+Ein rot-schwarz Baum ist ein binärer Suchbaum, den wir auf die folgende Weise erweitern: Jeder Knoten und jeder leere Teilbaum erhält eine Farbe (rot oder schwarz), so dass die folgenden Regeln gelten: (i) die Wurzel ist schwarz; (ii) die leeren Teilbäume sind schwarz; (iii) die Kinder eines roten Knoten sind schwarz; und (iv) die schwarze Tiefe aller leeren Teilbäume ist gleich, d.h., für alle leeren Teilbäume ist die Anzahl der schwarzen Knoten auf dem Pfad von der Wurzel zum jeweiligen Teilbaum gleich.
+
+\subsection*{a) Zeichnen Sie drei Beispiele für rot-schwarz Bäume und erklären Sie, warum diese jeweils die Regeln für einen rot-schwarz Baum erfüllen.}
+
+
+\subsection*{b) Sei T ein rot-schwarz Baum, und sei s die schwarze Tiefe der leeren Teilbäume. Zeigen Sie, dass T mindestens 2s-1 - 1 schwarze Knoten besitzt. Was folgt daraus über die Mindestanzahl von Knoten in einem rot-schwarz Baum mit Höhe h? Folgern Sie: ein rot-schwarz Baum mit n Knoten hat Höhe O(log n).} 
+
+\textbf{Annahme:} Beim Einfügen in einen AVL-Baum wird höchstens eine (Einfach- oder Doppel-)Rotation ausgeführt.
+\begin{itemize}
+	\item In einem AVL-Baum gelten die Eigenschaften eines BTS.
+	\item In einem AVL-Baum muss gelten: Die Differenz zwischen der Höhe des Linken Teilbaum und der Höhe des Rechten Teilbaum darf maximal 1 sein.
+\end{itemize}
+
+\noindent
+base-case AVL-Baum mit einem Knoten: \\
+r $\rightarrow$ h: 0 \\
+
+\noindent
+insertion (n):
+\begin{verbatim}
+```
+       r 	h: 0
+     /   \
+    n     nil 	hl: 1, hr: 0
+```
+\end{verbatim}
+
+$|hl - hr| <= 1$ true $\rightarrow$ keine Rotation nötig!\\
+\textbf{Annahme gilt im base-case}\\
+
+\textbf{I.S:} Wenn die Annahme bei n Insertions gilt, gilt sie auch n+1 Insertions. Wenn nach n insertions ein AVL-Baum die AVL-Eigenschaften weiterhin erfüllt kann es zu mehreren Fallen bei einer $n+1$ insertion kommen:\\
+Fallunterscheidung:
+\begin{enumerate}
+	\item Nach einer Insertion wird kein Knoten unblanciert. $\rightarrow$ keine Rotation notwendig
+	\item Nach einer Insertion wird ein Knoten unblanciert, da einer der Teilbäume tiefer ist als der andere und $|hl - hr| <= 1$  nicht mehr gilt.
+Da die Unbalance nur nach einer einzelnen Insertion auftreten kann, ist der Höhen Unterschied immer 2.
+	\item[$2.1.$] der Linke Teilbaum eines Knotens ist Tiefer als der Rechte Teilbaum.
+\end{enumerate}
+
+\begin{verbatim}
+``` Beispielabschnitt für links Unbalance irgendwo in einem AVL-Baum
+       n
+     /   \
+    n1    n1
+   /
+  n2
+ /
+n3
+```
+\end{verbatim}
+
+Am tiefsten unbalanciertem Knoten (pivot) wird eine rechts-Rotation ausgeführt.
+\begin{itemize}
+	\item Die Rotation wird am tieften unbalanciertem Knoten ausgeführt, weil nach einer Rotation die Höhe des betroffenen Teilbaums wieder den selben Wert hat, wie vor der n+1 Insertion.
+	\item Der Elternknoten des pivot-Knotens wird zum neuen Rechten Kind des pivot-Knotens.
+	\item Das alte Rechte Kind des pivot-Knotens wird zum neuen linken Kind des neuen Rechten Kindknotens.
+\end{itemize}
+
+\begin{verbatim}
+```
+      n
+    /   \
+   n1    n1
+  /  \
+ n2   n2
+```
+\end{verbatim}
+
+\begin{itemize}
+	\item[2.2] Der Rechte Teilbaum eines Knotens ist Tiefer als der Linke Teilbaum. Zeichnungen sind analog.\\
+Am tiefsten unbalanciertem Knoten (pivot) wird eine links-Rotation ausgeführt. 
+	\begin{itemize}
+		\item Die Rotation wird am tieften unbalanciertem Knoten ausgeführt, weil nach einer Rotation die Höhe des betroffenen Teilbaums wieder den selben Wert hat, wie vor der $n+1$ Insertion.
+		\item Der Elternknoten des pivot-Knotens wird zum neuen Linken Kind des pivot-Knotens.
+		\item Das alte Linke Kind des pivot-Knotens wird zum neuen Rechten Kind des neuen Linken Kindknotens.
+	\end{itemize}
+	\item[2.3] Der Rechte-Linke Teilbaum eines Knotens ist Tiefer als der Rechte Teilbaum.
+Es wird erst eine links-Rotation am tieften unbalanciertem Knoten (als Pivot Elternknoten) durchgeführt und dann eine weitere rechts-Rotation
+mit dem selben pivot-Knoten durchgeführt. 
+	\begin{itemize}
+		\item Die Rotationen selbst funktionieren genau so wie in 2.1 und 2.2 beschrieben und sequentiell am selben pivot-Knoten.
+		\item Auch bei Doppel-Rotationen gilt: Nach der Rotation sind die Höhenverhältnisse der Teilbaume wieder so wie vor der Insertion $n+1$
+	\end{itemize}
+\end{itemize}
+
+\begin{verbatim}
+``` Beispielabschnitt für rechts-links Unbalance irgendwo in einem AVL-Baum
+        n
+      /   \
+    n1     n1
+      \
+      n2
+     /
+    n3
+```
+nach links-Rotation
+```
+        n
+      /   \
+    n1     n1
+      \
+      n2
+        \
+         n3
+```
+nach rechts-Rotation
+```
+        n
+      /   \
+    n1     n1
+   /  \
+  n2  n2
+```
+\end{verbatim}
+
+\begin{itemize}
+	\item[2.4] Der Linke-Rechte Teilbaum eines Knotens ist Tiefer als der Linke Teilbaum. Zeichnungen sind analog. Es wird erst eine rechtss-Rotation am tieften unbalanciertem Knoten (als Pivot Elternknoten) durchgeführt und dann eine weitere links-Rotation mit dem selben pivot-Knoten durchgeführt.
+	
+	\begin{itemize}
+		\item Die Rotationen selbst funktionieren genau so wie in 2.1 und 2.2 beschrieben und sequentiell am selben pivot-Knoten.
+		\item Auch bei Doppel-Rotationen gilt: Nach der Rotation sind die Höhenverhältnisse der Teilbaume wieder so wie vor der Insertion $n+1$
+	\end{itemize}
+\end{itemize}
+
+Man sieht man benötigt maximal eine (Einfach- oder Doppel-) Rotation um nach einer Insertion die AVL-Eigenschaft zu erhalten.\\
+Annahme gilt für $n+1$
+\begin{flushright}
+	$\Box$
+\end{flushright}
+
+
+\textbf{Löschen:}
+\begin{itemize}
+	\item Angenommen man hat einen beliebigen AVL-Baum. 
+	\item Beim Löschen eines beliebigen Knotens kann es sein, dass eine komplexere Unblance eintritt, diese ist nicht durch einmaliges rotieren lösbar.
+\end{itemize}
+\begin{verbatim}
+ bsp:
+```
+          20
+      /        \
+     15         25
+    /  \       /  \
+   10   18    24   30
+       /  \
+      17   19
+```
+\end{verbatim}
+
+wenn man 15 entfernen würde, wäre die entstehende Unbalance nicht mit einer einmaligen Rotation lösbar. Daher gilt die Annahme meiner Meinung nach nur für das Einfügen (Insertion)
