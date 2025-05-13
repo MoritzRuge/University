@@ -257,6 +257,86 @@ $\Rightarrow$ Links-Rotation der Knoten $X\&Y$
 
 $\Rightarrow$ AVL-Baum ist ausgeglichen
 
+\item Lösche: Z
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=60mm},
+  level 2/.style={sibling distance=40mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$G^{3}$}
+	child{node{$A^{1}$}
+		child{node{$\Box^{-1}$}}
+		child{node{$D^{0}$}}}
+	child{node{$T^{2}$}
+		child{node{$O^{1}$}
+			child{node{$L^{0}$}}
+			child{node{$S^{0}$}}}
+		child{node{$Y^{1}$}
+			child{node{$X^{0}$}}
+			child{node{$\Box^{-1}$}}}};
+\end{tikzpicture}
+
+\item Lösche: A
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=60mm},
+  level 2/.style={sibling distance=40mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$G^{3}$}
+	child{node{$D^{0}$}
+		child{node{$\Box^{-1}$}}
+		child{node{$\Box^{-1}$}}}
+	child{node{$T^{2}$}
+		child{node{$O^{1}$}
+			child{node{$L^{0}$}}
+			child{node{$S^{0}$}}}
+		child{node{$Y^{1}$}
+			child{node{$X^{0}$}}
+			child{node{$\Box^{-1}$}}}};
+\end{tikzpicture}
+
+\begin{itemize}
+	\item BF-Faktor bei Knoten $G$ ist größer als 1 $\Rightarrow$ Um-balancieren der Knoten $G\&T$
+\end{itemize}
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=60mm},
+  level 2/.style={sibling distance=40mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$T^{3}$}
+	child{node{$G^{2}$}
+		child{node{$A^{0}$}}
+		child{node{$O^{1}$}
+			child{node{$L^{0}$}}
+			child{node{$S^{0}$}}}}
+	child{node{$Y^{1}$}
+		child{node{$X^{0}$}}
+		child{node{$\Box^{-1}$}}};
+\end{tikzpicture}
+
+$\Rightarrow$ AVL-Baum ist ausgeglichen
+
+\item Lösche: L
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=60mm},
+  level 2/.style={sibling distance=40mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$T^{3}$}
+	child{node{$G^{2}$}
+		child{node{$A^{0}$}}
+		child{node{$O^{1}$}
+			child{node{$\Box^{-1}$}}
+			child{node{$S^{0}$}}}}
+	child{node{$Y^{1}$}
+		child{node{$X^{0}$}}
+		child{node{$\Box^{-1}$}}};
+\end{tikzpicture}
+
 \end{enumerate}
 \end{multicols}
 
