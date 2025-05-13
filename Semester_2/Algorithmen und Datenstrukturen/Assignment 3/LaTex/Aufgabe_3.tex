@@ -1,12 +1,14 @@
 \section*{{Problem 3: Rot-Schwarz Bäume}} 
 
-Ein rot-schwarz Baum ist ein binärer Suchbaum, den wir auf die folgende Weise erweitern: Jeder Knoten und jeder leere Teilbaum erhält eine Farbe (rot oder schwarz), so dass die folgenden Regeln gelten: (i) die Wurzel ist schwarz; (ii) die leeren Teilbäume sind schwarz; (iii) die Kinder eines roten Knoten sind schwarz; und (iv) die schwarze Tiefe aller leeren Teilbäume ist gleich, d.h., für alle leeren Teilbäume ist die Anzahl der schwarzen Knoten auf dem Pfad von der Wurzel zum jeweiligen Teilbaum gleich.
+Ein rot-schwarz Baum ist ein binärer Suchbaum, den wir auf die folgende Weise erweitern: Jeder Knoten und jeder leere Teilbaum erhält eine Farbe (rot oder schwarz), so dass die folgenden Regeln gelten: (i) die Wurzel ist schwarz; (ii) die leeren Teilbäume sind schwarz; (iii) die Kinder eines roten Knoten sind schwarz; und (iv) die schwarze Tiefe aller leeren Teilbäume ist gleich, d.h., für alle leeren Teilbäume ist die Anzahl der schwarzen Knoten auf dem Pfad von der Wurzel zum jeweiligen Teilbaum gleich.\\
 
-\subsection*{a) Zeichnen Sie drei Beispiele für rot-schwarz Bäume und erklären Sie, warum diese jeweils die Regeln für einen rot-schwarz Baum erfüllen.}
+\noindent
+\textbf{a)} Zeichnen Sie drei Beispiele für rot-schwarz Bäume und erklären Sie, warum diese jeweils die Regeln für einen rot-schwarz Baum erfüllen.
 
+\noindent
+\textbf{b)} Sei $T$ ein rot-schwarz Baum, und sei $s$ die schwarze Tiefe der leeren Teilbäume. Zeigen Sie, dass $T$ mindestens $2s-1 - 1$ schwarze Knoten besitzt. Was folgt daraus über die Mindestanzahl von Knoten in einem rot-schwarz Baum mit Höhe $h$? Folgern Sie: ein rot-schwarz Baum mit $n$ Knoten hat Höhe $O(log n)$.\\
 
-\subsection*{b) Sei T ein rot-schwarz Baum, und sei s die schwarze Tiefe der leeren Teilbäume. Zeigen Sie, dass T mindestens 2s-1 - 1 schwarze Knoten besitzt. Was folgt daraus über die Mindestanzahl von Knoten in einem rot-schwarz Baum mit Höhe h? Folgern Sie: ein rot-schwarz Baum mit n Knoten hat Höhe O(log n).} 
-
+\noindent
 \textbf{Annahme:} Beim Einfügen in einen AVL-Baum wird höchstens eine (Einfach- oder Doppel-)Rotation ausgeführt.
 \begin{itemize}
 	\item In einem AVL-Baum gelten die Eigenschaften eines BTS.
