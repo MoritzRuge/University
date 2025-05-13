@@ -6,6 +6,8 @@
 
 \subsection*{a) Fügen Sie die Schlüssel A, L, G, O, D, T, S, X, Y, Z in dieser Reihenfolge in einen anfangs leeren AVL-Baum ein. Löschen Sie sodann die Schlüssel Z, A, L. Zeichnen Sie den Baum nach jedem Einfüge- und Löschvorgang, und zeigen Sie die Rotationen, welche durchgeführt werden. Annotieren Sie dabei auch die Knoten mit ihrer jeweiligen Höhe.} 
 
+$\Rightarrow$ Bei den Knoten die hochgestellte Zahl ist die Höhe des jeweiligen Knotens.
+
 \begin{multicols}{2}
 
 \begin{enumerate}
@@ -33,7 +35,7 @@
 \begin{tikzpicture}[scale=0.5,
   level 1/.style={sibling distance=40mm},
   level 2/.style={sibling distance=20mm}]
-\node{$A^{\textcolor{red}{2}}$}
+\node{$A^{2}$}
 	child{node{$\Box^{-1}$}}
 	child{node{$L^{1}$}
 		child{node{$G^{0}$}}
@@ -44,24 +46,24 @@
 	\item BF-Faktor bei Knoten $A$ ist größer als 1 $\Rightarrow$ Um-balancieren der Knoten $A,L,G$
 \end{itemize}
 
-$\Rightarrow$ Links-Rotation der Knoten $L\&G$
+$\Rightarrow$ Rechts-Rotation der Knoten $L\&G$
 
 \begin{tikzpicture}[scale=0.5,
   level 1/.style={sibling distance=40mm},
   level 2/.style={sibling distance=20mm}]
-\node{$A^{\textcolor{red}{2}}$}
+\node{$A^{2}$}
 	child{node{$\Box^{-1}$}}
 	child{node{$G^{1}$}
 		child{node{$\Box^{-1}$}}
 		child{node{$L^{0}$}}};
 \end{tikzpicture}
 
-$\Rightarrow$ Rechts-Rotation der Knoten $A\&G$
+$\Rightarrow$ Links-Rotation der Knoten $A\&G$
 
 \begin{tikzpicture}[scale=0.5,
   level 1/.style={sibling distance=40mm},
   level 2/.style={sibling distance=20mm}]
-\node{$G^{0}$}
+\node{$G^{1}$}
 	child{node{$A^{0}$}}
 	child{node{$L^{0}$}};
 \end{tikzpicture}
@@ -73,7 +75,7 @@ $\Rightarrow$ AVL-Baum ist ausgeglichen
 \begin{tikzpicture}[scale=0.5,
   level 1/.style={sibling distance=40mm},
   level 2/.style={sibling distance=20mm}]
-\node{$G^{1}$}
+\node{$G^{2}$}
 	child{node{$A^{0}$}}
 	child{node{$L^{1}$}
 		child{node{$\Box^{-1}$}}
@@ -85,7 +87,7 @@ $\Rightarrow$ AVL-Baum ist ausgeglichen
 \begin{tikzpicture}[scale=0.5,
   level 1/.style={sibling distance=40mm},
   level 2/.style={sibling distance=20mm}]
-\node{$G^{0}$}
+\node{$G^{2}$}
 	child{node{$A^{1}$}
 		child{node{$\Box^{-1}$}}
 		child{node{$D^{0}$}}}
@@ -99,13 +101,13 @@ $\Rightarrow$ AVL-Baum ist ausgeglichen
 \begin{tikzpicture}[scale=0.5,
   level 1/.style={sibling distance=40mm},
   level 2/.style={sibling distance=20mm}]
-\node{$G^{1}$}
+\node{$G^{3}$}
 	child{node{$A^{1}$}
 		child{node{$\Box^{-1}$}}
 		child{node{$D^{0}$}}}
-	child{node{$L^{\textcolor{red}{2}}$}
+	child{node{$L^{2}$}
 		child{node{$\Box^{-1}$}}
-		child{node{$O^{0}$}
+		child{node{$O^{1}$}
 			child{node{$\Box^{-1}$}}
 			child{node{$T^{0}$}}}};
 \end{tikzpicture}
@@ -119,11 +121,11 @@ $\Rightarrow$ Rechts-Rotation der Knoten $L\&O$
 \begin{tikzpicture}[scale=0.5,
   level 1/.style={sibling distance=40mm},
   level 2/.style={sibling distance=20mm}]
-\node{$G^{1}$}
+\node{$G^{2}$}
 	child{node{$A^{1}$}
 		child{node{$\Box^{-1}$}}
 		child{node{$D^{0}$}}}
-	child{node{$O^{0}$}
+	child{node{$O^{1}$}
 		child{node{$L^{0}$}}
 		child{node{$T^{0}$}}};
 \end{tikzpicture}
@@ -135,15 +137,15 @@ $\Rightarrow$ AVL-Baum ist ausgeglichen
 \begin{tikzpicture}[scale=0.5,
   level 1/.style={sibling distance=40mm},
   level 2/.style={sibling distance=20mm}]
-\node{$G^{1}$}
+\node{$G^{3}$}
 	child{node{$A^{1}$}
-		child{node{$\Box$}}
+		child{node{$\Box^{-1}$}}
 		child{node{$D^{0}$}}}
-	child{node{$O^{1}$}
+	child{node{$O^{2}$}
 		child{node{$L^{0}$}}
 		child{node{$T^{1}$}
 			child{node{$S^{0}$}}
-			child{node{$\Box$}}}};
+			child{node{$\Box^{-1}$}}}};
 \end{tikzpicture}
 
 \newpage
@@ -152,13 +154,13 @@ $\Rightarrow$ AVL-Baum ist ausgeglichen
 \begin{tikzpicture}[scale=0.5,
   level 1/.style={sibling distance=40mm},
   level 2/.style={sibling distance=20mm}]
-\node{$G^{1}$}
+\node{$G^{3}$}
 	child{node{$A^{1}$}
-		child{node{$\Box$}}
+		child{node{$\Box^{-1}$}}
 		child{node{$D^{0}$}}}
-	child{node{$O^{1}$}
+	child{node{$O^{2}$}
 		child{node{$L^{0}$}}
-		child{node{$T^{0}$}
+		child{node{$T^{1}$}
 			child{node{$S^{0}$}}
 			child{node{$X^{0}$}}}};
 \end{tikzpicture}
@@ -168,16 +170,16 @@ $\Rightarrow$ AVL-Baum ist ausgeglichen
 \begin{tikzpicture}[scale=0.5,
   level 1/.style={sibling distance=40mm},
   level 2/.style={sibling distance=20mm}]
-\node{$G^{1}$}
+\node{$G^{4}$}
 	child{node{$A^{1}$}
-		child{node{$\Box$}}
+		child{node{$\Box^{-1}$}}
 		child{node{$D^{0}$}}}
-	child{node{$O^{\textcolor{red}{2}}$}
+	child{node{$O^{3}$}
 		child{node{$L^{0}$}}
-		child{node{$T^{1}$}
+		child{node{$T^{2}$}
 			child{node{$S^{0}$}}
 			child{node{$X^{1}$}
-				child{node{$\Box$}}
+				child{node{$\Box^{-1}$}}
 				child{node{$Y^{0}$}}}}};
 \end{tikzpicture}
 
@@ -192,16 +194,16 @@ $\Rightarrow$ Links-Rotation der Knoten $O\&T$
   level 2/.style={sibling distance=40mm},
   level 3/.style={sibling distance=20mm},
   level 4/.style={sibling distance=20mm}]
-\node{$G^{1}$}
+\node{$G^{3}$}
 	child{node{$A^{1}$}
-		child{node{$\Box$}}
+		child{node{$\Box^{-1}$}}
 		child{node{$D^{0}$}}}
-	child{node{$T^{0}$}
-		child{node{$O^{0}$}
+	child{node{$T^{2}$}
+		child{node{$O^{1}$}
 			child{node{$L^{0}$}}
 			child{node{$S^{0}$}}}
 		child{node{$X^{1}$}
-			child{node{$\Box$}}
+			child{node{$\Box^{-1}$}}
 			child{node{$Y^{0}$}}}};
 \end{tikzpicture}
 
@@ -214,18 +216,18 @@ $\Rightarrow$ AVL-Baum ist ausgeglichen
   level 2/.style={sibling distance=40mm},
   level 3/.style={sibling distance=20mm},
   level 4/.style={sibling distance=20mm}]
-\node{$G^{1}$}
+\node{$G^{4}$}
 	child{node{$A^{1}$}
-		child{node{$\Box$}}
+		child{node{$\Box^{-1}$}}
 		child{node{$D^{0}$}}}
-	child{node{$T^{0}$}
-		child{node{$O^{0}$}
+	child{node{$T^{3}$}
+		child{node{$O^{1}$}
 			child{node{$L^{0}$}}
 			child{node{$S^{0}$}}}
-		child{node{$X^{\textcolor{red}{2}}$}
-			child{node{$\Box$}}
+		child{node{$X^{2}$}
+			child{node{$\Box^{-1}$}}
 			child{node{$Y^{1}$}
-				child{node{$\Box$}}
+				child{node{$\Box^{-1}$}}
 				child{node{$Z^{0}$}}}}};
 \end{tikzpicture}
 
@@ -240,15 +242,15 @@ $\Rightarrow$ Links-Rotation der Knoten $X\&Y$
   level 2/.style={sibling distance=40mm},
   level 3/.style={sibling distance=20mm},
   level 4/.style={sibling distance=20mm}]
-\node{$G^{1}$}
+\node{$G^{3}$}
 	child{node{$A^{1}$}
-		child{node{$\Box$}}
+		child{node{$\Box^{-1}$}}
 		child{node{$D^{0}$}}}
-	child{node{$T^{0}$}
-		child{node{$O^{0}$}
+	child{node{$T^{2}$}
+		child{node{$O^{1}$}
 			child{node{$L^{0}$}}
 			child{node{$S^{0}$}}}
-		child{node{$Y^{0}$}
+		child{node{$Y^{1}$}
 			child{node{$X^{0}$}}
 			child{node{$Z^{0}$}}}};
 \end{tikzpicture}
