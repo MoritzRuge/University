@@ -1,14 +1,261 @@
-\section*{{Problem 1:}}
+%%%%% TODO %%%%%
+% subsection a % Zwei Seiten layout ? damit die ganzen Bäume nicht so viel Platz wegnehmen
+
+\section*{{Problem 1: AVL-Bäume}}
 
 
-\subsection*{a) } 
+\subsection*{a) Fügen Sie die Schlüssel A, L, G, O, D, T, S, X, Y, Z in dieser Reihenfolge in einen anfangs leeren AVL-Baum ein. Löschen Sie sodann die Schlüssel Z, A, L. Zeichnen Sie den Baum nach jedem Einfüge- und Löschvorgang, und zeigen Sie die Rotationen, welche durchgeführt werden. Annotieren Sie dabei auch die Knoten mit ihrer jeweiligen Höhe.} 
+
+\begin{multicols}{2}
+
+\begin{enumerate}
+	\item Einfügen: A
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm}]
+\node{$A^{0}$};
+\end{tikzpicture}
 
 
-\subsection*{b) } 
+\item Einfügen: L
 
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm}]
+\node{$A^{1}$}
+	child{node{$\Box^{-1}$}}
+	child{node{$L^{0}$}};
+\end{tikzpicture}
 
-\subsection*{c) } 
+\item Einfügen: G
 
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm}]
+\node{$A^{\textcolor{red}{2}}$}
+	child{node{$\Box^{-1}$}}
+	child{node{$L^{1}$}
+		child{node{$G^{0}$}}
+		child{node{$\Box^{-1}$}}};
+\end{tikzpicture}
 
+\begin{itemize}
+	\item BF-Faktor bei Knoten $A$ ist größer als 1 $\Rightarrow$ Um-balancieren der Knoten $A,L,G$
+\end{itemize}
 
+$\Rightarrow$ Links-Rotation der Knoten $L\&G$
 
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm}]
+\node{$A^{\textcolor{red}{2}}$}
+	child{node{$\Box^{-1}$}}
+	child{node{$G^{1}$}
+		child{node{$\Box^{-1}$}}
+		child{node{$L^{0}$}}};
+\end{tikzpicture}
+
+$\Rightarrow$ Rechts-Rotation der Knoten $A\&G$
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm}]
+\node{$G^{0}$}
+	child{node{$A^{0}$}}
+	child{node{$L^{0}$}};
+\end{tikzpicture}
+
+$\Rightarrow$ AVL-Baum ist ausgeglichen
+
+\item Einfügen: O
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm}]
+\node{$G^{1}$}
+	child{node{$A^{0}$}}
+	child{node{$L^{1}$}
+		child{node{$\Box^{-1}$}}
+		child{node{$O^{0}$}}};
+\end{tikzpicture}
+
+\item Einfügen: D
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm}]
+\node{$G^{0}$}
+	child{node{$A^{1}$}
+		child{node{$\Box^{-1}$}}
+		child{node{$D^{0}$}}}
+	child{node{$L^{1}$}
+		child{node{$\Box^{-1}$}}
+		child{node{$O^{0}$}}};
+\end{tikzpicture}
+
+\item Einfügen: T
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm}]
+\node{$G^{1}$}
+	child{node{$A^{1}$}
+		child{node{$\Box^{-1}$}}
+		child{node{$D^{0}$}}}
+	child{node{$L^{\textcolor{red}{2}}$}
+		child{node{$\Box^{-1}$}}
+		child{node{$O^{0}$}
+			child{node{$\Box^{-1}$}}
+			child{node{$T^{0}$}}}};
+\end{tikzpicture}
+
+\begin{itemize}
+	\item BF-Faktor bei Knoten $L$ ist größer als 1 $\Rightarrow$ Um-balancieren der Knoten $L,O,T$
+\end{itemize}
+
+$\Rightarrow$ Rechts-Rotation der Knoten $L\&O$
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm}]
+\node{$G^{1}$}
+	child{node{$A^{1}$}
+		child{node{$\Box^{-1}$}}
+		child{node{$D^{0}$}}}
+	child{node{$O^{0}$}
+		child{node{$L^{0}$}}
+		child{node{$T^{0}$}}};
+\end{tikzpicture}
+
+$\Rightarrow$ AVL-Baum ist ausgeglichen
+
+\item Einfügen: S
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm}]
+\node{$G^{1}$}
+	child{node{$A^{1}$}
+		child{node{$\Box$}}
+		child{node{$D^{0}$}}}
+	child{node{$O^{1}$}
+		child{node{$L^{0}$}}
+		child{node{$T^{1}$}
+			child{node{$S^{0}$}}
+			child{node{$\Box$}}}};
+\end{tikzpicture}
+
+\newpage
+\item Einfügen: X
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm}]
+\node{$G^{1}$}
+	child{node{$A^{1}$}
+		child{node{$\Box$}}
+		child{node{$D^{0}$}}}
+	child{node{$O^{1}$}
+		child{node{$L^{0}$}}
+		child{node{$T^{0}$}
+			child{node{$S^{0}$}}
+			child{node{$X^{0}$}}}};
+\end{tikzpicture}
+
+\item Einfügen: Y
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm}]
+\node{$G^{1}$}
+	child{node{$A^{1}$}
+		child{node{$\Box$}}
+		child{node{$D^{0}$}}}
+	child{node{$O^{\textcolor{red}{2}}$}
+		child{node{$L^{0}$}}
+		child{node{$T^{1}$}
+			child{node{$S^{0}$}}
+			child{node{$X^{1}$}
+				child{node{$\Box$}}
+				child{node{$Y^{0}$}}}}};
+\end{tikzpicture}
+
+\begin{itemize}
+	\item BF-Faktor bei Knoten $O$ ist größer als 1 $\Rightarrow$ Um-balancieren der Knoten $O\&T$
+\end{itemize}
+
+$\Rightarrow$ Links-Rotation der Knoten $O\&T$
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=60mm},
+  level 2/.style={sibling distance=40mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$G^{1}$}
+	child{node{$A^{1}$}
+		child{node{$\Box$}}
+		child{node{$D^{0}$}}}
+	child{node{$T^{0}$}
+		child{node{$O^{0}$}
+			child{node{$L^{0}$}}
+			child{node{$S^{0}$}}}
+		child{node{$X^{1}$}
+			child{node{$\Box$}}
+			child{node{$Y^{0}$}}}};
+\end{tikzpicture}
+
+$\Rightarrow$ AVL-Baum ist ausgeglichen
+
+\item Einfügen: Z
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=60mm},
+  level 2/.style={sibling distance=40mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$G^{1}$}
+	child{node{$A^{1}$}
+		child{node{$\Box$}}
+		child{node{$D^{0}$}}}
+	child{node{$T^{0}$}
+		child{node{$O^{0}$}
+			child{node{$L^{0}$}}
+			child{node{$S^{0}$}}}
+		child{node{$X^{\textcolor{red}{2}}$}
+			child{node{$\Box$}}
+			child{node{$Y^{1}$}
+				child{node{$\Box$}}
+				child{node{$Z^{0}$}}}}};
+\end{tikzpicture}
+
+\begin{itemize}
+	\item BF-Faktor bei Knoten $X$ ist größer als 1 $\Rightarrow$ Um-balancieren der Knoten $Y\&Z$
+\end{itemize}
+
+$\Rightarrow$ Links-Rotation der Knoten $X\&Y$
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=60mm},
+  level 2/.style={sibling distance=40mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$G^{1}$}
+	child{node{$A^{1}$}
+		child{node{$\Box$}}
+		child{node{$D^{0}$}}}
+	child{node{$T^{0}$}
+		child{node{$O^{0}$}
+			child{node{$L^{0}$}}
+			child{node{$S^{0}$}}}
+		child{node{$Y^{0}$}
+			child{node{$X^{0}$}}
+			child{node{$Z^{0}$}}}};
+\end{tikzpicture}
+
+$\Rightarrow$ AVL-Baum ist ausgeglichen
+
+\end{enumerate}
+\end{multicols}
+
+\subsection*{b) Beweisen Sie: Beim Einfügen in einen AVL-Baum wird höchstens eine (Einfach- oder Doppel-)Rotation ausgeführt. Gilt das auch beim Löschen (Begründung)?} 
