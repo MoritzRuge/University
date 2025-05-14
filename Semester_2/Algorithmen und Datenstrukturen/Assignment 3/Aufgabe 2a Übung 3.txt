@@ -1,0 +1,20 @@
+Knoten < 37:
+Alle Knoten, die von den 37 Knoten im Baum übrig bleiben (visuell)
+Knoten 30 und der gesamte linke Teilbaum von 30
+und der linke Teilbaum von 40 (ohne 37 selbst)
+Knoten < 37 umfassen: {30, 25, 20, 21, 22, 35, 31, 32}
+
+Knoten > 21:
+Alle Knoten rechts vom 21. Knoten im Baum (visuell)
+Alle Vorgänger Knoten des Knoten 21, für die gilt: n > 21
+Die rechten Teilbäume dieser Vorgänger
+Knoten > 21: {22, 25, 30, 40, 35, 31, 32, 37, 50, 60}
+
+Knoten > 21 und Knoten < 37:
+Alle Knoten, die visuell links von 37 und rechts von 21 sind.
+Knoten im rechten Teilbaum von 21
+Der Knoten 30 und alle Knoten des linken Teilbaums von 30, für die vergoldeten n > 21
+Knoten im linken Teilbaum von 40 außer dem Knoten 37 selbst.
+Knoten > 21 und Knoten < 37: {22, 25, 30, 31, 32, 35}
+
+das ist eine weirde Aufgabe und wahrscheinlich will der Tutor was ganz anderes haben, nur so verstehe ich die Aufgabenstellung																															
