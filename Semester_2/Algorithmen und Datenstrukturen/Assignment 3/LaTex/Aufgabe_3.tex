@@ -1,9 +1,58 @@
-\section*{{Problem 3: Rot-Schwarz Bäume}} 
+\section*{Problem 3: Rot-Schwarz Bäume} 
 
 Ein rot-schwarz Baum ist ein binärer Suchbaum, den wir auf die folgende Weise erweitern: Jeder Knoten und jeder leere Teilbaum erhält eine Farbe (rot oder schwarz), so dass die folgenden Regeln gelten: (i) die Wurzel ist schwarz; (ii) die leeren Teilbäume sind schwarz; (iii) die Kinder eines roten Knoten sind schwarz; und (iv) die schwarze Tiefe aller leeren Teilbäume ist gleich, d.h., für alle leeren Teilbäume ist die Anzahl der schwarzen Knoten auf dem Pfad von der Wurzel zum jeweiligen Teilbaum gleich.\\
 
 \noindent
-\textbf{a)} Zeichnen Sie drei Beispiele für rot-schwarz Bäume und erklären Sie, warum diese jeweils die Regeln für einen rot-schwarz Baum erfüllen.
+\textbf{a)} Zeichnen Sie drei Beispiele für rot-schwarz Bäume und erklären Sie, warum diese jeweils die Regeln für einen rot-schwarz Baum erfüllen. 
+
+\begin{multicols}{2}
+
+\begin{enumerate}
+
+\item Beispiel
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=80mm},
+  level 2/.style={sibling distance=60mm},
+  level 3/.style={sibling distance=40mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$50^{3}$}
+	child{node{$10^{0}$}
+		child{node{$\Box^{-1}$}}
+		child{node{$\Box^{-1}$}}}
+	child{node{\textcolor{red}{$100^{2}$}}
+		child{node{$75^{0}$}
+			child{node{$\Box^{-1}$}}
+			child{node{$\Box^{-1}$}}}
+		child{node{$150^{1}$}
+			child{node{\textcolor{red}{$125^{0}$}}
+				child{node{$\Box^{-1}$}}
+				child{node{$\Box^{-1}$}}}
+			child{node{\textcolor{red}{$175^{0}$}}
+				child{node{$\Box^{-1}$}}
+				child{node{$\Box^{-1}$}}}}};
+\end{tikzpicture}
+
+
+
+\begin{itemize}
+	\item[(i)] Wurzel ist schwarz
+	\item[(ii)] alle leeren Teilbäume sind schwarz
+	\item[(iii)] Kinderknoten von \textcolor{red}{100} sind schwarz(75,150)
+	\item[(iv)]:
+	\begin{itemize}
+		\item linker Teilbaum(10): von der Wurzel bis zu den leeren Teilbäumen haben wir $1$ schwarzen Knoten (10)
+		\item rechter Teilbaum(100-150-175): von der Wurzel bis zu den leeren Teilbaum haben wir $1$ schwarzen Knoten (150)
+	\end{itemize}
+\end{itemize}
+
+\item Beispiel
+
+\item Beispiel
+
+\end{enumerate}
+
+\end{multicols}
 
 \noindent
 \textbf{b)} Sei $T$ ein rot-schwarz Baum, und sei $s$ die schwarze Tiefe der leeren Teilbäume. Zeigen Sie, dass $T$ mindestens $2s-1 - 1$ schwarze Knoten besitzt. Was folgt daraus über die Mindestanzahl von Knoten in einem rot-schwarz Baum mit Höhe $h$? Folgern Sie: ein rot-schwarz Baum mit $n$ Knoten hat Höhe $O(log n)$.\\
