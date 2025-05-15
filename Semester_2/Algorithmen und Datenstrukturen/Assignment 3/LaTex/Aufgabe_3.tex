@@ -5,11 +5,11 @@ Ein rot-schwarz Baum ist ein binärer Suchbaum, den wir auf die folgende Weise e
 \noindent
 \textbf{a)} Zeichnen Sie drei Beispiele für rot-schwarz Bäume und erklären Sie, warum diese jeweils die Regeln für einen rot-schwarz Baum erfüllen. 
 
-\begin{multicols}{2}
 
 \begin{enumerate}
 
-\item Beispiel
+\item \textbf{Beispiel}
+
 
 \begin{tikzpicture}[scale=0.5,
   level 1/.style={sibling distance=80mm},
@@ -34,7 +34,6 @@ Ein rot-schwarz Baum ist ein binärer Suchbaum, den wir auf die folgende Weise e
 \end{tikzpicture}
 
 
-
 \begin{itemize}
 	\item[(i)] Wurzel ist schwarz
 	\item[(ii)] alle leeren Teilbäume sind schwarz
@@ -46,13 +45,91 @@ Ein rot-schwarz Baum ist ein binärer Suchbaum, den wir auf die folgende Weise e
 	\end{itemize}
 \end{itemize}
 
-\item Beispiel
+\textbf{\item Beispiel}
 
-\item Beispiel
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$103^{3}$}
+	child{node{$\textcolor{red}{60^{2}}$}
+		child{node{$\textcolor{black}{20^{1}}$}
+			child[missing]
+			child{node{$\textcolor{red}{32^{0}}$}}}
+		child{node{$\textcolor{black}{86^{0}}$}}}
+	child{node{\textcolor{black}{$145^{1}$}}
+		child{node{$\textcolor{red}{127^{0}}$}}
+		child{node{$\textcolor{red}{166^{0}}$}}};
+\end{tikzpicture}
 
+\begin{itemize}
+	\item[(i)] Wurzel ist schwarz
+	\item[(ii)] alle leeren Teilbäume sind schwarz (aus Platzgründen weggelassen)
+	\item[(iii)] Kinderknoten von \textcolor{red}{60} sind schwarz(20,86)
+	\item[(iv)]:
+	\begin{itemize}
+		\item linker Teilbaum(60-20-32): von der Wurzel bis zu den leeren Teilbäumen haben wir $1$ schwarzen Knoten (20)
+		\item linker Teilbaum(60-86): von der Wurzel bis zu den leeren Teilbäumen haben wir $1$ schwarzen Knoten (86)
+		\item rechter Teilbaum(145-127): von der Wurzel bis zu den leeren Teilbaum haben wir $1$ schwarzen Knoten (145)
+		\item rechter Teilbaum(145-166): von der Wurzel bis zu den leeren Teilbaum haben wir $1$ schwarzen Knoten (145)
+	\end{itemize}
+\end{itemize}
+
+\textbf{\item Beispiel (Falsch)}
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$103^{2}$}
+	child{node{$\textcolor{red}{60^{1}}$}
+		child{node{$\textcolor{black}{20^{0}}$}}
+		child[missing]}
+	child{node{\textcolor{red}{$145^{1}$}}
+		child{node{$\textcolor{black}{127^{0}}$}}
+		child{node{$\textcolor{red}{166^{0}}$}}};
+\end{tikzpicture}
+
+\begin{itemize}
+	\item[(i)] Wurzel ist schwarz
+	\item[(ii)] alle leeren Teilbäume sind schwarz (aus Platzgründen weggelassen)
+	\item[(iii)] Kinderknoten von (\textcolor{red}{60,145}) ist schwarz(20,127)
+	\item[(iii)] Kinderknoten von \textcolor{red}{145} ist rot(166) - Verletzung der Schwarz-Rot-Baum-Eigenschaft!
+\end{itemize}
+
+$\Rightarrow$ Die ist aufgrund der Verletzung von (iii) kein gültiger Schwarz-Rot-Baum! Siehe \textbf{3.1} für die Korrigierte Variante.
+
+\item[\textbf{3.1}]\textbf{Beispiel (Richtig)}
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$103^{2}$}
+	child{node{$\textcolor{red}{60^{1}}$}
+		child{node{$\textcolor{black}{20^{0}}$}}
+		child[missing]}
+	child{node{\textcolor{red}{$145^{1}$}}
+		child{node{$\textcolor{black}{127^{0}}$}}
+		child{node{$\textcolor{black}{166^{0}}$}}};
+\end{tikzpicture}
+
+\begin{itemize}
+	\item[(i)] Wurzel ist schwarz
+	\item[(ii)] alle leeren Teilbäume sind schwarz (aus Platzgründen weggelassen)
+	\item[(iii)] Kinderknoten von (\textcolor{red}{60,145}) ist schwarz(20,127,166)
+	\item[(iv)]:
+	\begin{itemize}
+		\item linker Teilbaum(60-20): von der Wurzel bis zu den leeren Teilbäumen haben wir $1$ schwarzen Knoten (20)
+		\item rechter Teilbaum(145-127): von der Wurzel bis zu den leeren Teilbaum haben wir $1$ schwarzen Knoten (127)
+		\item rechter Teilbaum(145-166): von der Wurzel bis zu den leeren Teilbaum haben wir $1$ schwarzen Knoten (166)
+	\end{itemize}
+\end{itemize}
 \end{enumerate}
 
-\end{multicols}
 
 \newpage
 \noindent
