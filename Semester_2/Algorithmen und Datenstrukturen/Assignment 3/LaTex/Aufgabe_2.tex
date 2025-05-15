@@ -44,12 +44,35 @@ Schlüssel, die größer sind als 21? Wo befinden sich die Schlüssel, die zwisc
 \textbf{b)} Beschreiben Sie, wie man in einem AVL-Baum mit $n$ Schlüsseln die Operation
 findRange(k1 , k2 ) implementieren kann, die alle Schlüssel $k$ liefert, für die
 $k1 \leq k \leq k2$ ist. Die Laufzeit soll $O(log n + s)$ betragen. Dabei ist s die Anzahl
-der gelieferten Schlüssel.
+der gelieferten Schlüssel.\\
+
+\noindent
+\textbf{Idee/Annahme:}
+
+\begin{itemize}
+	\item Ein AVL-Baum ist ein balancierter binärer Suchbaum, d.h. für jeden Knoten gilt:
+	\item Alle Schlüssel im linken Teilbaum $T_{L}$ sind kleiner als der Elternknoten
+	\item Alle Schlüssel im rechten Teilbaum $T_{R}$ sind größer als der Elternknoten
+	\item Die allgemeine Laufzeit eines AVL-Baums beträgt $O(logn)$
+\end{itemize}
+
+
+\textbf{Herangehensweise:} 
+\begin{itemize}
+	\item Wenn der Schlüssel $k_{1}<$ Elternknotens ist gehen wir weiter in den linken Teilbaum$T_{L}$, bis wir bei $k_{1}$ oder $NULL$ sind.
+	\item Wenn der Schlüssel $k_{2}>$ Elternknoten ist gehen wir in den rechten Teilbaum $T_{R}$, bis wir bei $k_{2}$ oder $NULL$ sind.
+	\item Sollte während des Vergleichs der Knoten: $k_{1}\leq$ $Knoten$ $\leq k_{2}$ $\rightarrow$ speichern wir den Wert
+	\item So laufen wir durch den gesamten Baum, bzw. durch alle Knoten die sich innerhalb des Intervalls von $[k_{1},k_{2}]$ befinden.
+	\item Dabei nutzen wir die Eigenschaften eines AVL-Baums aus (das er geordnet ist) und betreten beim Suchen nur die relevanten Teilbäume.
+\end{itemize}
 
 
 
 
- 
+
+
+
+
 
 
 
