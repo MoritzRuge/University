@@ -1,6 +1,10 @@
-\section*{Problem 3: Rot-Schwarz Bäume} 
+\section*{Problem 3: (a,b)-Bäume} 
 
-\textbf{a)}
+\textbf{a)} Beschreiben Sie, wie man in einem (a, b)-Baum mit n Schlüsseln die Operation succ(k) implementieren kann. Was ist die Laufzeit?\\
 
 \noindent
-\textbf{b)}
+\textbf{b)} Beschreiben Sie, wie man in einem (a, b)-Baum mit n Schlüsseln die Operation $findRange(k1 , k2)$ implementieren kann, die alle Schlüssel $k$ liefert, für die
+$k1 \leq k \leq k2$ ist. Die Laufzeit soll $O(b loga n + s)$ betragen. Dabei ist $s$ die Anzahl der gelieferten Schlüssel.\\
+
+\noindent
+\textbf{c)} Seien $T1$ und $T2$ zwei (a, b)-Bäume, und sei $S1$ die Schlüsselmenge von $T1$ und $S2$ die Schlüsselmenge von $T2$ . Sei $x$ ein weiterer Schlüssel. Alle Schlüssel in $S1$ sind kleiner als $x$, und alle Schlüssel in $S2$ sind größer als $x$. Beschreiben Sie eine Operation join, die aus $T1$, $T2$ und $x$ einen (a, b)-Baum für die Schlüsselmenge $S1 \cup {x} \cup S2$ erzeugt. Die Laufzeit sollte $O(b loga max{|S1|, |S2|})$ betragen. Hinweis: Betrachten Sie zunächst den Fall, dass $T1$ und $T2$ die gleiche Höhe haben. Achten Sie darauf, dass hinterher die (a, b)-Baum Eigenschaften wieder hergestellt werden.
