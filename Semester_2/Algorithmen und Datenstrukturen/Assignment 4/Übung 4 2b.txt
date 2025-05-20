@@ -1,0 +1,101 @@
+A, L, G, O, D, T, S, X, Y, Z in dieser Reihenfolge in
+einen anfangs leeren (2, 4)-Baum ein. L¨oschen Sie sodann die Schl¨ussel Z, A,
+L. 
+ min children: 2, max children: 4
+ min entries: 1, max entries: 3
+A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z
+```
+insert(A):
+              -----
+              | A |
+              -----
+insert(L):
+              ---------
+              | A | L |
+              ---------
+insert(G):
+              -------------
+              | A | G | L |
+              -------------
+insert(O): first split
+                 -----
+                 | G |
+                 -----
+               /       \
+              /         \
+           | A |        | L | O |
+insert(D):
+                 -----
+                 | G |
+                 -----
+               /       \
+              /         \
+         | A | D |     | L | O |
+insert(T): second split
+                 ---------
+                 | G | O |
+                 ---------
+               /     |    \
+              /      |     \
+         | A | D | | L |   | T |
+insert(S): 
+                 ---------
+                 | G | O |
+                 ---------
+               /     |    \
+              /      |     \
+         | A | D | | L |   | S | T |
+insert(X):
+                 ---------
+                 | G | O |
+                 ---------
+               /     |    \
+              /      |     \
+         | A | D | | L |   | S | T | X |
+insert(Y): rebasing the root -> third split
+                 ---------------
+                 | G    |    T |
+                 ---------------
+                /       |        \
+               /        |         \
+         | A | D | | L | O | S | | X | Y |
+insert(Z):
+                 ---------------
+                 | G    |    T |
+                 ---------------
+                /       |        \
+               /        |         \
+         | A | D | | L | O | S | | X | Y | Z |
+```
+Starting tree:
+                 ---------------
+                 | G    |    T |
+                 ---------------
+                /       |        \
+               /        |         \
+         | A | D | | L | O | S | | X | Y | Z |
+
+delete(Z): delete from leaf
+                 ---------------
+                 | G    |    T |
+                 ---------------
+                /       |        \
+               /        |         \
+         | A | D | | L | O | S | | X | Y |
+
+delete(A): delete from leaf -> min 1 key required -> condition holds true
+                 ---------------
+                 | G    |    T |
+                 ---------------
+                /       |        \
+               /        |         \
+         | D |     | L | O | S | | X | Y |
+
+delete(L): delete from Leaf -> 2 keys pressed -> node requirements satisfied -> G < O and S < T -> Order condition satisfied.
+                 ---------------
+                 | G    |    T |
+                 ---------------
+                /       |        \
+               /        |         \
+         | D |     | O | S |   | X | Y |
+
