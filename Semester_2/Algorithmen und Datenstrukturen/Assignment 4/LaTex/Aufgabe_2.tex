@@ -3,20 +3,100 @@
 
 \textbf{a)} Fügen Sie die Schlüssel A, L, G, O, D, T, S, X, Y, Z in dieser Reihenfolge in einen anfangs leeren (2, 3)-Baum ein. Löschen Sie sodann die Schlüssel Z, A, L. Zeichnen Sie den Baum nach jedem Einfüge- und Löschvorgang, und zeigen Sie die Modifikation, welche durchgeführt werden. \\
 
-\noindent
-\textbf{b)} Wiederholen Sie die Teilaufgabe (a) mit einem (2, 4)-Baum. \\
+
+Ein (2,3)-Baum hat folgende Grenzen:
+\begin{itemize}
+\item min children: 2, max children: 3
+\item min entries: 1, max entries: 2
+\end{itemize}
+
+\begin{enumerate}
+
+\item insert(A):
 
 \begin{tikzpicture}[scale=0.5,
   level 1/.style={sibling distance=40mm},
   level 2/.style={sibling distance=20mm},
   level 3/.style={sibling distance=20mm},
   level 4/.style={sibling distance=20mm}]
-\node{$[A|L]$}
-	child{node{[B]}}
-	child{node{[C]}}
-	child{node{[D]}};
-
+\node{$[A]$};
 \end{tikzpicture}
+
+\item insert(L):
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[A|L]$};
+\end{tikzpicture}
+
+\item insert(G):
+
+\begin{tikzpicture}[scale=0.5]
+\node{$[A|L|\textcolor{red}{G}]$};
+\end{tikzpicture}\\
+$\Rightarrow$ Die Wurzel hat zu viele Einträge $\rightarrow$ Splitten
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=20mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[L]$}
+	child{node{$[A]$}}
+	child[missing]
+	child{node{[G]}};
+\end{tikzpicture}\\
+
+\item insert(O):
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=20mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[L]$}
+	child{node{$[A]$}}
+	child[missing]
+	child{node{$[G|O]$}};
+\end{tikzpicture}\\
+
+\item insert(D):
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=20mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[L]$}
+	child{node{$[A|D]$}}
+	child[missing]
+	child{node{$[G|O]$}};
+\end{tikzpicture}\\
+
+
+\item insert(T):
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=20mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[D|L]$}
+	child{node{$[A]$}}
+	child[missing]
+	child{node{$[G|O]$}};
+\end{tikzpicture}\\
+
+\end{enumerate}
+
+\newpage
+\noindent
+\textbf{b)} Wiederholen Sie die Teilaufgabe (a) mit einem (2, 4)-Baum. \\
+
+
 
 
 \begin{verbatim}
