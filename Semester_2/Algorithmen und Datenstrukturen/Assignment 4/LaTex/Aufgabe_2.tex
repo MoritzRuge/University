@@ -8,7 +8,10 @@ Ein (2,3)-Baum hat folgende Grenzen:
 \begin{itemize}
 \item min children: 2, max children: 3
 \item min entries: 1, max entries: 2
+\item A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z
 \end{itemize}
+
+\begin{multicols}{2}
 
 \begin{enumerate}
 
@@ -35,7 +38,7 @@ Ein (2,3)-Baum hat folgende Grenzen:
 \item insert(G):
 
 \begin{tikzpicture}[scale=0.5]
-\node{$[A|L|\textcolor{red}{G}]$};
+\node{$[A|\textcolor{red}{G}|L]$};
 \end{tikzpicture}\\
 $\Rightarrow$ Die Wurzel hat zu viele Einträge $\rightarrow$ Splitten
 
@@ -44,10 +47,10 @@ $\Rightarrow$ Die Wurzel hat zu viele Einträge $\rightarrow$ Splitten
   level 2/.style={sibling distance=20mm},
   level 3/.style={sibling distance=20mm},
   level 4/.style={sibling distance=20mm}]
-\node{$[L]$}
+\node{$[G]$}
 	child{node{$[A]$}}
 	child[missing]
-	child{node{[G]}};
+	child{node{$[L]$}};
 \end{tikzpicture}\\
 
 \item insert(O):
@@ -57,10 +60,10 @@ $\Rightarrow$ Die Wurzel hat zu viele Einträge $\rightarrow$ Splitten
   level 2/.style={sibling distance=20mm},
   level 3/.style={sibling distance=20mm},
   level 4/.style={sibling distance=20mm}]
-\node{$[L]$}
+\node{$[G]$}
 	child{node{$[A]$}}
 	child[missing]
-	child{node{$[G|O]$}};
+	child{node{$[L|O]$}};
 \end{tikzpicture}\\
 
 \item insert(D):
@@ -70,10 +73,10 @@ $\Rightarrow$ Die Wurzel hat zu viele Einträge $\rightarrow$ Splitten
   level 2/.style={sibling distance=20mm},
   level 3/.style={sibling distance=20mm},
   level 4/.style={sibling distance=20mm}]
-\node{$[L]$}
+\node{$[G]$}
 	child{node{$[A|D]$}}
 	child[missing]
-	child{node{$[G|O]$}};
+	child{node{$[L|O]$}};
 \end{tikzpicture}\\
 
 
@@ -84,14 +87,155 @@ $\Rightarrow$ Die Wurzel hat zu viele Einträge $\rightarrow$ Splitten
   level 2/.style={sibling distance=20mm},
   level 3/.style={sibling distance=20mm},
   level 4/.style={sibling distance=20mm}]
-\node{$[D|L]$}
-	child{node{$[A]$}}
+\node{$[G]$}
+	child{node{$[A|D]$}}
 	child[missing]
-	child{node{$[G|O]$}};
+	child{node{$[L|O|\textcolor{red}{T}]$}};
 \end{tikzpicture}\\
 
-\end{enumerate}
+$\Rightarrow$ Das rechte Blatt $[L|O|T]$ hat zu viele Einträge $\rightarrow$ Rebalance
 
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=20mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[G|O]$}
+	child{node{$[A|D]$}}
+	child{node{$[L]$}}
+	child{node{$[T]$}};
+\end{tikzpicture}\\
+
+
+\item insert(S):
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=20mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[G|O]$}
+	child{node{$[A|D]$}}
+	child{node{$[L]$}}
+	child{node{$[S|T]$}};
+\end{tikzpicture}\\
+
+\item insert(X):
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=20mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[G|O]$}
+	child{node{$[A|D]$}}
+	child{node{$[L]$}}
+	child{node{$[S|T|\textcolor{red}{X}]$}};
+\end{tikzpicture}\\
+
+$\Rightarrow$ Das rechte Blatt $[S|T|\textcolor{red}{X}]$ hat zu viele Einträge $\rightarrow$ Rebalance
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=20mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[G|\textcolor{red}{O}|T]$}
+	child{node{$[A|D]$}}
+	child{node{$[L]$}}
+	child{node{$[S]$}}
+	child{node{$[X]$}};
+\end{tikzpicture}\\
+
+$\Rightarrow$ Die Wurzel hat zu viele Einträge \& zu viele Kinder $\rightarrow$ Rebalance
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[O]$}
+	child{node{$[G]$}
+		child{node{$[A|D]$}}
+		child{node{$[L]$}}}
+	child{node{$[T]$}
+	child{node{$[S]$}}
+	child{node{$[X]$}}};
+\end{tikzpicture}\\
+
+\item insert(Y):
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[O]$}
+	child{node{$[G]$}
+		child{node{$[A|D]$}}
+		child{node{$[L]$}}}
+	child{node{$[T]$}
+	child{node{$[S]$}}
+	child{node{$[X|Y]$}}};
+\end{tikzpicture}\\
+
+\item insert(Z):
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=40mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[O]$}
+	child{node{$[G]$}
+		child{node{$[A|D]$}}
+		child{node{$[L]$}}}
+	child{node{$[T]$}
+	child{node{$[S]$}}
+	child{node{$[X|Y|\textcolor{red}{Z}]$}}};
+\end{tikzpicture}\\
+
+$\Rightarrow$ Der Knoten $[X|Y|\textcolor{red}{Z}]$ hat zu viele Einträge $\rightarrow$ Balancieren
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=45mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[O]$}
+	child{node{$[G]$}
+		child{node{$[A|D]$}}
+		child{node{$[L]$}}}
+	child{node{$[T|Y]$}
+		child{node{$[\textcolor{red}{S}]$}}
+		child{node{$[\textcolor{red}{X}]$}}
+		child{node{$[\textcolor{red}{Z}]$}}};
+\end{tikzpicture}\\
+
+$\Rightarrow$ Der Knoten $[T|Y]$ hat zu viele Kinder $\rightarrow$ Balancieren
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=45mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[O]$}
+	child{node{$[G]$}
+		child{node{$[A|D]$}}
+		child{node{$[L]$}}}
+	child{node{$[T|Y]$}
+		child{node{$[\textcolor{red}{S}]$}}
+		child{node{$[\textcolor{red}{X}]$}}
+		child{node{$[\textcolor{red}{Z}]$}}};
+\end{tikzpicture}\\
+
+\item remove(Z):
+\item remove(A):
+\item remove(L):
+
+
+\end{enumerate}
+\end{multicols}
 \newpage
 \noindent
 \textbf{b)} Wiederholen Sie die Teilaufgabe (a) mit einem (2, 4)-Baum. \\
