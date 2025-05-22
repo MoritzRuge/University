@@ -91,7 +91,7 @@ findRange(k_1,k_2):
 	\begin{itemize}
 	\item $\Rightarrow$ Sei $S1 < x < S2$
 	\item Setzte den Schlüssel $x$ als Wurzel
-	\item Das linke Kind wird der Baum $T1$ und das rechte Kind wird der Baum $T2$
+	\item Das linke Kind wird der Baum $T1$ und das rechte Kind wird der Baum $T2$ $\Rightarrow$ $join(T1, x, T2)$
 	\item Da die Bäume schon in (a,b)-Baum Ordnung sind, müssen wir hier auch nicht weiter überprüfen 
 	\end{itemize}
 
@@ -100,7 +100,7 @@ findRange(k_1,k_2):
 Angenommen $T1$ ist höher als $T2$
 \begin{itemize}
 	\item durchlaufe den größeren Baum($T1$) bis zur Höhe von $T2$
-	\item führe nun auf gleicher Höhe den Merge durch von $T1$, bis zur Höhe $h$, und $T2$ 
+	\item führe nun auf gleicher Höhe die $join$ Operation durch von $T1$, bis zur Höhe $h$, und $T2$ 
 	\item die Restlichen Knoten von T1 werden danach eingefügt, dabei müssen wir die (a,b)-Baum Ordnung überprüfen, da Knoten jetzt zu viele Elemente haben können $\Rightarrow$ wir müssen nach oben hin mit Splits oder Merges arbeiten
 \end{itemize}
 
