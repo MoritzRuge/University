@@ -82,6 +82,33 @@ findRange(k_1,k_2):
 
 	
 
-
+\newpage
 \noindent
-\textbf{c)} Seien $T1$ und $T2$ zwei (a, b)-Bäume, und sei $S1$ die Schlüsselmenge von $T1$ und $S2$ die Schlüsselmenge von $T2$ . Sei $x$ ein weiterer Schlüssel. Alle Schlüssel in $S1$ sind kleiner als $x$, und alle Schlüssel in $S2$ sind größer als $x$. Beschreiben Sie eine Operation join, die aus $T1$, $T2$ und $x$ einen (a, b)-Baum für die Schlüsselmenge $S1 \cup {x} \cup S2$ erzeugt. Die Laufzeit sollte $O(b loga max{|S1|, |S2|})$ betragen. Hinweis: Betrachten Sie zunächst den Fall, dass $T1$ und $T2$ die gleiche Höhe haben. Achten Sie darauf, dass hinterher die (a, b)-Baum Eigenschaften wieder hergestellt werden.
+\textbf{c)} Seien $T1$ und $T2$ zwei (a, b)-Bäume, und sei $S1$ die Schlüsselmenge von $T1$ und $S2$ die Schlüsselmenge von $T2$ . Sei $x$ ein weiterer Schlüssel. Alle Schlüssel in $S1$ sind kleiner als $x$, und alle Schlüssel in $S2$ sind größer als $x$. Beschreiben Sie eine Operation join, die aus $T1$, $T2$ und $x$ einen (a, b)-Baum für die Schlüsselmenge $S1 \cup \{x\} \cup S2$ erzeugt. Die Laufzeit sollte $O(b \log_{a} max\{|S1|, |S2|\})$ betragen. Hinweis: Betrachten Sie zunächst den Fall, dass $T1$ und $T2$ die gleiche Höhe haben. Achten Sie darauf, dass hinterher die (a, b)-Baum Eigenschaften wieder hergestellt werden.\\
+
+\begin{enumerate}
+\item Fall - $T1$ \& $T2$ haben die gleiche Höhe
+	\begin{itemize}
+	\item $\Rightarrow$ Sei $S1 < x < S2$
+	\item Setzte den Schlüssel $x$ als Wurzel
+	\item Das linke Kind wird der Baum $T1$ und das rechte Kind wird der Baum $T2$
+	\item Da die Bäume schon in (a,b)-Baum Ordnung sind, müssen wir hier auch nicht weiter überprüfen 
+	\end{itemize}
+
+
+\item Fall - $T1$ \& $T2$ haben unterschiedliche Höhe\\
+Angenommen $T1$ ist höher als $T2$
+\begin{itemize}
+	\item durchlaufe den größeren Baum($T1$) bis zur Höhe von $T2$
+	\item führe nun auf gleicher Höhe den Merge durch von $T1$, bis zur Höhe $h$, und $T2$ 
+	\item die Restlichen Knoten von T1 werden danach eingefügt, dabei müssen wir die (a,b)-Baum Ordnung überprüfen, da Knoten jetzt zu viele Elemente haben können $\Rightarrow$ wir müssen nach oben hin mit Splits oder Merges arbeiten
+\end{itemize}
+
+\item[$-$] Laufzeitanalyse
+\begin{itemize}
+	\item Das durchsteigen eines (a,b,)-Baums zur Höhe $h$ hin dauert $O(\log_{a} max\{|S1|, |S2|\})$
+	\item Das spliten oder Mergen auf dem Pfad nach oben braucht $O(b)$, da ein Knoten maximal $b$ Kinder haben kann.
+	\item Gesamtlaufzeit: $O(b \log_{a} max\{|S1|, |S2|\})$
+\end{itemize}
+
+\end{enumerate}
