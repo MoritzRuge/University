@@ -26,5 +26,62 @@ $\Rightarrow$ Die Laufzeit beträgt $O(logn)$, da die Höhe eines (a,b)-Baums $O
 \textbf{b)} Beschreiben Sie, wie man in einem (a, b)-Baum mit n Schlüsseln die Operation $findRange(k1 , k2)$ implementieren kann, die alle Schlüssel $k$ liefert, für die
 $k1 \leq k \leq k2$ ist. Die Laufzeit soll $O(b loga n + s)$ betragen. Dabei ist $s$ die Anzahl der gelieferten Schlüssel.\\
 
+\begin{verbatim}
+findRange(k_1,k_2):
+ Sei T ein (a,b)-Baum mit Knoten v.
+ Jeder Knoten besteht aus einem oder mehreren keys k_i, dabei sind die keys innerhalb 
+ eines Knoten von links(kleinster) nach rechts(größter) key sortiert.
+ Jeder key hat zusätzlich einen Verweis (ab hier pointer genannt) auf seine 
+ Kinder- und Elternknoten.
+ 
+ 
+ Pseusocode findRange(k_1,k_2):
+ - Wenn gilt: k_1 == k_2 -> wenn die gesuchte Reichweite nur einen key beinhaltet 
+ gibt die Position des keys mittels get(k_2) zurück, wenn sie existiert.
+	return get(k_2)
+	
+ - erstelle eine leere Liste: found_keys = []
+ - erstelle einen counter für keys: left_boarder = k_1
+ 
+ - Finde den key k_i >= k_1 mit der Funktion get(left_boarder), um die Linke 
+ Grenze zu bestimmen. get(left_boarder) ist notwendig, falls k_1 
+ nicht Teil des (a,b)-Baumes ist.
+   - solange kein k_i gefunden wurde wiederhole diesen Funktionsaufruf, bis 
+   ein k_i gefunden wurde. Inkrementiere Dabei vor jeder nächsten Iteration 
+   den counter left_boarder.
+     - Wenn gilt: k_i == k_2 -> dann liegt die gesuchte Reichweite nicht im Baum
+	return err
+	
+     - Wenn gilt: k_i >= k_1 -> hänge den key der Liste an und verlasse den Loop.
+	found_keys.append(k_i)
+	break
+	
+ - // Diese Suche hat im worst-case eine Zeitkomplexität von O(b*log_a(n)). O(get) = O(log(n)) 
+ und dies muss maximal b-mal wiederholt werden, da der startkey k_i minimal 
+ der kleinste key innerhalb eines Knotend v sein kann. Spätestens nach der b-ten
+ Inkrementierung ist der key k_i == Elternkey des Knotens v, in dem sich k_i zu Beginn
+  befindet und dieser ist größer als k_1.
+ - Nun kann man iterative linear alle keys, für die gilt: k_j = found_nodes[0], 
+ k_j <= k_2, an die Liste der gefundenen keys anhängen.
+   - für Knoten v gilt: v = (k_1,...,k_l)
+   - solange k_j <= k_2:
+     - solange k_j <= k_l -> hänge k_j and die Liste der gefundenen keys an.
+	found_keys.append(k_j) 
+	
+     - k_j = Elternkey von v
+ - return found_keys // gibt die Liste aller keys zurück, die gefunden wurden 
+ found_keys[0] = k_1 und found_keys[len(found_keys)-1] = k_2
+ - Die Zeitkomplexität dieser Suche ist O(s*log(s)), wobei s die Anzahl der 
+ besuchten keys ist. s-mal, da insgesamt s keys betrachtet wurden und 
+ log(s)-mal, da innerhalb eines bestimmten Knoten nur ein bestimmter Teil von s 
+ betrachtet wird.
+   Die Dominate Klasse ist linear O(s)
+ - Für die Gesamt Zeitkomplexität gilt: O(b*log_a(n) + s), weil die beiden Teile 
+ der Funktion squentiell ablaufen und nicht ineinander verschachtelt sind. 
+\end{verbatim}
+
+	
+
+
 \noindent
 \textbf{c)} Seien $T1$ und $T2$ zwei (a, b)-Bäume, und sei $S1$ die Schlüsselmenge von $T1$ und $S2$ die Schlüsselmenge von $T2$ . Sei $x$ ein weiterer Schlüssel. Alle Schlüssel in $S1$ sind kleiner als $x$, und alle Schlüssel in $S2$ sind größer als $x$. Beschreiben Sie eine Operation join, die aus $T1$, $T2$ und $x$ einen (a, b)-Baum für die Schlüsselmenge $S1 \cup {x} \cup S2$ erzeugt. Die Laufzeit sollte $O(b loga max{|S1|, |S2|})$ betragen. Hinweis: Betrachten Sie zunächst den Fall, dass $T1$ und $T2$ die gleiche Höhe haben. Achten Sie darauf, dass hinterher die (a, b)-Baum Eigenschaften wieder hergestellt werden.
