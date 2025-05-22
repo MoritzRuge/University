@@ -213,9 +213,97 @@ $\Rightarrow$ Der Knoten $[X|Y|\textcolor{red}{Z}]$ hat zu viele Einträge $\rig
 \end{tikzpicture}\\
 
 \item remove(Z):
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=45mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[O]$}
+	child{node{$[G]$}
+		child{node{$[A|D]$}}
+		child{node{$[L]$}}}
+	child{node{$[T|\textcolor{red}{Y}]$}
+		child{node{$[S]$}}
+		child{node{$[X]$}}
+		child{node{$[\textcolor{red}{...}]$}}};
+\end{tikzpicture}\\
+
+$\Rightarrow$ Rebalance $[Y]$ \& $[...]$ Node.
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=45mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[O]$}
+	child{node{$[G]$}
+		child{node{$[A|D]$}}
+		child{node{$[L]$}}}
+	child{node{$[T]$}
+		child{node{$[S]$}}
+		child{node{$[X|Y]$}}};
+\end{tikzpicture}\\
+
 \item remove(A):
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=45mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[O]$}
+	child{node{$[G]$}
+		child{node{$[D]$}}
+		child{node{$[L]$}}}
+	child{node{$[T]$}
+		child{node{$[S]$}}
+		child{node{$[X|Y]$}}};
+\end{tikzpicture}\\
+
 \item remove(L):
 
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=45mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[O]$}
+	child{node{$[G]$}
+		child{node{$[D]$}}
+		child{node{$[\textcolor{red}{...}]$}}}
+	child{node{$[T]$}
+		child{node{$[S]$}}
+		child{node{$[X|Y]$}}};
+\end{tikzpicture}\\
+
+$\Rightarrow$ Blatt ist leer Rebalance
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=45mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[O]$}
+	child{node{$\textcolor{red}{...}$}
+		child{node{$[D|G]$}}}
+	child{node{$[T]$}
+		child{node{$[S]$}}
+		child{node{$[X|Y]$}}};
+\end{tikzpicture}\\
+
+$\Rightarrow$ Knoten ist leer Rebalance $O \& T$
+
+\begin{tikzpicture}[scale=0.5,
+  level 1/.style={sibling distance=45mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=20mm},
+  level 4/.style={sibling distance=20mm}]
+\node{$[O|T]$}
+	child{node{$[D|G]$}}
+	child{node{$[S]$}}
+	child{node{$[X|Y]$}};
+\end{tikzpicture}\\
 
 \end{enumerate}
 \end{multicols}
