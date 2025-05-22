@@ -1,0 +1,108 @@
+Aufgabe 1 Rot-Schwarz Bäume und (2, 4)-Bäume 10 
+(a) Zeigen Sie: Rot-schwarz Bäume und (2, 4)-Bäume sind äquivalent. Genauer: es
+gibt eine lokale Transformation, welche Gruppen von Knoten im rot-schwarz
+Baum in Knoten im (2, 4)-Baum überführt, und umgekehrt. Geben Sie eine
+solche Transformation an, und begründen Sie, dass Ihre Transformation die
+Bedingungen an rot-schwarz Bäume und an (2, 4)-Bäume erfüllt.
+
+In einem (2,4)-Baum gilt:
+min: 2 Kindknoten und max: 4 Kindknoten
+min Einträge: 1 und max Einträge: 3
+Bei der Convertierung eines (2,4)-Baums in einen Rot-Schwarz-Baum müssen betrachtet werden:
+k: Elternknoten; w: Kinderknoten
+Convertierung:
+        1-Knoten -> rot-schwarz: Bei einem Knoten mit nur 1. Eintrag, wird der Knoten zu einem Schwarzknoten. -> 
+	  - Ein 1-Knoten hat entweder 0 oder 2 Kindknoten
+            - 0 Kindknoten: Schwarzer Blattknoten
+            - 2 Kindknoten: für den 1-Knoten gilt: v = (w_1,k_1,w_2), wobei w_1 < k_1 < w_2 -> w_1 wird zum linken Kindknoten von k_1 und w_2 wird zum rechten Kind von k_1
+              Die Farbe der Kindknoten wird vom Elternknoten bestimmt.
+
+	2-Knoten -> red-black: Bei einem Knoten mit 2 Einträgen, wird 1 Knoten zum Elternknoten und der andere Knoten wird zum Kindknoten
+          - Dabei gilt: v = (k_1, k_2), wobei k_1 < k_2 -> Daraus entstehen zwei Möglichkeiten:
+            (i) k_1: Elternknoten und k_2: rechter Kindknoten 
+            (ii) k_2: Elternknoten und k_1: linker Kindknoten
+          - Ein 2-Knoten hat 3 oder 0 Kindknoten. Für die Verteilung der Kindknoten gilt:
+            - Wenn v keine Kindknoten hat, dann ist v ein Blattknoten. Somit gilt für die Kinder von v, dass sie zu schwarzen Blattknoten werden, nachdem sie in den Rot-Schwarz-Baum überführt wurden.
+            - v = (w_1,k_1,w_2,k_2,w_3) 
+Zur Veranschaulichung:
+```  
+     |A|B|
+    C  D  E     
+```
+           - Für v gibt es wieder zwei Möglichkeiten:
+           - es gilt w_1 < ... < k_2 < w_3 -> Größenordnung von links nach rechts
+             (1.) k_1 wird zum Elternknoten:
+                w_1: linker Kindknoten von k_1
+                k_2: rechter Kindknoten von k_1
+                w_2: linker Kindknoten von k_2
+                w_3: rechter Kindknoten von k_2
+             (2.) k_2 wird zum Elternknoten:
+                k_1: linker Kindknoten von k_2
+                w_3: rechter Kindknoten von k_2
+                w_1: linker Kindknoten von k_1
+                w_2: rechter Kindknoten von k_1
+           - Die Farbe der Kindknoten wird vom Elternknoten bestimmt.
+	
+        3-Knoten -> red-black: Bei einem Knoten mit 2 Einträgen gilt: v = (k_1,k_2,k_3), dabei wird k_2 zum Schwarzen Elternknoten, k_1 zum Roten linken Kindknoten von k_2 und k_3 zum rechten Kindknoten von k_2.
+          - Ein 3-Knoten hat 4 oder 0 Kindknoten. Für diese gilt:
+            - w_1 < k_1 < w_2 < k_2 < w_3 < k_3 < w_4 
+            - Darus folgt:
+                w_1: linker Kindknoten von k_1
+                w_2: rechter Kindknoten von k_1
+                w_3: linker Kindknoten von k_3
+                w_4: rechter Kindknoten von k_3
+            - Wenn v keine Kindknoten hat, dann ist v ein Blattknoten. Somit gilt für die Kinder von v, dass sie zu schwarzen Blattknoten werden, nachdem sie in den Rot--Schwarz-Baum überführt wurden.
+            - Die Farbe der Kindknoten wird vom Elternknoten bestimmt.
+
+Wurzel:
+ - Die Wurzel verhält sich je nach Baum, genau wie ein Innerer Knoten oder ein Blatt Knoten und ist immer Schwarz. Eine spezielle Betrachtung ist daher nicht nötig. Die Farbwahl aller Knoten in einem in Rot-Schwarz überführten (2,4)-Baum geht von der Wurzel aus.
+
+Unter Anwendung dieser Regeln, lässt sich jeder (2,4) Baum in einen Rot-Schwarz-Baum überführen.
+Beispiel: (2,4)-Baum aus der Aufgabe 2b -> Rot-Schwarz-Baum
+Ich stelle Knoten im Rot-Schwarz-Baum als Tuppel (key,colour)
+```
+                 ---------------
+                 | G    |    T |
+                 ---------------
+                /       |        \
+               /        |         \
+         | A | D | | L | O | S | | X | Y | Z |
+```
+```1. Wurzel -> Rot-Schwarz-Knoten Wähle G als Wurzel im Rot-Schwarz-Baum
+                   (G,B)
+                /        \
+               /          \
+         | A | D |       (T,R)
+                       /       \
+              | L | O | S | | X | Y | Z |
+```2. Linkes Kind von G -> Rot-Schwarz-Knoten Wähle D als Elternknoten von A.
+                   (G,B)
+                /        \
+               /          \
+            (D,R)       (T,R)
+          /           /       \
+        (A,B)   | L | O | S | | X | Y | Z |
+```3. Linkes und Rechtes Kind von R -> Rot-Schwarz-Knoten Wähle O als Elternknoten von L,S und Y als Elternknoten von X,Z
+                   (G,B)
+                /        \
+               /          \
+            (D,R)       (T,R)
+          /           /       \
+        (A,B)      (O,B)     (Y,B)
+                  /     \   /     \
+                |L|    |S| |X|    |Z|
+```
+```4. Wandle verbliebende (2,4)-Blätter in Rot-Schwarz-Blätter um. 
+                   (G,B)
+                /        \
+               /          \
+            (D,R)       (T,R)
+          /           /       \
+         /           /         \
+       (A,B)      (O,B)       (Y,B)
+       /   \     /     \     /     \
+      B     B  (L,R) (S,R) (X,R)   (Z,R)
+               /   \ /   \ /   \   /   \
+              B    B B   B B   B  B     B
+```
+       

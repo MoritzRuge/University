@@ -207,26 +207,9 @@ $\Rightarrow$ Der Knoten $[X|Y|\textcolor{red}{Z}]$ hat zu viele Einträge $\rig
 		child{node{$[A|D]$}}
 		child{node{$[L]$}}}
 	child{node{$[T|Y]$}
-		child{node{$[\textcolor{red}{S}]$}}
-		child{node{$[\textcolor{red}{X}]$}}
-		child{node{$[\textcolor{red}{Z}]$}}};
-\end{tikzpicture}\\
-
-$\Rightarrow$ Der Knoten $[T|Y]$ hat zu viele Kinder $\rightarrow$ Balancieren
-
-\begin{tikzpicture}[scale=0.5,
-  level 1/.style={sibling distance=45mm},
-  level 2/.style={sibling distance=20mm},
-  level 3/.style={sibling distance=20mm},
-  level 4/.style={sibling distance=20mm}]
-\node{$[O]$}
-	child{node{$[G]$}
-		child{node{$[A|D]$}}
-		child{node{$[L]$}}}
-	child{node{$[T|Y]$}
-		child{node{$[\textcolor{red}{S}]$}}
-		child{node{$[\textcolor{red}{X}]$}}
-		child{node{$[\textcolor{red}{Z}]$}}};
+		child{node{$[S]$}}
+		child{node{$[X]$}}
+		child{node{$[Z]$}}};
 \end{tikzpicture}\\
 
 \item remove(Z):
