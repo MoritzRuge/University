@@ -1,5 +1,6 @@
 //Import
 import scala.io.StdIn.readLine
+import scala.collection.mutable.ArrayBuffer
 
 // main Start of the Program, which subtask the user wants to choose
 @main def start(): Unit =
@@ -32,3 +33,14 @@ def subtask1a(): Unit =
 def subtask1b(): Unit =
   val numb_temp = readLine("Bitte geben Sie eine Nummer die, die Sie umdrehen wollen: ")
 
+  var list = ArrayBuffer[Char]() //änderbare Liste
+
+  for (i <- numb_temp) do 
+    list += i
+    //println(list)
+
+  swap(list)
+
+
+def swap(input: ArrayBuffer[Char]): Unit =
+  println(input)
