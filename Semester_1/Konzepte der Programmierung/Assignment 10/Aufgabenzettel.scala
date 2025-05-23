@@ -40,3 +40,20 @@ def swap(input: String): String =
     "" // Rekursionsanker
   else
     swap(input.tail) + input.head
+
+
+//
+// Aufgabe 2
+// type Uhrzeit = (Int, Int, Int)
+// val z : Uhrzeit = (14,15,0) //Startzeit der Vorlesung
+//
+// - istUhrzeit - überprüft, ob ein gegebenes Tripel aus ganzen Zahlen tatsächlich eine gültige Uhrzeit ist.
+// - tick erhält eine Uhrzeit und liefert die Uhrzeit eine Sekunde später. (Beispiel: tick(22,59,59) liefert (23,0,0))
+// - kcit ist die Umkehrfunktion von tick.
+// - Die Funktion addSekunde, addMinuten sowie addStunden erhalten eine gültige Uhrzeit und eine ganze Zahl und addieren diese ganze Zahl auf die Sekunden, Minuten bzw. Sekunden.
+//
+
+def task2(): Unit =
+  type Uhrzeit(int, int, int)
+  val z : Uhrzeit = (14, 15, 0)
+  println(z)
