@@ -31,16 +31,12 @@ def subtask1a(): Unit =
 //
 
 def subtask1b(): Unit =
-  val numb_temp = readLine("Bitte geben Sie eine Nummer die, die Sie umdrehen wollen: ")
+  val input = readLine("Bitte geben Sie eine Nummer die, die Sie umdrehen wollen: ")
+  var result = swap(input)
+  println(s"Die Umgedrehte Eingabe: $result")
 
-  var list = ArrayBuffer[Char]() //änderbare Liste
-
-  for (i <- numb_temp) do 
-    list += i
-    //println(list)
-
-  swap(list)
-
-
-def swap(input: ArrayBuffer[Char]): Unit =
-  println(input)
+def swap(input: String): String =
+  if input.isEmpty then 
+    "" // Rekursionsanker
+  else
+    swap(input.tail) + input.head
