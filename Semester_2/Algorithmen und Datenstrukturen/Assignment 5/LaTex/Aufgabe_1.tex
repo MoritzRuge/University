@@ -1,4 +1,51 @@
 \section*{{Problem 1: Analyse von (a,b)-Bäumen}}
 
 
-Bestimmen Sie die maximale Anzahl von Einträgen in einem $(a, b)-Baum$ der Höhe $h$. Was folgt daraus für die Höhe eines $(a, b)-Baums$ mit $n$ Einträgen?
+Bestimmen Sie die maximale Anzahl von Einträgen in einem $(a, b)-Baum$ der Höhe $h$. Was folgt daraus für die Höhe eines $(a, b)-Baums$ mit $n$ Einträgen?\\
+
+\noindent
+\textbf{Gegeben:}
+\begin{itemize}
+	\item Wurzel hat min 2 Kinder
+	\item Blätter haben min $a$ und max $b$ Kinder
+	\item Wurzel hat min $1$ bis $b-1$ Einträge
+	\item Blätter haben min $a-1$ bis $b-1$ Einträge
+\end{itemize}
+\noindent
+\textbf{Gesucht:} die maximale Anzahl von Einträgen in ein $(a,b)-Baum$ der Höhe $h$\\
+\noindent
+\textbf{Lösung:} Schauen wir uns einen $(a,b)-Baum$ pro Ebene an, wobei die Höhe eines Baumes mit der Länge des Pfads von der Wurzel zu einem Blatt definiert ist. Auf Ebenen bezogen hat ein Baum der Höhe $h$ also: $h+1$ Ebenen (Ebene 0 bis Ebene h).
+
+\begin{itemize}
+	\item Ebene(0) = Wurzel (1 Knoten)
+	\item Ebene(1) = max $b$ Knoten
+	\item Ebene(2) = max $b^2$ Knoten
+	\item Ebene(3) = max $b^3$ Knoten
+	\item Ebene(h) = max $b^h$ Knoten $\Rightarrow$ max Einträge sind also $b^h$
+\end{itemize}
+\textbf{Teil 2:} was folgt darasu für die Höhe eines $(a,b)Baums$ mit $n$ Einträgen?
+
+\noindent
+\textbf{Gegeben:}
+\begin{itemize}
+	\item max Einträge = $b^h$
+	\item $n$ Einträge
+\end{itemize}
+\textbf{Gesucht:} Höhe für $n$ Einträge\\
+\textbf{Lösung:}
+\begin{itemize}
+	\item $n \leq b^h$ $|$ Umstellen nach $h$, Umkehrung zur Exponentialform
+	\item $a^x \geq y$ $\Rightarrow$ $\log_{a}(y) \geq x$
+	\item $b^h \geq n$ $\Rightarrow$ $\log_b(n) \geq h$
+\end{itemize}
+\textbf{Beispiel:} Angenommen $b=4$ (jeder Knoten hat max 4 Kinder) und $n=100$ Einträge
+\begin{itemize}
+	\item $\log_4(100) \geq h$
+	\item $\frac{\log_10(100)}{\log_10(4)} = \frac{2}{0,602} = 3,32$
+\end{itemize}
+$\Rightarrow$ Damit wir eine valide Höhe kriegen, runden wir auf\\
+$\Rightarrow$ Die Höhe $h$ muss als min 4 sein!\\
+$\Rightarrow$ Formel anpassen: $h=\lceil \log_b(n) \rceil$
+\begin{flushright}
+$\Box$
+\end{flushright}
