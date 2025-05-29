@@ -4,8 +4,50 @@ Sei $L$ eine Skipliste mit $n$ Einträgen.\\
 
 \textbf{a)} Zeigen Sie, dass $L$ im Erwartungswert $O(n)$ Knoten besitzt.\\
 
+\noindent
+\textbf{Gegeben:}\\
+
+\begin{center}
+\begin{tabular}{ c c c c c c c c c c c }
+ L0: & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ 
+ L1: & 1 &  & 3 &  & 5 &  & 7 &  & 9 &  \\   
+ L2: & 1 &  &  &  & 5 &  &  &  & 9 &  \\ 
+ L3: &  &  &  &  & 5 &  &  &  &  &      
+\end{tabular}
+\end{center}
+$\Rightarrow$ $L_i \equiv O(\log n)$\\
+$\Rightarrow$ Die Wahrscheinlichkeit das ein Element auf die nächste Liste Kommt ist $1/2$, da die Elemente pro Liste halbiert werden.\\
+$\Rightarrow$ Die Wahrscheinlichkeit, dass ein Element in Ebene $"i"$ erscheint ist dann:\\
+$Pr= \frac{1}{2} * \frac{1}{2} * \frac{1}{2} * \frac{1}{2} * \frac{1}{2} * ... * \frac{1}{2} = (\frac{1}{2})^i$\\
+$Pr = L_1 * L_2 * L_3 * L_4 * L_5 * ... * L_i$\\
+
+\textbf{Gesucht:} Wieviele Knoten besitzt eine Skipliste mit $n$ Einträgen?\\
+
+\textbf{Lösung:}
+\begin{itemize}
+	\item Ein Element auf der Ebene $0,1,2$ zähl als 3 Knoten $-$ ein Knoten pro Ebene
+	\item Ein Elment ist auf Ebene $"i"$ mit der Wahrscheinlichkeit $(1/2)^i$
+	\item Wenn wir den Erwartungswert für die gesamte Knotenanzahl haben wollen, addieren wir die Wahrscheinlichkeiten
+	\item $\Rightarrow$ $1+ \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + ... = \sum_{i=0}^{\infty}(1/2)^i$
+	\item Das ist eine geometrische Reihe, die Konvergiert (einen Grenzwert bildet)
+\end{itemize}
+
+\textbf{geometrische Reihe:} $\sum_{i=0}^{\infty} q^k$\\
+$\rightarrow$ $|q| < 1$ Konvergiert (nähert sich Grenzwert)\\
+$\rightarrow$ $|q| > 1$ Divergiert (kein Grenzwert)\\
+$\Rightarrow$ Grenzwert: $S= \frac{1}{1-q}$\\
+$\rightarrow$ $S= \frac{1}{1-1/2} = \frac{1}{1/2} = 2$\\
+
+Jedes Element erzeugt im Schnitt also 2 Knoten. Die gesamte Anzahl an Knoten in einer Skipliste ist dann Anzahl Elmente * Grenzwert für ein Element:\\
+$n * 2 = 2n$ $\rightarrow$ für die O-Notation sind Konstanten irrelevant, also ist der Erwartungswert $O(n)$
+
+\begin{flushright}
+$\Box$
+\end{flushright}
 
 
+\newpage
+\noindent
 \textbf{b)} Zeigen Sie, dass für alle $j \geq 1$ die Wahrscheinlichkeit, dass $L$ aus mindestens $j$ Listen besteht, höchstens $\frac{n}{2_j-1}$ ist.\\
 Hinweis: Für Ereignisse $[A_1,..., A_l]$ gilt: $Pr[A_{1} \cup ... \cup A_{l}] \geq \sum_{i=1}^{l}Pr[A_i]$\\
  
