@@ -6,9 +6,23 @@ Sei $L$ eine Skipliste mit $n$ Einträgen.\\
 
 
 
-\textbf{b)} Zeigen Sie, dass für alle $j \geq 1$ die Wahrscheinlichkeit, dass $L$ aus mindestens $j$ Listen besteht, höchstens $\frac{n}{2j-1}$ ist.\\
-Hinweis: Für Ereignisse $A_1,..., A_l$ gilt: $Pr[A_{1} \cup ... \cup A_{l}] \geq \sum_{i=1}^{l}Pr[A_i]$\\
+\textbf{b)} Zeigen Sie, dass für alle $j \geq 1$ die Wahrscheinlichkeit, dass $L$ aus mindestens $j$ Listen besteht, höchstens $\frac{n}{2_j-1}$ ist.\\
+Hinweis: Für Ereignisse $[A_1,..., A_l]$ gilt: $Pr[A_{1} \cup ... \cup A_{l}] \geq \sum_{i=1}^{l}Pr[A_i]$\\
  
+\begin{enumerate}
+\item Wenn die Liste $L$ mindestens $j$ Ebenen/Verkettete Listen hat, dann muss mindestens ein Knoten $n_i$ aus $L$ aus der Basis-Liste $j-1$ mal in eine nächst höchere Ebene überführt worden sein.
+   d.h bei einem Bernoulisexperiment (Münzwurf) wurde $j-1$ mal das selbe Ergebnis erziehlt und ein Knoten $n_i$ wurde $j-1$ mal in eine nächst höchere Ebene überführt.
+\item Die Wahrscheinlichkeit $p$, dass ein Knoten $n_i$ in eine nächsthöchere Ebene überführt wird liegt bei 50\%. $\Rightarrow$ $p(Erfolg) = 1/2$
+   Für den Erwartungswert, dass ein Knoten $n_i$ 1-mal in eine nächsthöhere Ebene überführt wird gilt: $E[x] = p(Erfolg) = 1/2$
+   Nun wird betrachtet, dass ein Knoten $j-1$ mal überführt wird. Für diesen Erwartungswert gilt: $E[x] = j-1*p(Erfolg)$
+   $E[x] = 1/2 * 1/2 * ... * 1/2 (j-1 mal)$
+   $E[x] = 1/2^(j-1)$
+\item Für die Anzahl der zu erwartenden Knoten, die $j-1$ mal überführt worden gilt:
+   $X_i = 1$ wenn die $n_i$ $j-1$ mal hintereinander überführt worden ist. ansonsten $X_i = 0$
+   Für die Summe $X$ aller $X_i$ (alle Knoten die $j-1$ mal überführt worden sind) gilt: $E[x] = n*1/2^(j-1) = n/2^(j-1)$
+\item Für den Fall, dass eine Liste $L$ mit n Einträgen bei $j \geq 1$ Versuchen aus mindestens $j$ Listen besteht gilt: 
+   $Pr(X \geq 1) \leq E[x] = n/2^(j-1)$
+\end{enumerate}
 
 
 
