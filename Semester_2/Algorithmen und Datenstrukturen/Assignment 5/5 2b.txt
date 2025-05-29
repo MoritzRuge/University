@@ -1,0 +1,18 @@
+Aufgabe 2 Analyse von Skiplisten 
+Sei L eine Skipliste mit n Einträgen.
+
+(b) Zeigen Sie, dass für alle j ≥ 1 die Wahrscheinlichkeit, dass L aus mindestens
+j Listen besteht, höchstens n/2^j−1 ist.
+1. Wenn die Liste L mindestens j Ebenen/Verkettete Listen hat, dann muss mindestens ein Knoten n_i aus L aus der Basis-Liste j-1 mal in eine nächst höchere Ebene überführt worden sein.
+   d.h bei einem Bernoulisexperiment (Münzwurf) wurde j-1 mal das selbe Ergebnis erziehlt und ein Knoten n_i wurde j-1 mal in eine nächst höchere Ebene überführt.
+2. Die Wahrscheinlichkeit p, dass ein Knoten n_i in eine nächsthöchere Ebene überführt wird liegt bei 50%. -> p(Erfolg) = 1/2
+   Für den Erwartungswert, dass ein Knoten n_i 1-mal in eine nächsthöhere Ebene überführt wird gilt: E[x] = p(Erfolg) = 1/2
+   Nun wird betrachtet, dass ein Knoten j-1 mal überführt wird. Für diesen Erwartungswert gilt: E[x] = j-1*p(Erfolg)
+   E[x] = 1/2 * 1/2 * ... * 1/2 (j-1 mal) 
+   E[x] = 1/2^(j-1)
+3. Für die Anzahl der zu erwartenden Knoten, die j-1 mal überführt worden gilt:
+   X_i = 1 wenn die n_i j-1 mal hintereinander überführt worden ist. ansonsten X_i = 0
+   Für die Summe X aller X_i (alle Knoten die j-1 mal überführt worden sind) gilt: E[x] = n*1/2^(j-1) = n/2^(j-1)
+4. Für den Fall, dass eine Liste L mit n Einträgen bei j ≥ 1 Versuchen aus mindestens j Listen besteht gilt: 
+   Pr(X >= 1) <= E[x] = n/2^(j-1)
+
