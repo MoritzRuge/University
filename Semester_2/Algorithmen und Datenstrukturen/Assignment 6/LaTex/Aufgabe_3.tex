@@ -1,4 +1,194 @@
 \section*{{Problem 3: Hashing im Selbstversuch}} 
 
-Fügen Sie nacheinander die Schlüssel 5, 28, 19, 15, 20, 33, 12, 17, 10 in eine Hashtabelle der Größe 9 ein. Die Hashfunktion sei $h(k) = k mod 9$. Sie mit Die Konflikte werden mit Verkettung gelöst.\\
-Illustrieren Sie jeweils die einzelnen Schritte. Wiederholen Sie dann mit der Hashfunktion $h(k) = k mod 6$ und einer Hashtabelle der Größe 6.
+Fügen Sie nacheinander die Schlüssel 5, 28, 19, 15, 20, 33, 12, 17, 10 in eine Hashtabelle der Größe 9 ein. Die Hashfunktion sei $h(k) = k \mod 9$. Sie mit Die Konflikte werden mit Verkettung gelöst.\\
+Illustrieren Sie jeweils die einzelnen Schritte. Wiederholen Sie dann mit der Hashfunktion $h(k) = k \mod 6$ und einer Hashtabelle der Größe 6.\\
+
+\noindent
+\textbf{Teilaufgabe 1: Hashtabelle der Größe 9}
+
+\begin{multicols}{2}
+\begin{itemize}
+\item Schlüssel 5\\
+Hashfunktion: $h(5) = 5 \mod 9=5$
+
+\begin{center}
+\begin{tabular}{c|c}
+Index & Wert \\
+\hline
+0 & \\
+1 & \\
+2 & \\
+3 & \\
+4 & 5\\
+5 & \\
+6 & \\
+7 & \\
+8 & \\
+\end{tabular}
+\end{center}
+
+\item Schlüssel 28\\
+Hashfunktion: $h(28) = 28 \mod 9 = 1$
+
+\begin{center}
+\begin{tabular}{c|c}
+Index & Wert \\
+\hline
+0 & \\
+1 & 28\\
+2 & \\
+3 & \\
+4 & \\
+5 & 5\\
+6 & \\
+7 & \\
+8 & \\
+\end{tabular}
+\end{center}
+
+\item Schlüssel 19\\
+Hashfunktion: $h(19) = 19 \mod 9 = 1$
+
+\begin{center}
+\begin{tabular}{c|c}
+Index & Wert \\
+\hline
+0 & \\
+1 & [28,19]\\
+2 & \\
+3 & \\
+4 & \\
+5 & 5\\
+6 & \\
+7 & \\
+8 & \\
+\end{tabular}
+\end{center}
+
+\item Schlüssel 15\\
+Hashfunktion: $h(15) = 15 \mod 9 = 7$
+
+\begin{center}
+\begin{tabular}{c|c}
+Index & Wert \\
+\hline
+0 & \\
+1 & [28,19]\\
+2 & 20\\
+3 & \\
+4 & \\
+5 & 5\\
+6 & \\
+7 & 15\\
+8 & \\
+\end{tabular}
+\end{center}
+
+\item Schlüssel 20\\
+Hashfunktion: $h(20) = 20 \mod 9 = 2$
+
+\begin{center}
+\begin{tabular}{c|c}
+Index & Wert \\
+\hline
+0 & \\
+1 & [28,19]\\
+2 & 20\\
+3 & \\
+4 & \\
+5 & 5\\
+6 & \\
+7 & 15\\
+8 & \\
+\end{tabular}
+\end{center}
+
+\item Schlüssel 33\\
+Hashfunktion: $h(33) = 33 \mod 9 = 6$
+
+\begin{center}
+\begin{tabular}{c|c}
+Index & Wert \\
+\hline
+0 & \\
+1 & [28,19]\\
+2 & 20\\
+3 & \\
+4 & \\
+5 & 5\\
+6 & 33\\
+7 & 15\\
+8 & \\
+\end{tabular}
+\end{center}
+
+\item Schlüssel 12\\
+Hashfunktion: $h(12) = 12 \mod 9 = 3$
+
+\begin{center}
+\begin{tabular}{c|c}
+Index & Wert \\
+\hline
+0 & \\
+1 & [28,19]\\
+2 & 20\\
+3 & 12\\
+4 & \\
+5 & 5\\
+6 & 33\\
+7 & 15\\
+8 & \\
+\end{tabular}
+\end{center}
+
+\item Schlüssel 17\\
+Hashfunktion: $h(17) = 17 \mod 9 = 8$
+
+\begin{center}
+\begin{tabular}{c|c}
+Index & Wert \\
+\hline
+0 & \\
+1 & [28,19]\\
+2 & 20\\
+3 & 12\\
+4 & \\
+5 & 5\\
+6 & 33\\
+7 & 15\\
+8 & 17\\
+\end{tabular}
+\end{center}
+
+\columnbreak
+\item Schlüssel 10\\
+Hashfunktion: $h(10) = 10 \mod 9 = 1$
+
+\begin{center}
+\begin{tabular}{c|c}
+Index & Wert \\
+\hline
+0 & \\
+1 & [28,19,10]\\
+2 & 20\\
+3 & 12\\
+4 & \\
+5 & 5\\
+6 & 33\\
+7 & 15\\
+8 & 17\\
+\end{tabular}
+\end{center}
+\end{itemize}
+\end{multicols}
+
+\noindent
+\textbf{Teilaufgabe 2: Hashtabelle der Größe 6}
+\begin{verbatim}
+Index 0: [12]
+Index 1: [19]
+Index 2: [20]
+Index 3: [15,33]
+Index 4: [28,10]
+Index 5: [5,17]
+\end{verbatim}
