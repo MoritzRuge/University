@@ -2,22 +2,54 @@
 
 Auf einem Tisch stehen $N$ Kisten. In diese Kisten werden nacheinander unabhängig voneinander $n$ Bälle geworfen, wobei jede Kiste mit gleicher Wahrscheinlichkeit getroffen wird.\\
 
-\noindent
-\textbf{a)} Berechnen Sie die Wahrscheinlichkeit, dass Kiste i leer ist. Sei Yi die Zufalls-
+\begin{enumerate}
+\item[a)] Berechnen Sie die Wahrscheinlichkeit, dass Kiste i leer ist. Sei Yi die Zufalls-
 variable, die den Wert 1 annimmt, falls Kiste i leer ist, und 0 sonst. Geben Sie
 auch den Erwartungswert E[Yi ] an.\\
 Hinweis: Wenn Kiste $i$ leer bleibt, dann landen alle $n$ Bälle in den $N - 1$ anderen Kisten.\\
 
-\noindent
-\textbf{b)} Sei $X$ die Zufallsvariable, welche die Anzahl von leeren Kisten angibt. Berechnen Sie den Erwartungswert von $X$ mit Hilfe der Erwartungswerte $E[Yi]$.\\
+\textbf{Lösung:}\\
+
+Wahrscheinlichkeit, dass bei $n$ unabgängigen Ballwürfen eine von $N$ Kisten $i$ leer ist.\\
+$Pr(\text{Ball landet in Kiste } i ) = (1 \text{ over N})$\\
+$Pr(overline\{ \text{Ball landet in Kiste }i\}) = ((N-1) \text{ over N})$\\
+Es wird betrachtet, dass $Pr(overline\{ \text{Ball landet in Kiste }i\})$ $n-mal$ hintereinander eintritt.\\
+Für die Wahrscheinlichkeit, dass Eine Kisten $i$ nach $n$ unabhängigen Würfen leer ist gilt:\\
+$Pr(\text{Kiste i ist nach n Versuchen leer}) = Pr_1(overline\{ \text{Ball landet in Kiste }i\}) *$ \\ $\text{        }Pr_2(overline\{ \text{Ball landet in Kiste }i\}) *...* Pr_n(overline\{ \text{Ball landet in Kiste }i\})$\\
+$Pr(\text{Kiste i ist nach n Versuchen leer}) = ((N-1)$ $over$ $N) * ((N-1)$ $over$ $N) *...* ((N-1)$ $over$ $N)$  $(n*mal)$\\
+$Pr(\text{Kiste i ist nach n Versuchen leer}) = ((N-1)$ $over$ $N)^n$\\
 
 \noindent
-\textbf{c)} Bestimmen Sie, wie viele Bälle man benötigt, damit gilt: mit Wahrscheinlichkeit mindestens 1/2 enthält mindestens eine Kiste mindestens zwei Bälle.\\ 
+Für die Zufallsvariable $Y_i$ gilt:\\
+$Y_i = 1$ gdw. Kiste $i$ ist leer $\rightarrow$ Kiste $i$ ist nach $n$ unabhängigen Versuchen leer.\\
+$Y_i = 0$ gdw. Kiste $i$ ist nicht leer.\\
+
+\noindent
+$E(Y_i)$ Für den Erwartungswert wird $Y_i$ als Bernouli-Zufallsvariable betrachtet. daher gilt:\\
+$E(Y_i) = 0*(1-p)+1*p$\\ 
+$p = ((N-1) over N)^n$\\
+$E(Y_i) = 0*(1-p) + 1* ((N-1)$ $over$ $N)^n$\\
+
+
+\item[b)] Sei $X$ die Zufallsvariable, welche die Anzahl von leeren Kisten angibt. Berechnen Sie den Erwartungswert von $X$ mit Hilfe der Erwartungswerte $E[Yi]$.\\
+
+\textbf{Lösung:}\\
+$X = Y_1 + Y_2 + ... + Y_n$ (Die Summe aller $Y_i$, dass alle Kisten leer sind. Gleichverteilung) $Y_i = 1$, wenn die Kiste leer ist, $Y_i = 0$, wenn sie nicht leer ist.\\
+$E[X] = N*E[Y_i]$\\
+$E[X] = N*((N-1) over N)^n$\\
+
+\item[c)] Bestimmen Sie, wie viele Bälle man benötigt, damit gilt: mit Wahrscheinlichkeit mindestens 1/2 enthält mindestens eine Kiste mindestens zwei Bälle.\\ 
 $Hinweis:$ Stellen Sie sich vor, die $n$ Bälle werden nacheinander in die Kisten
 geworfen. Was ist die Wahrscheinlichkeit, dass der nächste Ball in einer leeren Kiste landet, wenn alle vorherigen Bälle in einer leeren Kiste gelandet sind? Verwenden Sie die ungemein nützliche Abschätzung $1 + x \leq e^x$ , welche für alle $x \in R$ gilt.\\
 
-\noindent
-\textbf{d)} Professor Pinocchio hat eine Idee, um Hashtabellen zu vereinfachen. Wenn
+\textbf{Lösung:}\\
+Sei das Ergebnis, dass alle $n$ Bälle in verschiedene Kisten fallen. Jeder Kiste hat höchstens 1 Ball $E$. ges: $n -> Pr(E) <= 1$ over $2$\\
+Wahrscheinlichkeit, dass ein Ball in eine Kiste $i$ fällt $Pr(\omega_1) = (1$ over $N)$\\
+Wahrscheinlichkeit, dass ein 2. Ball in eine Kiste $j, j <> i$ fällt $Pr(\omega_2) = ((N-1)$ over $N)$\\
+Wahrscheinlichkeit, dass ein 3. Ball in eine leere Kiste $l$ fällt, $Pr(\omega_3) = ((N-2)$ over $N)$
+Wahrscheinlichkeit, dass ein $n$. Ball in eine leere Kiste fällt, $Pr(\omega_n) = ((N-(n-1))$ over $N)$\\
+
+\item[d)] Professor Pinocchio hat eine Idee, um Hashtabellen zu vereinfachen. Wenn
 wir die Zahl $N$ der Plätze in der Hashtabelle im Verhältnis zur Anzahl der zu
 speichernden Einträge $n$ groß genug wählen, sollte die Wahrscheinlichkeit, dass
 Kollisionen auftreten, verschwindend gering werden (unter der Annahme, dass
@@ -26,3 +58,10 @@ auf die Kollisionsbehandlung verzichten. In Anbetracht von (c), was halten Sie
 von dem Vorschlag? (Wenn Sie Teil (c) nicht gelöst haben, dann bearbeiten Sie
 diesen Teil unter der Annahme, dass für $N^{1/3}$ Bälle mindestens eine Kollision
 auftritt.\\
+
+\textbf{Lösung:}\\
+Meiner Meinung nach ist es nie gut, Fehlerbehandlung, in diesem Fall Kollisionsbehandlung, wegzulassen. Solange die Wahrscheinlichkeit nicht $0.00\%$ liegt, sollte Fehlerbehandlung weiterhin unterstützt werden, da es in diesem Fehlerfall zu kritischen Fehlern im Programm oder System führen kann. Zusätzlich Wir haben in $c)$ gesehen, dass die maximale Wahrscheinlichkeit, dass Bälle (hier Einträge) jedes Mal in einem anderen Slot zugeordnet werden, bei einem zufälligen Wurf/Treffer (beim Hashen Zuweisung) $50:50$ beträgt. Das ist meiner Meinung nach nicht ausreichend, um Kollisionsbehandlung wegzulassen. Daher würde ich dem Professor widersprechen.
+
+\end{enumerate}
+
+

@@ -1,0 +1,53 @@
+Aufgabe 1:
+(a) Berechnen Sie die Wahrscheinlichkeit, dass Kiste i leer ist. Sei Yi die Zufalls-
+variable, die den Wert 1 annimmt, falls Kiste i leer ist, und 0 sonst. Geben Sie
+auch den Erwartungswert E[Yi] an.
+Hinweis: Wenn Kiste i leer bleibt, dann landen alle n B¨alle in den N − 1
+anderen Kisten.
+(b) Sei X die Zufallsvariable, welche die Anzahl von leeren Kisten angibt. Berech-
+nen Sie den Erwartungswert von X mit Hilfe der Erwartungswerte E[Yi]
+
+a) Wahrscheinlichkeit, dass bei n unabgängigen Ballwürfen eine von N Kisten i leer ist. 
+Pr(Ball landet in Kiste i) = (1 over N)
+Pr(overline{ Ball landet in Kiste i}) = ((N-1) over N)
+Es wird betrachtet, dass Pr(overline{ Ball landet in Kiste i}) n-mal hintereinander eintritt.
+Für die Wahrscheinlichkeit, dass Eine Kisten i nach n unabhängigen Würfen leer ist gilt:
+Pr(Kiste i ist nach n Versuchen leer) = Pr_1(overline{ Ball landet in Kiste i}) * Pr_2(overline{ Ball landet in Kiste i}) *...* Pr_n(overline{ Ball landet in Kiste i})
+Pr(Kiste i ist nach n Versuchen leer) = ((N-1) over N) * ((N-1) over N) *...* ((N-1) over N)  (n*mal)
+Pr(Kiste i ist nach n Versuchen leer) = ((N-1) over N)^n
+
+Für die Zufallsvariable Y_i gilt:
+Y_i = 1 gdw. Kiste i ist leer -> Kiste i ist nach n unabhängigen Versuchen leer.
+Y_i = 0 gdw. Kist i ist nicht leer.
+
+E(Y_i) Für den Erwartungswert wird Y_i als Bernouli-Zufallsvariable betrachtet. daher gilt:
+E(Y_i) = 0*(1-p)+1*p 
+p = ((N-1) over N)^n
+E(Y_i) = 0*(1-p) + 1* ((N-1) over N)^n
+
+b)
+X = Y_1 + Y_2 + ... + Y_n (Die Summe aller Y_i, dass alle Kisten leer sind. Gleichverteilung) Y_i = 1, wenn die Kiste leer ist, Y_i = 0, wenn sie nicht leer ist.
+E[X] = N*E[Y_i] 
+E[X] = N*((N-1) over N)^n
+
+c)
+Sei das Ergebnis, dass alle n Bälle in verschiedene Kisten fallen. Jeder Kiste hat höchstens 1 Ball E. ges: n -> Pr(E) <= 1 over 2
+Wahrscheinlichkeit, dass ein Ball in eine Kiste i fällt Pr(%omega_1) = (1 over N)
+Wahrscheinlichkeit, dass ein 2. Ball in eine Kiste j, j <> i fällt Pr(%omega_2) = ((N-1) over N)
+Wahrscheinlichkeit, dass ein 3. Ball in eine leere Kiste l fällt, Pr(%omega_3) = ((N-2) over N)
+Wahrscheinlichkeit, dass ein n. Ball in eine leere Kiste fällt, Pr(%omega_n) = ((N-(n-1)) over N)
+
+Pr(E) = Pr(%omega_1)*Pr(%omega_2)*...*Pr(%omega_n) = (1 over N)* (N-1)/N · (N-2)/N · ... · (N-(n-1))/N
+1 * (N-1)*(N-2)*...*(N-(n-1)) = N!
+Pr(E) = ((N!) over (N^n)*(N-n)!) -> N^n: da n-mal geworfen wird, (N-n)!: n-Würfe auf N Kisten, nach jedem Wurf sind weniger Kisten vorhanden, da davon ausgegangen wird, das jedesmal eine andere Kiste getroffen wird.
+
+Sei das Ergebnis, dass mindestens eine Kiste nach n-Würfen mindetens 2 Bäller hat, das Komplementärergebnis zu E.
+Pr(overline{E}) >= 1/2 -> mindestens 1/2
+Bei fester Anzahl von Kisten N, lässt sich die Anzahl von nötigen Bällen n durch einsetzten bestimmen.
+Eine konkrete Bestimmung/ Formel für n ist mir nicht möglich.
+
+d)
+Meiner Meinung nach ist es nie gut, Fehlerbehandlung, in diesem Fall Kollisionsbehandlung, wegzulassen. Solange die Wahrscheinlichkeit nicht 0.00% liegt, sollte Fehlerbehandlung weiterhin unterstützt werden, 
+da es in diesem Fehlerfall zu kritischen Fehlern im Programm oder System führen kann. Zusätzlich Wir haben in c) gesehen, dass die maximale Wahrscheinlichkeit, dass Bälle (hier Einträge) jedes Mal in einem anderen Slot zugeordnet werden, bei einem zufälligen Wurf/Treffer (beim Hashen Zuweisung)
+50:50 beträgt. Das ist meiner Meinung nach nicht ausreichend, um Kollisionsbehandlung wegzulassen.
+Daher würde ich dem Professor widersprechen.
