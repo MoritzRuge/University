@@ -10,3 +10,16 @@
 //
 
 
+
+
+
+// Main funktion
+
+@main def Start(): Unit =
+   
+  SelectionSort()
+
+
+def SelectionSort(Int: Liste): Unit =
+  for i <- 0 to Liste.lenght do
+    println(i)
