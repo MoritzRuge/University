@@ -138,4 +138,154 @@ $\Rightarrow$ Index 4: 4 $\neq$ 59 $\rightarrow$ Index 8: Empty $\rightarrow$ In
 
 \noindent
 \textit{Illustrieren Sie jeweils die einzelnen Schritte.\\
-	Hinweis: Pseudocode für die Hashoperation findet sich im Skript.}
+	Hinweis: Pseudocode für die Hashoperation findet sich im Skript.}\\
+	
+\noindent
+\textbf{Lösung:}\\ "  " : Empty, * : Deleted\\
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+\hline
+T = & & & & & & & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+
+\item insert (10)
+
+$\Rightarrow h_1(k) = k \mod 11 = 10 \mod 11 = 10$ 
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+\hline
+T = & & & & & & & & & & & 10\\
+\hline
+\end{tabular}
+\end{center}
+
+\item insert (22)
+
+$\Rightarrow h_1(k) = k \mod 11 = 22 \mod 11 = 0$ 
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+\hline
+T = & 22 & & & & & & & & & & 10\\
+\hline
+\end{tabular}
+\end{center}
+
+\item insert (31)
+
+$\Rightarrow h_1(k) = k \mod 11 = 31 \mod 11 = 9$ 
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+\hline
+T = & 22 & & & & & & & & & 31 & 10\\
+\hline
+\end{tabular}
+\end{center}
+
+\item insert (4)
+
+$\Rightarrow h_1(k) = k \mod 11 = 4 \mod 11 = 4$ 
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+\hline
+T = & 22 &  &  &  & 4 &  &  &  &  & 31 & 10\\
+\hline
+\end{tabular}
+\end{center}
+
+\item insert (15)
+
+$\Rightarrow h_1(15) = 15 \mod 11 = 4$ Platziere in Index $4$, $k'=4$.\\
+$\rightarrow h_1(4') = 4 \mod 11 = 4$. Anwendung $h_2(k')$\\ 
+$\rightarrow h_2(4') = (4 \mod 13) \mod 11 = 4$ Platz in Index $4$, $k' = 15$.\\
+$\Rightarrow h_1(15') = 15 \mod 11 = 4$. Anwendung $h_2(k')$\\ 
+$\rightarrow h_2(15') = (15 \mod 13) \mod 11 = 2$ Platz in Index $2$.\\
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+\hline
+T = & 22 &  & 15 &  & 4 &  &  &  &  & 31 & 10\\
+\hline
+\end{tabular}
+\end{center}
+
+\item insert (29)
+
+$\Rightarrow h_1(k) = 29 \mod 11 = 7$ Platziere in Index $7$.
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+\hline
+T = & 22 &  & 15 &  & 4 &  &  & 29 &  & 31 & 10\\
+\hline
+\end{tabular}
+\end{center}
+
+\item insert (17)
+
+$\Rightarrow h_1(k) = 17 \mod 11 = 6$ Platziere in Index $6$.
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+\hline
+T = & 22 &  & 15 &  & 4 &  & 17 & 29 &  & 31 & 10\\
+\hline
+\end{tabular}
+\end{center}
+
+\item insert (88)
+
+$\Rightarrow h_1(88) = 88 \mod 11 = 0$ Platziere in Index $0$, $k' = 22$.\\
+$\rightarrow h_1(22') = 22 \mod 11 = 0$. Anwendung $h_2(k')$\\ 
+$\rightarrow h_2(22') = (22 \mod 13) \mod 11 = 9$ Platz in Index $9$, $k' = 31$.\\
+$\Rightarrow h_1(31') = 31 \mod 11 = 9$ Anwendung $h_2(k')$\\
+$\rightarrow h_2(31') = (31 \mod 13) \mod 11 = 5$ Platz in Index $5 \rightarrow$ Empty.\\
+
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+\hline
+T = & 88 &  & 15 &  & 4 & 31 & 17 & 29 &  & 22 & 10\\
+\hline
+\end{tabular}
+\end{center}
+
+\item insert (59)
+
+$\Rightarrow h_1(59) = 59 \mod 11 = 4$ Platziere in Index $4$, $k' = 4$.\\
+$\rightarrow h_1(4') = 4 \mod 11 = 4$. Anwendung $h_2(k')$\\ 
+$\rightarrow h_2(4') = (4 \mod 13) \mod 11 = 4$ Platz in Index $4$, $k' = 59$.\\
+$\Rightarrow h_1(59') = 59 \mod 11 = 4$ Anwendung $h_2(k')$.\\
+$\rightarrow h_2(59') = (59 \mod 13) \mod 11 = 7$ Platz in Index $7$, $k' = 29$.\\
+$\Rightarrow h_1(29') = 29 \mod 11 = 7$ Anwendung $h_2(k')$.\\
+$\rightarrow h_2(29') = (29 \mod 13) \mod 11 = 3$ Platz in Index $3 \rightarrow$ Empty.\\
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+\hline
+T = & 88 &  & 15 & 29 & 4 & 31 & 17 & 59 &  & 22 & 10\\
+\hline
+\end{tabular}
+\end{center}
+
+\end{enumerate}
