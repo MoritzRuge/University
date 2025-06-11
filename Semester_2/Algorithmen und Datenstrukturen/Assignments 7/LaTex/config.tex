@@ -1,7 +1,12 @@
 \usepackage[left=3cm, right=2.5cm]{geometry} % Hier die Ränder definieren
 
-%\usepackage[pdftex]{graphicx}
-%\usepackage{subfigure} 
+
+
+
+\usepackage[pdftex]{graphicx}
+%%%%% Path for Pictures %%%%%%
+\graphicspath{ {./Pictures} }
+\usepackage{subfigure} 
 \usepackage[backend=biber,style=numeric,url=true]{biblatex} % für Quellenangaben und Bibliotheken
 \usepackage[]{hyperref} % für hyperlinks
 \usepackage{array} % für die Tabelle
@@ -25,10 +30,24 @@
 %}
 \usepackage{xcolor}
 
-%%% draws layout frames
+%%%%% draws layout frames %%%%%
 %\usepackage{showframe}
 
+%%%%% Multiple Columns %%%%%
+% see: https://www.overleaf.com/learn/latex/Multiple_columns
+\usepackage{multicol}
 
+
+% Text block indentation
+%\lipsum[1]
+%\begin{addmargin}[1em]{2em}% 1em left, 2em right
+%\lipsum[2]
+%\end{addmargin}
+%\lipsum[3]
+\usepackage{scrextend}
+
+% https://www.overleaf.com/learn/latex/Code_listing
+\usepackage{listings}
 
 \hypersetup{
     colorlinks=true,
@@ -38,3 +57,4 @@
     pdftitle={Overleaf Example},
     pdfpagemode=FullScreen,
     }
+    
