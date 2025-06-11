@@ -5,3 +5,126 @@
 \textbf{a)} In der Vorlesung haben Sie eine Strategie gesehen, mit der das Löschen in einer Hashtabelle mit linearem Sondieren umgesetzt werden kann: Gelöschte Elemente werden durch einen eigenen Eintrag markiert und in den Einfüge- und Lookup Routinen speziell behandelt.\\
 Beschreiben Sie eine alternative Methode, bei welcher der gelöschte Eintrag ggf. durch einen geeigneten anderen Eintrag ersetzt wird. Beschreiben sie Ihre Methode verbal und geben Sie Pseudocode. Geben Sie auch zwei interessante Beispiele, die zeigen, wie Ihre Methode funktioniert.\\
 
+\noindent
+\textbf{Lösung: Robin-Hood-Hashing mit Backwards-Shifting}\\
+
+\textbf{Prinzip:} Es handelt sich hierbei um eine Hashtabelle mit \textit{Open Addressing}.\\
+Beim Einfügen von neuen Schlüsseln wird für jeden Schlüssel der PSL (Probe Sequenz Lenght) berechnet um anzugeben, wie weit der Schlüssel von seiner eigentlichen Hashposition entfernt ist. Ziel ist es nun, das alle Schlüssel so nah wie möglich an ihrer "Home" Position bleiben. Beim Löschen von Schlüsseln wird geschaut ob es nachfolgend noch andere Schlüssel gibt, wenn nicht sind wir fertig, wenn doch wir auf deren PSL-Wert geschaut, ist dieser Größer als 0 Shiften wir den Schlüssel nach "Links" ( auf die Position des gelöschten Schlüssels ) und gegen in der Tabelle weiter, bis wir ein PSL-Wert von 0 oder einen Leeren Slot haben.\\
+
+\noindent
+\textbf{Einfügen:}
+
+$\Rightarrow$ insert: $h(8)=1$
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5\\
+\hline
+T = & & $8_0$ & & & &\\
+\hline
+\end{tabular}
+\end{center}
+
+$\Rightarrow$ insert: $h(20)=1$
+\begin{multicols}{2}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5\\
+\hline
+T = & & $8_0$ & & & &\\
+\hline
+& & $20_0 \rightarrow$ & & & &\\
+\hline
+\end{tabular}
+\end{center}
+
+
+\columnbreak
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5\\
+\hline
+T = & & $8_0$ & $20_1$ & & &\\
+\hline
+\end{tabular}
+\end{center}
+$\Rightarrow$ Wir verschieben $20$ nach rechts und erhöhen den PSL um 1
+\end{multicols}
+
+$\Rightarrow$ insert: $h(3)=1$
+\begin{multicols}{2}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5\\
+\hline
+T = & & $8_0$ & $20_1$ & & &\\
+\hline
+& & $3_0 \rightarrow$ & $3_1 \rightarrow$& & &\\
+\hline
+\end{tabular}
+\end{center}
+
+
+\columnbreak
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5\\
+\hline
+T = & & $8_0$ & $20_1$ & $3_2$ & &\\
+\hline
+\end{tabular}
+\end{center}
+$\Rightarrow$ Wir verschieben $3$ 2x nach rechts und erhöhen den PSL um 2
+\end{multicols}
+
+
+
+$\Rightarrow$ insert: $h(9)=0$
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5\\
+\hline
+T = & $9_0$ & $8_0$ & $20_1$ & & &\\
+\hline
+\end{tabular}
+\end{center}
+
+
+
+\newpage
+$\Rightarrow$ insert: $h(66)=0$
+\begin{multicols}{2}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5\\
+\hline
+T = & $9_0$ & $8_0$ & $20_1$ & & &\\
+\hline
+& $66_0 \rightarrow$ &  & & & &\\
+\hline
+\end{tabular}
+\end{center}
+
+
+\columnbreak
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5\\
+\hline
+T = & $9_0$ & $66_1$ & $20_1$ & $8_2$ & &\\
+\hline
+&  & $8_0 \rightarrow$ & $8_1 \rightarrow$ & & &\\
+\hline
+\end{tabular}
+\end{center}
+\end{multicols}
+$\Rightarrow$ Wir verschieben $66$ nach rechts und erhöhen den PSL um 1 $\rightarrow 66_1$\\
+$\rightarrow$ Da $66_1$ höher ist als $8_0$ tauschen wir die Werte und verschieben die 8 nach rechts\\
+$\rightarrow$ Da $8_1 = 20_1$ ist schieben wir den Schlüssel weiter nach rechts und erhöhen den PSL
