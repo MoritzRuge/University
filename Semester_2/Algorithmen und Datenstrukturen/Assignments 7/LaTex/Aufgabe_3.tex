@@ -1,3 +1,28 @@
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
 \section*{Problem 3: Lineares Sondieren und Löschen} 
 
 
@@ -225,4 +250,22 @@ $\rightarrow$ Slot ist leer, Fertig!\\
 
 
 \noindent
-\textbf{Pseudocode:}
+\textbf{Pseudocode:}\\
+
+\textbf{put(k,v)}\\
+
+
+\textbf{delete(k)}\\
+
+\begin{lstlisting}[language=Scala]
+delete(k):
+	pos <- h(k)
+	for i <- 0 to N do
+		// Wenn kein Element k, wirf exception
+		if T[pos] == NULL then
+			throw NoSuchElementException
+		// Wenn das Element k vorhaden ist, loeschen und schauen ob links davon noch elemente sind mit PSL -> 0
+		// Wenn nicht FERTIG		
+		if T[pos] == k then
+			T[pos] <- DELETE
+\end{lstlisting}
