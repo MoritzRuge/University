@@ -127,4 +127,102 @@ T = & $9_0$ & $66_1$ & $20_1$ & $8_2$ & &\\
 \end{multicols}
 $\Rightarrow$ Wir verschieben $66$ nach rechts und erhöhen den PSL um 1 $\rightarrow 66_1$\\
 $\rightarrow$ Da $66_1$ höher ist als $8_0$ tauschen wir die Werte und verschieben die 8 nach rechts\\
-$\rightarrow$ Da $8_1 = 20_1$ ist schieben wir den Schlüssel weiter nach rechts und erhöhen den PSL
+$\rightarrow$ Da $8_1 = 20_1$ ist schieben wir den Schlüssel weiter nach rechts und erhöhen den PSL\\
+
+
+%%% This determines the width of the ruler to be used as column separator, it's set to 0 by default. In the example a column whose width is 1pt is printed.
+\setlength{\columnseprule}{1pt}
+\noindent
+\textbf{Deletion:}\\
+
+$\Rightarrow$ delete: $h(9)$
+\begin{multicols}{2}
+\begin{center}
+
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5\\
+\hline
+T = & $9_0$ & $8_0$ & $20_1$ & & &\\
+\hline
+& $\uparrow$ &  & & & &\\
+\hline
+\end{tabular}\\
+$\rightarrow$ Lookup $9$
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5\\
+\hline
+T = &  & $66_1$ & $20_1$ & $8_2$ & &\\
+\hline
+& $\uparrow$ &  &  & & &\\
+\hline
+\end{tabular}\\
+$\rightarrow$ Lösche den Schlüssel
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5\\
+\hline
+T = &  & $\leftarrow 66_1$ & $20_1$ & $8_2$ & &\\
+\hline
+&  & $\uparrow$ &  & & &\\
+\hline
+\end{tabular}\\
+$\Rightarrow$ Schaue auf den folgenden Slot:\\
+$\rightarrow$ ist dieser leer sind wir fertig\\
+$\rightarrow$ ist dort ein Schlüssel, schauen wir auf den PSL $\geq$ 0, Shiften wir den Eintrag nach links
+\end{center}
+
+\columnbreak
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5\\
+\hline
+T = & $66_0$ &  & $\leftarrow 20_1$ & $8_2$ & &\\
+\hline
+&  &  & $\uparrow$ & & &\\
+\hline
+\end{tabular}\\
+$\rightarrow$ PSL $\geq$ 0, shift nach links\\
+\end{center}
+
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5\\
+\hline
+T = & $66_0$ & $20_0$ &  & $\leftarrow 8_2$ & &\\
+\hline
+&  &  &  & $\uparrow$ & &\\
+\hline
+\end{tabular}\\
+$\rightarrow$ PSL $\geq$ 0, shift nach links\\
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Index & 0 & 1 & 2 & 3 & 4 & 5\\
+\hline
+T = & $66_0$ & $20_0$ & $8_1$ &  & &\\
+\hline
+&  &  &  &  & $\uparrow$ &\\
+\hline
+\end{tabular}\\
+$\rightarrow$ Slot ist leer, Fertig!\\
+\end{center}
+\end{multicols}
+
+
+
+\noindent
+\textbf{Pseudocode:}
