@@ -252,20 +252,71 @@ $\rightarrow$ Slot ist leer, Fertig!\\
 \noindent
 \textbf{Pseudocode:}\\
 
-\textbf{put(k,v)}\\
-
-
-\textbf{delete(k)}\\
+\noindent
+\textbf{put(k,v)}
 
 \begin{lstlisting}[language=Scala]
-delete(k):
-	pos <- h(k)
-	for i <- 0 to N do
-		// Wenn kein Element k, wirf exception
-		if T[pos] == NULL then
-			throw NoSuchElementException
-		// Wenn das Element k vorhaden ist, loeschen und schauen ob links davon noch elemente sind mit PSL -> 0
-		// Wenn nicht FERTIG		
-		if T[pos] == k then
-			T[pos] <- DELETE
+def robin_hood_insert(key: K, value: V): Unit =
+	var index = hash(key)
+	var currentEntry = Entry(keyy, value, 0)
+	
+	while true do
+		table(index) match
+			case None =>
+				table(index) = Some(currentEntry)
+				return
+			
+			case Some(existingEntry) =>
+				if existingEntry.key == currentEntry.key then
+					table(index) = Some(currentEntry)
+					return
+				
+				if currentEntry.probeLength > existingEntry.probeLength then
+					// Robin Hood Swap
+					table(index) = Some(currentEntry)
+					currentEntry = existingEntry
+					
+				index = (index + 1) % size
+				currentEntry = currentEntry.copy(probeLength = currentEntry.probeLength + 1)
+\end{lstlisting}
+
+\noindent
+\textbf{delete(k)}
+
+\begin{lstlisting}[language=Scala]
+def delete(key: k): Unit =
+	var index = hash(key)
+	var probeLength = 0
+	
+	// als erstes muessen wir den Schluessel finden - loop durch die Tabelle
+	while true do
+		table(index) match
+			case None => return // Schluessel nicht vorhanden - Fertig
+			
+			case Some(entry) => 
+				if entry.key == key then // Wir haben den Schluessel gefunden - Delete
+					removeAt(index)
+					return // breche aus loop aus
+				
+				// Wenn die probeLength groesser ist als die des vorhandenen Elements
+				// koennen wir abbrechen, da der Schluessel nicht mehr vorkommen kann
+				if probeLength > entry.probeLength then return 
+				
+				index = (index + 1) % size
+				probeLength += 1
+				
+				
+private def removeAt(startIndex: Int): Unit =
+	var i = startIndex
+	var next = (i+1) % size
+	
+	// checken ob das naechste Element in der Tabelle NICHT leer ist UND ob die probelength
+	// groesser als 0 ist -> Ansonsten brechen wir den Loop und sind Fertig
+	while table(next).nonEmpty && table(next).get.grobeLength > 0 do
+		val entry = table(next).get // holen den naechsten Eintrag aus der Tabelle
+		tabel(i) = Some(entry.copy(probeLength = entry.probeLength -1 )) // wir kopieren den naechsten Eintrag auf die jetztige Stelle und verringern seinen PSL Wert
+		i = next // wir setzen den i Wert auf die naechste Position
+		next = (next + 1) % size // setzen die next Variable auf seine neue Position also + 1
+	
+	table(i) = None
 \end{lstlisting}
