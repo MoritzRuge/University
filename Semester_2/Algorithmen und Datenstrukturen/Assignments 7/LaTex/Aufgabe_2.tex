@@ -1,3 +1,28 @@
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
 \section*{{Problem 2: Implementierung einer Hashtabelle}} 
 
 
@@ -7,3 +32,9 @@ Gestalten Sie Ihre Implementierung so, dass sich die Größe der Hashtabelle wä
 
 \noindent
 \textbf{b)} Erweitern Sie Ihre Implementierung so, dass die Größe der Hashtabelle dynamisch angepasst wird, um einen Ladefaktor zwischen 1 und 3 zu garantieren (sobald mindestens 20 Einträge in der Hashtabelle vorhanden sind). Welche Strategie wählen Sie, um Ihre Hashtabelle anzupassen?\\
+
+
+
+\noindent
+\textbf{Datei: Hashtable.scala}
+\lstinputlisting[language=Scala]{./Code/Hashtable.scala}
