@@ -16,8 +16,8 @@ import scala.compiletime.ops.double
   val Test = Array(10,20,1,5,4,36,78,100,50,49)
   SelectionSort(Test)
   var result = InsertionSort(Test)
-  println(Test.mkString(", "))
-  println(result)
+  println("SelectionSort: " + Test.mkString(", "))
+  println("InsertionSort: " + result.mkString(", "))
 
 def SelectionSort(Liste: Array[Int]): Unit =
   //variablen
@@ -40,19 +40,20 @@ def swap(Liste: Array[Int], i: Int, j: Int): Unit =
   Liste(i) = Liste(j)
   Liste(j) = temp
 
-
-def InsertionSort(Liste: Array[Int]): Unit =
-    var handListe: Array[Int] = ()
+// InsertionSort Programm
+def InsertionSort(Liste: Array[Int]): Array[Int] =
+    val arr = Liste.clone()
     val n: Int = Liste.length
 
-    // Durch die Liste loopen und das kleinste Element suchen
-    for i <- 0 to n - 1 do
-        var min_index = i
+    for i <- 1 to n - 1 do
+        var key = arr(i)
+        var j = i - 1
 
-        for j <- i + 1 to n - 1 do
-            if min_index < Liste(j) then
-                min_index = Liste(i)
-            handListe(i) = min_index
-    
-    // return List
-    return handListe
+        while j >= 0 && arr(j) > key do
+            arr(j+1) = arr(j)
+            j -= 1
+        arr(j+1) = key
+    return arr
+
+
+// Merge Sort Programm
