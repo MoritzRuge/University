@@ -1,0 +1,336 @@
+Aufgabe 2 Tries
+(a) Zeichnen Sie einen unkomprimierten und einen komprimierten Trie für die
+Wörter {ALGORITHMUS, TRIE, BAUM, TORUS, BAHN, TORPEDO}.
+unkomprimierter Trie:
+1. insert(ALGORITHMUS)
+```
+		root
+	       /    
+	      A      
+              |      
+	      L      
+              |      
+	      G      
+              |      
+	      O      
+              |      
+	      R
+              |
+	      I
+              |
+	      T
+              |
+	      H
+              |
+	      M
+              |
+	      U
+              |
+	      S
+              |
+	      $
+```
+2. insert(TRIE)
+```
+		root
+	       /    \
+	      A      T
+              |      |
+	      L      R
+              |      |
+	      G      I
+              |      |
+	      O      E
+              |      |
+	      R      $
+              |
+	      I
+              |
+	      T
+              |
+	      H
+              |
+	      M
+              |
+	      U
+              |
+	      S
+              |
+	      $
+```
+3. insert(BAUM)
+```
+		root
+	      /   |   \
+	     A    B    T
+             |    |    |
+	     L    A    R
+             |    |    |
+	     G    U    I
+             |    |    |
+             O    M    E
+             |    |    |
+	     R    $    $
+             |
+	     I
+             |
+	     T
+             |
+	     H
+             |
+	     M
+             |
+	     U
+             |
+	     S
+             |
+	     $
+```
+4. insert(TORUS)
+```
+		root
+	      /   |   \
+	     A    B    T
+             |    |    | \
+	     L    A    R  O
+             |    |    |  |
+	     G    U    I  R
+             |    |    |  |
+             O    M    E  U
+             |    |    |  |
+	     R    $    $  S
+             |            |
+	     I            $
+             |
+	     T
+             |
+	     H
+             |
+	     M
+             |
+	     U
+             |
+	     S
+             |
+	     $
+```
+5. insert(BAHN)
+```
+		root
+	      /   |   \
+	     A    B    T
+             |    |    | \
+	     L    A    R  O
+             |    | \  |  |
+	     G    U  H I  R
+             |    |  | |  |
+             O    M  N E  U
+             |    |  | |  |
+	     R    $  $ $  S
+             |            |
+	     I            $
+             |
+	     T
+             |
+	     H
+             |
+	     M
+             |
+	     U
+             |
+	     S
+             |
+	     $
+```
+6. insert(TORPEDO)
+```
+		root
+	      /   |   \
+	     A    B    T
+             |    |    | \
+	     L    A    R  O
+             |    | \  |  |
+	     G    U  H I  R
+             |    |  | |  | \
+             O    M  N E  U  P
+             |    |  | |  |  |
+	     R    $  $ $  S  E
+             |            |  |
+	     I            $  D
+             |               |
+	     T               O
+             |               |
+	     H               $
+             |
+	     M
+             |
+	     U
+             |
+	     S
+             |
+	     $
+```
+komprimierter Trie:
+1.insert(ALGORITHMUS):
+```
+		root
+             /        \
+      ALGORITHMUS$
+```
+2.insert(TRIE):
+```
+		root
+             /        \
+      ALGORITHMUS$   TRIE$
+```
+3.insert(BAUM):
+```
+		 root
+           /      |      \
+   ALGORITHMUS$  BAUM$   TRIE$
+```
+4.insert(TORUS):
+```
+		 root
+           /      |      \
+   ALGORITHMUS$  BAUM$    T
+                          |   \
+                        RIE$  ORUS$
+```
+5.insert(BAHN):
+```
+		 root
+           /      |      \
+   ALGORITHMUS$  BA       T
+                /   \     |   \
+              UM$   HN$ RIE$  ORUS$
+```
+6.insert(TORPEDO):
+```
+		 root
+           /      |      \
+   ALGORITHMUS$  BA       T
+                /   \     |   \
+              UM$   HN$ RIE$  OR
+                              |  \
+                             US$  PEDO$
+```
+
+b)
+Algorithmus um alle Wörter in einem Trie zu erhalten.
+Trie Dictionary Implementation.
+1. Übergabeparameter: curr_node = Trie.root, curr_präfix = "", words = []
+2. Wenn ein Eintrag des aktuell betrachteten Eintrags das Stringende Symbol ($) ist, dann stellt die Kante von der Wurzel bis zu dem aktuellen Eintrag einen vollständigen String dar. -> füge dieses Wort in die words Liste ein.
+3. Iteriere über alle Einträge 'char' des aktuellen Eintrag -> char bzw. Buchstabe
+	3.2 Wenn ein Eintrag nicht ($) ist.
+		-> Dann rufe die Funktion rekursive mit folgenden Veränderungen auf: (curr_node = curr_node[char], curr_präfix += char, words)
+4. gibt die Liste words zurück. Diese sollte nun alle Wörter innerhalb des Trie beinhalten.
+5. Iteriere über die words Liste und printe alle einzelnen Wörter.
+```
+class Trie:
+    def __init__(self):
+        self.root = {}
+        self.end_symbol = "*"
+
+    def add(self, word):
+        current_level = self.root
+        for letter in word:
+            if letter not in current_level:
+                current_level[letter] = {}
+            current_level = current_level[letter]
+        current_level[self.end_symbol] = True
+
+    #@param current_level: variable to indicate which level of the Trie is currently searched. 
+    #@param current_prefix: variable that holds the string of all letters that are part of a word in the trie 
+    #@param words: list of strings that hold all found words.
+    def search_level(self, current_level, current_prefix, words):
+        if self.end_symbol in current_level:				# If an entry on the next level has a end of string marker, than the current_prefix is a complete word. append it to words list.
+            words.append(current_prefix)
+        for letter in sorted(current_level.keys()):			# Loop over each entry of the current dictionary
+            if letter != self.end_symbol:				# If a letters entry is not the end_symbol (the word is not finished) recursivly call the function with modified values.
+                self.search_level(current_level[letter], current_prefix + letter, words)
+        return words
+
+    def words_with_prefix(self, prefix):
+        collected_words = []
+        current_level = self.root
+        for letter in prefix:
+            if letter not in current_level:
+                return []
+            current_level = current_level[letter]
+        return self.search_level(current_level, prefix, collected_words)
+
+
+
+def main():
+    trie = Trie()
+    trie.add("help")
+    trie.add("hello")
+    trie.add("hi")
+    #found_words = trie.words_with_prefix("")
+    found_words = trie.search_level(trie.root,"",[])
+    for word in found_words:
+        print(word)
+
+main()
+```
+Output:
+hello
+help
+hi
+
+Der Aufrauf trie.search_level(trie.root,"",[]) zusammen mit dem print über die erhaltene Liste repräsentiert den oben besprochenen Algorithmus. Jede Kante wird genau 1-mal besucht. Der Rekursionsbaum wird jedesmal verzweigt, wenn es im Trie ebenfalls mehrere Folgekanten für einen Eintrag gibt.
+
+Aufgabe 3 Implementierung von Tries:
+Beschreiben Sie kurz, wie man konkret die Operationen put(s, v), get(s), remove(s)
+und succ(s) auf unkomprimierten Tries implementieren kann. Dabei ist s jeweils
+eine nichtleere Zeichenkette und v ein Wert aus einer endlichen Wertemenge V .
+Geben Sie die Laufzeiten an.
+//: Erklärungen
+Die Bearbeitung dieser Aufgabe orientiert sich an der Darstellung von Pseudocode aus dem Skript.
+```
+put / add 
+put(s,v): 	fügt einen String mit Wert in einen Trie ein.
+						// Es ist davon auszugehen, dass diese keine Leerzeichen enthält.
+	current = Trie.root 			// Beginne bei der Wurzel des Trie -> die Wurzel ist immer leer.
+	for char in s: 				// Iteriere über die einzelnen Buchstaben in der Zahlenkette
+		if char not in current: 	// Überprüfe, ob es im nächsten Level des Trie schon einen Eintrag/Knoten für diesen Buchstaben gibt.
+			current[char] = {}	// Wenn es noch keinen Eintrag gibt, erstellen an dieser Stelle ein leerers Dictionary bzw. einen Knoten, von dem eine weitere Kante abgeht.
+		current = current[char]		// Gehe weiter Eintrag mit dem aktuellen Buchstaben im nächsten Level.
+	current["$"] = v			/* Nach der Schleife ist man am Ende des String im Trie angekommen. 
+						Als letztes wird immer ein Eintrag "$" erstellt, um das Ende eines Strings zu markieren.
+						füge an diesem Eintrag den gegebenen Wert v an.*/
+```
+O(|s|) die Schleife läuft von jeden Buchstaben in s -> linearer Wachstum -> O(n)
+
+get / search
+get(s): 	überprüft, ob ein gegebener String innerhalb des Trie ist, wenn ja dann gib den Wert v des Strings zurück.
+```
+	current = Trie.root			// Es ist davon auszugehen, dass diese keine Leerzeichen enthält.
+	for char in s:				// Iteriere wie bei add durch den Trie.
+		if char not in current:
+			return -1		// Wenn es keinen Eintrag für einen der Buchstaben in s gibt. Exsistiert der String im Trie nicht.
+						// gibt einen Standardwert zurück, um zu signalisieren, dass der String nicht vorhanden ist.
+		current = current[char]		
+	return current["$"]			// Am Ende der Schleife sollte das Ende des String erreicht worden sein. Gibt den dort gespeicherten Wert zurück.
+```
+O(|s|) die Schleife läuft von jeden Buchstaben in s -> linearer Wachstum -> O(n)
+
+succ(s):
+Die Operation succ(s) findet den nächsten String im Trie vom prefix s nach alphabetischer Reihenfolge.
+1. Iteriere wie in get(), put() durch den Trie, bis der Präfix s gefunden wurde.
+	1.2 Ist s ein vollständiger String im Trie, überprüfe alle nachfolgenden Kanten nach dem kleinsten String (markiert durch "$") in alphabetischer Reihenfolge.
+2. Falls kein solcher String existiert oder s nicht vollständig im Trie ist.
+	2.2 Gehe zurück zur letzten Kante, an der sich der String verzweigt hat.
+	2.3 Überprüfe alle nachfolgenden Kanten nach dem kleinsten String (markiert durch "$") in alphabetischer Reihenfolge.
+O(|s|+|result|) die Schleife läuft von jeden Buchstaben in s -> linearer Wachstum -> O(n)
+
+remove(s):
+Die Löschoperation remove(s) entfernt einen String aus einem Trie, falls vorhanden.
+1. Iteriere durch den Trie wie in get(), um die Endmarkierung des Strings zufinden.
+	1.2 Wenn der gegebene String s zu keiner Endmarkierung führt, dann verlasse die Funktion ohne etwas zu löschen. -> dies würde zu internen Problemen und undefiniertem Verhalten führen.
+2. Wird die Endmarkierung von s gefunden wird dieser Eintrag gelöscht.
+	2.2 Iteriere von dieser Stelle rekursive nach oben (Richtung Wurzel):
+		2.2.2 Hat ein Knoten keine Kindkante -> lösche diesen Knoten.
+		2.2.3 Ist ein Knoten eine Endmarkierung ("$") oder hat Kindkanten zu anderen Knoten -> Stoppe die Rekursion, s wurde vollständig gelöscht. 
+O(|s|) die Schleife läuft von jeden Buchstaben in s die Rekursion ist nicht mit der Schleife verschachtelt O(|s|+|s|) = O(2|s|) konstanten werden nicht berücksichtigt -> O(|s|)  -> linearer Wachstum -> O(n)
