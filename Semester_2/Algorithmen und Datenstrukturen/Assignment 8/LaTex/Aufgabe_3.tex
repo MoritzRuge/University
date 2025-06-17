@@ -6,3 +6,80 @@ Beschreiben Sie kurz, wie man konkret die Operationen put(s, v), get(s), remove(
 und succ(s) auf unkomprimierten Tries implementieren kann. Dabei ist s jeweils
 eine nichtleere Zeichenkette und v ein Wert aus einer endlichen Wertemenge V .
 Geben Sie die Laufzeiten an.\\
+
+\section*{Grundlegende Trie-Operationen}
+
+Die Bearbeitung dieser Aufgabe orientiert sich an der Darstellung von Pseudocode aus dem Skript.
+
+\subsection*{put / add}
+
+\textbf{Ziel:} Fügt einen String mit einem Wert in einen Trie ein. Es wird angenommen, dass der String keine Leerzeichen enthält.
+
+\begin{lstlisting}[language=Python]
+put(s, v):
+    current = Trie.root              # Beginne bei der Wurzel des Trie, diese ist immer leer.
+    for char in s:                   # Iteriere ueber die einzelnen Buchstaben des Strings.
+        if char not in current:     # Existiert kein Eintrag fuer diesen Buchstaben ...
+            current[char] = {}      # ... dann erstelle einen neuen Knoten (Dictionary).
+        current = current[char]     # Gehe in das naechste Level weiter.
+    current["$"] = v                # Am Ende: Markiere das Ende des Strings mit "$" und speichere den Wert v.
+\end{lstlisting}
+
+\textbf{Laufzeit:} $O(|s|)$ — Die Schleife läuft einmal für jeden Buchstaben im String $s$ $\Rightarrow$ lineares Wachstum.
+
+\subsection*{get / search}
+
+\textbf{Ziel:} Überprüft, ob ein gegebener String im Trie enthalten ist. Gibt den zugehörigen Wert zurück, falls vorhanden.
+
+\begin{lstlisting}[language=Python]
+get(s):
+    current = Trie.root
+    for char in s:                   # Iteriere durch den Trie.
+        if char not in current:
+            return -1                # String ist nicht im Trie vorhanden.
+        current = current[char]
+    return current["$"]              # Gib den gespeicherten Wert zurueck.
+\end{lstlisting}
+
+\textbf{Laufzeit:} $O(|s|)$ — Linear zur Länge des eingegebenen Strings.
+
+\subsection*{succ(s)}
+
+\textbf{Ziel:} Findet den nächsten String im Trie (alphabetisch sortiert), der mit dem Präfix $s$ beginnt.
+
+\begin{enumerate}
+    \item Iteriere durch den Trie wie bei \texttt{get()} oder \texttt{put()}, bis der Präfix $s$ gefunden wurde.
+    \item Falls $s$ ein vollständiger String ist:
+    \begin{itemize}
+        \item Suche von diesem Knoten aus den alphabetisch kleinsten Nachfolger (Knoten mit \texttt{"\$"}).
+    \end{itemize}
+    \item Falls kein solcher String existiert oder $s$ unvollständig ist:
+    \begin{itemize}
+        \item Gehe zurück zur letzten Verzweigung.
+        \item Suche dort den nächsten möglichen (alphabetisch kleinsten) String.
+    \end{itemize}
+\end{enumerate}
+
+\textbf{Laufzeit:} $O(|s| + |\text{result}|)$ — Linear zur Länge des Präfixes plus Länge des gesuchten Ergebnisses.
+
+\subsection*{remove(s)}
+
+\textbf{Ziel:} Entfernt einen gegebenen String aus dem Trie (falls vorhanden).
+
+\begin{enumerate}
+    \item Iteriere durch den Trie wie bei \texttt{get()}, um die Endmarkierung des Strings zu finden.
+    \begin{itemize}
+        \item Falls keine Endmarkierung gefunden wird, verlasse die Funktion.
+    \end{itemize}
+    \item Wird das Ende gefunden:
+    \begin{itemize}
+        \item Lösche das \texttt{"\$"}-Markierung.
+        \item Gehe rekursiv von unten (Blatt) zur Wurzel:
+        \begin{itemize}
+            \item Wenn ein Knoten keine Kindknoten mehr hat $\Rightarrow$ lösche ihn.
+            \item Sobald ein Knoten noch andere Kanten oder ein \texttt{"\$"} enthält $\Rightarrow$ stoppe.
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\textbf{Laufzeit:} $O(|s|)$ — Die Löschoperation ist ebenfalls linear, da Schleife und Rekursion nicht verschachtelt sind. $\Rightarrow$ O($2|s|$) = O($|s|$)
