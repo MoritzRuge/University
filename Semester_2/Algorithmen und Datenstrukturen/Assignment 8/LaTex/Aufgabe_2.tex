@@ -402,3 +402,89 @@
 
 \noindent
 \textbf{b)} Entwickeln Sie einen Algorithmus, der alle Wörter in einem unkomprimierten Trie ausgibt und dabei jede Kante höchstens zweimal besucht.\\
+
+
+\section*{Algorithmus: Alle Wörter in einem Trie extrahieren}
+
+\textbf{Beschreibung:}
+
+Der folgende Algorithmus durchläuft einen gegebenen Trie rekursiv und sammelt alle vollständigen Wörter, die im Trie enthalten sind. Jede Kante des Trie wird dabei genau einmal besucht. Die Rekursion verzweigt sich immer dann, wenn mehrere mögliche Folgeknoten für einen Eintrag existieren.
+
+\begin{enumerate}
+    \item Übergabeparameter: \texttt{curr\_node = Trie.root}, \texttt{curr\_pr\"afix = ""}, \texttt{words = []}
+    \item Wenn ein Eintrag des aktuell betrachteten Knotens das Stringende-Symbol (\texttt{*}) ist, dann stellt der Pfad von der Wurzel bis zu diesem Knoten ein vollständiges Wort dar.
+    \begin{itemize}
+        \item $\Rightarrow$ Füge dieses Wort zur Liste \texttt{words} hinzu.
+    \end{itemize}
+    \item Iteriere über alle Einträge \texttt{char} des aktuellen Knotens:
+    \begin{itemize}
+        \item Wenn der Eintrag \texttt{char} \emph{nicht} das Stringende-Symbol ist:
+        \begin{itemize}
+            \item $\Rightarrow$ Rufe die Funktion rekursiv auf mit: \\
+            \texttt{curr\_node = curr\_node[char]}, \\
+            \texttt{curr\_pr\"afix += char}, \\
+            \texttt{words = words}
+        \end{itemize}
+    \end{itemize}
+    \item Gib die Liste \texttt{words} zurück. Diese enthält nun alle Wörter, die im Trie gespeichert sind.
+    \item Iteriere über die \texttt{words}-Liste und gebe jedes Wort aus.
+\end{enumerate}
+
+\newpage
+
+\section*{Implementierung (Python)}
+
+\begin{lstlisting}[language=Python]
+class Trie:
+    def __init__(self):
+        self.root = {}
+        self.end_symbol = "*"
+
+    def add(self, word):
+        current_level = self.root
+        for letter in word:
+            if letter not in current_level:
+                current_level[letter] = {}
+            current_level = current_level[letter]
+        current_level[self.end_symbol] = True
+
+    def search_level(self, current_level, current_prefix, words):
+        if self.end_symbol in current_level:
+            words.append(current_prefix)
+        for letter in sorted(current_level.keys()):
+            if letter != self.end_symbol:
+                self.search_level(current_level[letter], current_prefix + letter, words)
+        return words
+
+    def words_with_prefix(self, prefix):
+        collected_words = []
+        current_level = self.root
+        for letter in prefix:
+            if letter not in current_level:
+                return []
+            current_level = current_level[letter]
+        return self.search_level(current_level, prefix, collected_words)
+
+
+def main():
+    trie = Trie()
+    trie.add("help")
+    trie.add("hello")
+    trie.add("hi")
+    found_words = trie.search_level(trie.root,"",[])
+    for word in found_words:
+        print(word)
+
+main()
+\end{lstlisting}
+
+\subsection*{Ausgabe:}
+\begin{verbatim}
+hello
+help
+hi
+\end{verbatim}
+
+\subsection*{Anmerkung:}
+
+Der Funktionsaufruf \texttt{trie.search\_level(trie.root, "", [])} zusammen mit dem anschließenden \texttt{print}-Block implementiert exakt den oben beschriebenen Algorithmus. Der Rekursionsbaum verzweigt sich bei jedem Knoten mit mehreren Kindknoten. Jede Kante im Trie wird dabei genau einmal besucht.
