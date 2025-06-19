@@ -1,12 +1,12 @@
 import java.security.MessageDigest
 
-// Hilfsfunktion um eine Hash für SHA-256 zu erzeugen Return String(Bytes), aus Aufgabe 1a
+// Hilfsfunktion um eine Hash fuer SHA-256 zu erzeugen Return String(Bytes), aus Aufgabe 1a
 def sha256(input: String): String =
   val sha256 = MessageDigest.getInstance("SHA-256")
   val hashWert = sha256.digest(input.getBytes("UTF-8"))
   hashWert.map("%02x".format(_)).mkString
 
-// Erzeugen der Datenstruktur für eine einfach verkettete Liste mit Hashreferenz
+// Erzeugen der Datenstruktur fuer eine einfach verkettete Liste mit Hashreferenz
 // data: inhalt des Knotens
 // prevHash Der SHA-256 des vorhergehenden Knotens
 // nextHash Verweisst auf den naechsten Knoten in der Liste
