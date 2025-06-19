@@ -86,8 +86,17 @@ Verwenden Sie dazu eine kryptographische Hashfunktion wie in Teil (a).
 
 \lstinputlisting[language=Scala]{./Code/1b.scala}
 
+\begin{verbatim}
+Output:
+Daten: Alice
+PrevHash: 5923931d867e648ec3e488074d631134d596b6a5424c5165258e9a6475fdc777
 
-\vspace{1em}
+Daten: Bob
+PrevHash: 12775e79fe15fd6aa0fcf6605550b6cc45ec10552c6d0b72685815af763f4774
+
+Daten: Charlie
+PrevHash: 0000000000000000000000000000000000000000000000000000000000000000
+\end{verbatim}
 
 \newpage
 \subsection*{c) Nonce und Hash mit Nullen am Ende}
@@ -116,6 +125,9 @@ PrevHash: 0000000000000000000000000000000000000000000000000000000000000000
 Nonce:    47
 Hash:     213f013d20bc293b36a9fa7a59444aed5a881af4f17a41de31ca27ec7cf9e100
 \end{verbatim}
+
+Die Ausgabe des hashes erfolgt in Hexadezimal Darstellung.\\
+Ein Byte = 8 Bit = 00000000 bis 11111111 $\rightarrow$ was in Hex = \textbf{00} bis FF sind.  Das heißt, die letzten beiden Nullen sind die Hexadezimaldarstellung für 8 Nullen in Binärdarstellung.
 
 \subsubsection*{Druchschnittliche Versuche:}
 
