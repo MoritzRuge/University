@@ -1,0 +1,41 @@
+Super! Hier ist ein kleiner Lernplan mit täglichen Aufgaben, um systematisch Scala (und später auch Python) zu lernen – mit Fokus auf verschiedene Programmierparadigmen:
+
+---
+
+### **Woche 1 – Grundlagen & Kontrollstrukturen (Scala)**
+
+* **Tag 1:** Schreibe ein Programm, das prüft, ob eine Zahl gerade oder ungerade ist.
+* **Tag 2:** FizzBuzz (Zahlen 1–100, ersetze durch „Fizz“ für 3, „Buzz“ für 5, „FizzBuzz“ für beides)
+* **Tag 3:** Schreibe eine Funktion, die die Fakultät einer Zahl mit Rekursion berechnet.
+* **Tag 4:** Implementiere eine einfache Schleife zur Berechnung der Summe aller Zahlen von 1 bis n.
+* **Tag 5:** Schreibe ein Programm zur Umwandlung von Celsius in Fahrenheit.
+* **Tag 6:** Nutze `match` zum Ausgeben eines Wochentags anhand einer Zahl (1–7).
+* **Tag 7:** Review + Mini-Projekt: Kleiner Taschenrechner mit `match` + Wiederholung
+
+---
+
+### **Woche 2 – OOP in Scala**
+
+* **Tag 8:** Erstelle eine Klasse `Person` mit Attributen `name` und `age` + Methode `greet()`
+* **Tag 9:** Erweitere `Person` um eine Klasse `Student`, die `study()` ausgibt.
+* **Tag 10:** Schreibe ein einfaches `BankAccount`-Objekt mit Methoden `deposit`, `withdraw`, `checkBalance`
+* **Tag 11:** Verwende `case class` für eine `Book`-Klasse und erstelle einige Instanzen.
+* **Tag 12:** Übung zur Vererbung und Überschreibung von Methoden.
+* **Tag 13:** Kombiniere mehrere Klassen in einem kleinen Programm (z.B. Tierhierarchie).
+* **Tag 14:** Mini-Projekt: Bibliothekssystem mit `Book`, `User`, `Library`.
+
+---
+
+### **Woche 3 – Funktionale Programmierung**
+
+* **Tag 15:** Schreibe eine Funktion, die eine Liste von Zahlen verdoppelt.
+* **Tag 16:** Verwende `map`, `filter`, `reduce` auf einer Liste von Zahlen.
+* **Tag 17:** Implementiere eine Funktion, die prüft, ob ein Wort ein Palindrom ist.
+* **Tag 18:** Verwende `Option` zur Fehlervermeidung (z. B. Division mit 0).
+* **Tag 19:** Arbeite mit `List`, `Vector`, `Set`, `Map` – einfache Transformationen.
+* **Tag 20:** Schreibe eine `tail-recursive` Fibonacci-Funktion.
+* **Tag 21:** Mini-Projekt: CSV-Einträge parsen und auswerten mit `map`/`filter`
+
+---
+
+Wenn du willst, kann ich dir jeden Tag eine konkrete Aufgabe geben mit kurzer Erklärung + optionaler Lösung zum Üben. Soll ich dir z. B. direkt die Aufgabe für morgen vorbereiten?
