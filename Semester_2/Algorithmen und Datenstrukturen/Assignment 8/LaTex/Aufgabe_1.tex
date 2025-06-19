@@ -1,10 +1,93 @@
 \section*{Problem 1: Kryptographische Hashfunktionen und Blockchain}
 
-\noindent
-\textbf{a)} Welche kryptographischen Hashfunktionen sind in Scala implementiert? Wie kann man sie verwenden?\\
+\subsection*{a) Kryptographische Hashfunktionen in Scala}
 
-\noindent
-\textbf{b)} Implementieren Sie in Scala eine einfach verkettete Liste mit Hashreferenzen. In den Knoten der einfach verketteten Liste sollen String-Objekte gespeichert werden. Verwenden Sie dazu eine kryptographische Hashfunktion wie in (a).\\
+Welche kryptographischen Hashfunktionen sind in Scala implementiert?  
+Wie kann man sie verwenden?
 
-\noindent
-\textbf{c)} Fügen Sie zu den Knoten Ihrer einfach verketteten Liste jeweils ein Nonce hinzu, und stellen Sie sicher, dass die Hashwerte in den Referenzen alle mit acht Nullen (in der Binärdarstellung) aufhören. Wie viele Versuche sind dazu im Durchschnitt nötig?\\
+
+\subsubsection*{Lösung: Non-cryptographic hashfunctions}
+
+Scala3 hat keine eigene Kryptographische Hashfunktion Implementiert (jedenfalls habe ich nichts gefunden). \\
+
+In Scala hat man die Möglichkeit interne Hashfunktionen zu benutzten wie z.B. mit hashCode() methode\cite{hashCode}:
+\begin{lstlisting}[language=Scala]
+scala> val result = "hello".hashCode()
+val result: Int = 99162322
+\end{lstlisting}
+Dies dient aber nicht der Kryptographischen Verschlüsselung von Werten, da es hierbei zu viele Kollisionen kommt, eher ist es zur Kontrolle von Werten gedacht.\\
+
+Eine weitere Möglichkeit ist es über eine zusätzliche Scala Library zusätzliche Hashfunktionen zu benutzen: \textit{scala.util.hashing.Hashing} \cite{scala.util}\\
+
+\lstinputlisting[language=Scala]{./Code/Scalatest.scala}
+
+\begin{verbatim}
+Output: 69490486
+\end{verbatim}
+
+\subsubsection*{MurmurHash3}
+
+Oder auch eine Implementierung von MurmurHash3 von Rex Kerr. Auch dieser ist aber ein \textit{non-cryptographic hashing algorithm} \cite{murmurhash3}
+
+\lstinputlisting[language=Scala]{./Code/murmurHash3.scala}
+
+\begin{verbatim}
+Output: -608680269
+\end{verbatim}
+
+\subsubsection*{Kryptographische Hashfunktionen}
+
+Um Kryptographische Hashfunktionen in Scala zu benutzen, müssen wir auf Bibliotheken von Java zurückgreifen. Um dies zu tun, Importieren wir z.B.:\textit{java.security.MessageDigest} - für die Nutzung von SHA-256, MD5 oder auch SHA-1.\cite{sha-256}
+
+\begin{lstlisting}[language=Scala]
+import java.security.MessageDigest
+\end{lstlisting}
+
+Um z.B.: SHA-256 zu verwenden, müssen wir die vorgefertigten Methoden, getInstance(), digest(), benutzen
+
+\begin{lstlisting}[language=Scala]
+import java.security.MessageDigest
+
+
+@main def run(): Unit =
+
+  val message = "Hello World"
+  val sha256 = MessageDigest.getInstance("SHA-256")
+  val hashWert = sha256.digest(message.getBytes("UTF-8"))
+
+  println(hashWert)
+\end{lstlisting}
+
+\begin{verbatim}
+Output: [B@45820e51
+\end{verbatim}
+
+\begin{itemize}
+\item MessageDigest - ruft das Objekt auf
+\item getInstance() - Returns a MessageDigest object that implements the specified digest algorithm.
+\item digest - Performs a final update on the digest using the specified array of bytes, then completes the digest computation.
+\end{itemize}
+
+Da wir bei \textit{println(hashWert)} eine Standard-toString-Ausgabe von einem Java-Array erhalten( also in Bytes ), müssen wir die Ausgabe noch einmal in Hex-Zahlen umwandeln:
+
+\lstinputlisting[language=Scala]{./Code/SHA-256.scala}
+\begin{verbatim}
+Output: a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e
+\end{verbatim}
+
+\vspace{1em}
+
+\subsection*{b) Verkettete Liste mit Hashreferenzen}
+
+Implementieren Sie in \texttt{Scala} eine einfach verkettete Liste mit Hashreferenzen.  
+In den Knoten der einfach verketteten Liste sollen \texttt{String}-Objekte gespeichert werden.  
+Verwenden Sie dazu eine kryptographische Hashfunktion wie in Teil (a).
+
+\vspace{1em}
+
+\subsection*{c) Nonce und Hash mit Nullen am Ende}
+
+Fügen Sie zu den Knoten Ihrer einfach verketteten Liste jeweils ein \emph{Nonce} hinzu,  
+und stellen Sie sicher, dass die Hashwerte in den Referenzen alle mit acht Nullen (in der Binärdarstellung) enden.  
+
+Wie viele Versuche sind dazu im Durchschnitt nötig?
