@@ -18,6 +18,8 @@ def buildingList(strings: List[String]): Node =
     var startNode: Node = null
     var previousNode: Node = null
 
+    // wir drehen die Liste um da wir noch keine Werte fuer den zweiten Knoten haetten
+    // d.h. wir fangen hinten an und rechnen die Liste umgedreht durch
     val reversed = strings.reverse
 
     for i <- 0 until reversed.length do

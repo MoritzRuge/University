@@ -89,9 +89,46 @@ Verwenden Sie dazu eine kryptographische Hashfunktion wie in Teil (a).
 
 \vspace{1em}
 
+\newpage
 \subsection*{c) Nonce und Hash mit Nullen am Ende}
 
 Fügen Sie zu den Knoten Ihrer einfach verketteten Liste jeweils ein \emph{Nonce} hinzu,  
 und stellen Sie sicher, dass die Hashwerte in den Referenzen alle mit acht Nullen (in der Binärdarstellung) enden.  
 
-Wie viele Versuche sind dazu im Durchschnitt nötig?
+Wie viele Versuche sind dazu im Durchschnitt nötig?\\
+
+\lstinputlisting[language=Scala]{./Code/1c.scala}
+
+\begin{verbatim}
+Output:
+Daten: Alice
+PrevHash: 8efdfdc4cc1b5cb65ea1570e1371eac8ae7fb84f1b65c4f2b6d7f5d85f7c5700
+Nonce:    471
+Hash:     53c7e0c85a3182285cf4d837dfa1d495d5c883ac94f43b970c567b4d0a314e00
+
+Daten: Bob
+PrevHash: 213f013d20bc293b36a9fa7a59444aed5a881af4f17a41de31ca27ec7cf9e100
+Nonce:    101
+Hash:     8efdfdc4cc1b5cb65ea1570e1371eac8ae7fb84f1b65c4f2b6d7f5d85f7c5700
+
+Daten: Charlie
+PrevHash: 0000000000000000000000000000000000000000000000000000000000000000
+Nonce:    47
+Hash:     213f013d20bc293b36a9fa7a59444aed5a881af4f17a41de31ca27ec7cf9e100
+\end{verbatim}
+
+\subsubsection*{Druchschnittliche Versuche:}
+
+Die Kryptographische Hashfunktion SHA-256 produziert genau 256 Bit oder auch 32 Byte. Die Wahrscheinlichkeit das ein Bit entweder 0 oder 1 annimmt ist $\frac{1}{2}$. Da die Letzten 8 Bit oder auch 1 Byte Null sein sollen ergibt sich folgende Formel:\\
+
+\begin{center}
+$P(alle 8 Bits = 0)=(\frac{1}{2})^8 = \frac{1}{256}$
+\end{center}
+
+Der Erwartungswert ist dann:
+
+\begin{center}
+$\text{Erwartungswert}=\frac{1}{P}= \frac{1}{\frac{1}{256}} = 256$
+\end{center}
+
+Die Wahrscheinlichkeit um am Ende Acht Nullen zu ziehen ist also $\frac{1}{256}$, bzw. braucht man ungefähr 256 versuche um den gewünschten Nonce zu berechnen.
