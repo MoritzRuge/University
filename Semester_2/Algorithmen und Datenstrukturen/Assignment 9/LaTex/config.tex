@@ -1,0 +1,91 @@
+\usepackage[left=3cm, right=2.5cm]{geometry} % Hier die Ränder definieren
+
+%\usepackage[T1]{fontenc}
+%\usepackage[ngerman]{babel}
+
+\usepackage[pdftex]{graphicx}
+%%%%% Path for Pictures %%%%%%
+\graphicspath{ {./Pictures} }
+\usepackage{subfigure} 
+\usepackage[backend=biber,style=numeric,url=true]{biblatex} % für Quellenangaben und Bibliotheken
+\usepackage[]{hyperref} % für hyperlinks
+\usepackage{array} % für die Tabelle
+\addbibresource{quellen.bib}  % Add your .bib file here
+
+% Paket für die Baumdiagramdarstellung
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+% https://chatgpt.com/c/68191c8e-8760-8002-843b-e82091955567
+\usepackage{booktabs} % für schönere Tabellenlinien
+\usepackage{amsmath}  % für mathematische Symbole wie \left[ \right]
+\usepackage{amssymb}
+
+%%%% Packet um die Farbe von text zu ändern %%%%
+%\textcolor{red}{text}
+%\definecolor{mygreen}{RGB}{0,150,0}
+%\textcolor{mygreen}{Dies ist grüner Text mit eigener Farbe.}
+%{\color{blue}
+%Dies ist ein ganzer Absatz in Blau.
+%}
+\usepackage{xcolor}
+
+%%%%% draws layout frames %%%%%
+%\usepackage{showframe}
+
+%%%%% Multiple Columns %%%%%
+% see: https://www.overleaf.com/learn/latex/Multiple_columns
+\usepackage{multicol}
+
+
+% Text block indentation
+%\lipsum[1]
+%\begin{addmargin}[1em]{2em}% 1em left, 2em right
+%\lipsum[2]
+%\end{addmargin}
+%\lipsum[3]
+\usepackage{scrextend}
+
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+    
+
+%%% Code-Block design
+%%% Benutzung mit: 
+%%%%% \lstinputlisting[language=Scala]{./Code/Hashtable.scala} %%% für datein
+%%%%% \begin{lstlisting}[language=Scala] %%% für \begin und \end
+% https://www.overleaf.com/learn/latex/Code_listing
+\usepackage{listings}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
