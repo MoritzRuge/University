@@ -1,15 +1,48 @@
-\section*{Problem 2: Suchen in Zeichenketten II}
+\section{Problem: Suchen in Zeichenketten II}
 
-\begin{enumerate}
-\item Der Algorithmus von Rabin-Karp lässt sich leicht auf mehrere Suchmuster
-verallgemeinern. Gegeben eine Zeichenkette s und Suchmuster t1 , . . . , tk , be-
-stimme die erste Stelle in s, an der eines der Muster t1, . . . , tk vorkommt.
-Beschreiben Sie, wie man den Algorithmus von Rabin-Karp für diese Situati-
-on anpassen kann. Was ist die heuristische Laufzeit Ihres Algorithmus (unter
-der Annahme, dass Kollisionen selten sind)?
+\subsection{Rabin-Karp mit mehreren Suchmustern}\label{Rabin-Karp-suchmuster}
+Der Algorithmus von Rabin-Karp lässt sich leicht auf mehrere Suchmuster
+verallgemeinern. Gegeben eine Zeichenkette $s$ und Suchmuster $t1 , \dots , tk$ , bestimme die erste Stelle in $s$, an der eines der Muster $t1, \dots , tk$ vorkommt. Beschreiben Sie, wie man den Algorithmus von Rabin-Karp für diese Situation anpassen kann. Was ist die heuristische Laufzeit Ihres Algorithmus (unterder Annahme, dass Kollisionen selten sind)?
 
-\item Implementieren Sie Ihren Algorithmus aus (a). Beantworten Sie sodann fol-
-gende Frage: Was kommt öfter in dem Roman Sense \& Sensibility vor: sense
-oder sensibility/sensible?
+\subsubsection{Probelmstellung:}
+Gegeben:
+\begin{itemize}
+	\item Eine Zeichenkette $s$ (Text) der Länge $n$
+	\item Ein Suchmuster $k$ mit $t_1, t_2, \dots , t_k$ der gleichen Länge $m$
+\end{itemize}
+
+\subsubsection{Gesucht:}
+\begin{itemize}
+	\item Ein Algorithmus: der die erste Position in $s$ (Text), an der irgendeins der Muster $t_1, \dots, t_k$ vorkommt.
+	\item Die Laufzeit des Algorithmus (unter der Annahme, dass Kollisionen selten sind)
+\end{itemize}
+
+\subsubsection{Lösung:}
+\paragraph{Rabin-Karp vorgehen:}
+\begin{itemize}
+	\item Wir berechnen den Hashwert des Musters $t$
+	\item Wir Iterieren über den Text $s$ mit einem Fenster/Bereich der Länge $m$
+	\item Berechne den Hashwert des aktuellen Fensters $s[i \dots i+m-1]$
+	\item Wenn die Hashwerte übereinstimmen, vergleichen wir den Text-ausschnitt und Muster direkt, um Kollisionen zu umgehen
+\end{itemize}
+
+\paragraph{Rabin-Karb für mehrere Muster:}\cite{Stackoverflow-Rabin-Karp}
+\begin{itemize}
+	\item Wir berechnen den Hashwert für alle Suchmuster $t_1,t_2, \dots, t_k$
+	\begin{itemize}
+		\item Diese Hashwerte speichern wir in einer Datenstruktur (HashSets)
+		\item Dadurch ist die Überprüfung, ob ein Hashwert zu einem Muster gehört, in $O(1)$ möglich
+	\end{itemize}
+	\item Wiederholen des normalen Algorithmus, Iterieren über alle Teilstrings der Länge $m$ im Text $s$
+	\item Berechnen des aktuellen Hashwertes vom Fenster
+	\item Vergleichen, ob dieser Hashwert in der Menge der HashSets zu finden ist
+	\item Wenn die Hashwerte übereinstimmen, verlgeichen wir wieder direkt
+\end{itemize}
+
+
+
+\subsection{Implimentierung des Algorithmus}
+Implementieren Sie Ihren Algorithmus aus \ref{Rabin-Karp-suchmuster}. Beantworten Sie sodann folgende Frage: Was kommt öfter in dem Roman Sense \& Sensibility vor: sense oder sensibility/sensible?\\
 Hinweis: Siehe http://www.gutenberg.org/files/161/161-0.txt.
-\end{enumerate}
+
+
