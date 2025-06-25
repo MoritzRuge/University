@@ -47,7 +47,6 @@
 \usepackage{scrextend}
 
 
-
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -89,3 +88,11 @@
     tabsize=2
 }
 \lstset{style=mystyle}
+
+\usepackage{fancyhdr}   % für benutzerdefinierte Kopf-/Fußzeilen
+\usepackage{lastpage}   % um auf die letzte Seite referenzieren zu können
+
+\pagestyle{fancy}
+\fancyhf{} % löscht Standard-Kopf- und Fußzeilen
+
+\fancyfoot[C]{\thepage/\pageref{LastPage}} % zentrierte Fußzeile mit "Seite/Gesamt"
