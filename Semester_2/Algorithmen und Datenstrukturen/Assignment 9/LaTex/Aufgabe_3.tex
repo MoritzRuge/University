@@ -61,4 +61,69 @@ Verwenden Sie den Algorithmus von Knuth-Morris-Pratt, um festzustellen,
 ob/wo das Muster t in der Zeichenkette s vorkommt.
 Zeigen Sie die einzelnen Schritte.
 
-\alert{TODO}
+\subsubsection{Gegeben:}
+Muster:\\
+\begin{tabular}{|c|c|c|c|}
+	\hline
+	Index & 0 & 1 & 2 \\
+	\hline
+	Text & T & T & A \\
+	\hline
+\end{tabular}
+
+\vspace{1em}
+
+\noindent
+Text:\\
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+	\hline
+	Index & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+	\hline
+	Text & C & T & T & G & G & A & T & T & A \\
+	\hline
+\end{tabular}
+
+\subsubsection{Sprungtabelle:}
+
+\begin{tabular}{|c|c|c|}
+	\hline
+	T & T & A \\
+	\hline
+	0 & 1 & 0 \\
+	\hline
+\end{tabular}
+
+\begin{enumerate}
+	\item $T_0$ hat kein prefix $\Rightarrow 0$
+	\item $T_1$ hat ein prefix T $\Rightarrow 1$
+	\item $A_2$ hat kein gleiches prefix A $\Rightarrow 0$
+\end{enumerate}
+
+\subsubsection{Algorithmus durchlauf:}
+
+\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	i (Text) & s[i] & t[j] & Vergleich & Aktion \\
+	\hline
+	0 & C & j=0=T & X & i+1 \\
+	\hline
+	1 & T & j=0=T & O & i+1, j+1 \\
+	\hline
+	2 & T & j=1=T & O & i+1, j+1 \\
+	\hline
+	3 & G & J=2=A & X & j = LPS[j-1] =1 \\
+	\hline
+	4 & G & j=1=T & X & j = LPS[j-1]=0 \\
+	\hline
+	5 & A & j=0=T & X & i+1 \\
+	\hline
+	6 & T & j=0=T & O & i+1, j+1 \\
+	\hline
+	7 & T & j=1=T & O & i+1, j+1 \\
+	\hline
+	8 & A & j=2=A & O & Gefunden Index 6 \\
+	\hline
+\end{tabular}
+
+\noindent
+\textit{Hinweis: X - matched nicht, O - matched}

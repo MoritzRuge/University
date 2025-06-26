@@ -83,12 +83,31 @@ for i <- 0 to s.lenght - m do
 			return i
 \end{lstlisting}
 
-\subparagraph{Heuristische Laufzeit:}\alert{TODO}
+\subparagraph{Heuristische Laufzeit:}
+\begin{itemize}
+	\item Vorverarbeiten der Muster: $O(k)$
+	\item Iteration über Textfenster: $O(n)$
+	\item Hashvergleiche je Fenster: $O(1)$
+	\item Unter annahme von seltenen Kollisionen, Vergleich: $O(1)$
+\end{itemize}
+$\Rightarrow$ Heuristische Gesamtlaufzeit: $O(n+k)$
 
-
-
+\newpage
 \subsection{Implimentierung des Algorithmus}
 Implementieren Sie Ihren Algorithmus aus \ref{Rabin-Karp-suchmuster}. Beantworten Sie sodann folgende Frage: Was kommt öfter in dem Roman Sense \& Sensibility vor: sense oder sensibility/sensible?\\
 Hinweis: Siehe http://www.gutenberg.org/files/161/161-0.txt.
+
+\subsubsection{Implimentierung:}
+
+\lstinputlisting[language=Scala]{./Code/Rabin-Karb.scala}
+
+\begin{verbatim}
+Output:
+sense kommt 41 mal vor.
+sensible kommt 20 mal vor.
+Sensibility kommt 15 mal vor.
+sensibility und sensible kommen 35 mal vor
+sense kommt öfter vor
+\end{verbatim}
 
 
