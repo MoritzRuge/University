@@ -1,15 +1,23 @@
 import scala.collection.mutable.HashSet
 import scala.compiletime.ops.double
-    
 
 @main def rabinKarpMultiPattern(): Unit = 
     // modulo Value
     val mod: Long = 1000000007L // sehr lange zahl die zufaellig eine Primzahl ist lul 
     val base: Int = 31 // Primzahl zur eindeutigen gewichtung der Hashwerte
 
+    // Importiert die Text Datei des Buches, nachdem try succseded, close file
+    val source = scala.io.Source.fromFile("Sense and Sensibility.txt")
+    val lines = try source.mkString finally source.close()
+    
     val suchmuster = List("abc", "def", "ghi") // Suchmuster
-    val text = "abcdefghijklmnghiopdefqrsabc"
+    val text = lines//"abcdefghijklmnghiopdefqrsabc"
     val m = suchmuster.head.length // Setzt den ersten Eintrag als feste laenge von m
+
+
+
+
+
 
     // Umwandeln der Zeichen in Zahlenwerte (a=1, b=2 usw.)
     def charValue(c: Char): Int = c - 'a' + 1
