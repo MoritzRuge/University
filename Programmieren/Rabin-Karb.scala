@@ -1,25 +1,59 @@
-// Hashfunktion (z. B. Rolling Hash mit Modulo p)
-def hash(s: String): Int = 
-    // Dictionary für Sum also die Werte die das Alphabet annimmt
+import scala.collection.mutable.HashSet
+import scala.compiletime.ops.double
+    
 
-    // eine zufällig große Primzahl für den Mod faktor
-    val mod: long = math.pow(10, 9).toLong + 7 // sehr lange zahl die zufällig eine Primzahl ist lul
-    // 
+@main def rabinKarpMultiPattern(): Unit = 
+    // modulo Value
+    val mod: Long = 1000000007L // sehr lange zahl die zufaellig eine Primzahl ist lul 
+    val base: Int = 31 // Primzahl zur eindeutigen gewichtung der Hashwerte
 
-val patternHashes = HashSet[Int]()
-val patterns = List("abc", "def", "ghi")  // t₁ bis tₖ
-val m = patterns.head.length              // Länge der Muster
+    val suchmuster = List("abc", "def", "ghi") // Suchmuster
+    val text = "abcdefghijklmnghiopdefqrsabc"
+    val m = suchmuster.head.length // Setzt den ersten Eintrag als feste laenge von m
 
-// 1. Hashes der Muster berechnen
-for pattern <- patterns do
-  patternHashes.add(hash(pattern))
+    // Umwandeln der Zeichen in Zahlenwerte (a=1, b=2 usw.)
+    def charValue(c: Char): Int = c - 'a' + 1
 
-// 2. Suche im Text s
-for i <- 0 to s.length - m do
-  val substring = s.substring(i, i + m)
-  val subHash = hash(substring)
 
-  if patternHashes.contains(subHash) then
-    // Hash-Kollision absichern
-    if patterns.contains(substring) then
-      return i  // Treffer an Position i
+    // Hashfunktion 
+    def Hash(s: String): Long = 
+        var hash = 0L
+        for i <- 0 to s.length - 1 do
+            // wir berechnen die Exponentialwerte aus
+            val expow = math.pow(base, s.length - i - 1).toLong
+            hash = (hash + charValue(s(i)) * expow) % mod
+        hash
+
+    // Berechnung des Base Hashes: base^(m-1) fuer den Rolling Hash
+    val basePower: Long = math.pow(base, m-1).toLong % mod
+
+
+    // 1. Muster Hashes berechnen
+    val musterHash = HashSet[Long]() // Initialisiere die Datenstruktur HashSet
+    for muster <- suchmuster do
+        musterHash.add(Hash(muster)) // fuer jeden Eintrag in der Liste suchmuster berechnen wir den Hash und speichern ihn im Hashset
+
+    // 2. Rolling Hashe fuer alle Fenster berechnen
+    var hash = Hash(text.substring(0, m))
+
+    // Loop fuer den Rolling Hash
+    var i = 0
+    while i <= text.length - m do
+        // Pruefen ob der Hash passt
+        if musterHash.contains(hash) then
+            val fenster = text.substring(i, i + m) // setzen des neuen Fensters
+            if suchmuster.contains(fenster) then 
+                println(s"Treffer bei Index $i: $fenster")
+        
+        // Verschiebung des Fensterbereichs fuer den Rolling Hash
+        if i + m < text.length then 
+            val oldChar = charValue(text(i))
+            val newChar = charValue(text(i+m))
+
+            // Rolling Hash - entferne das erste Zeichen, mal der Base, addiere neues Zeichen
+            hash = (hash - oldChar * basePower % mod + mod) % mod
+            hash = (hash * base + newChar) % mod
+
+        i += 1
+    
+    println("Finished: Kein Muster gefunden.")
