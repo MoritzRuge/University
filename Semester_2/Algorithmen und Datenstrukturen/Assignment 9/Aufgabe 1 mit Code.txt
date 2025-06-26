@@ -1,0 +1,109 @@
+```py
+# task 1 isn't clear on what is expected. It states to return the count of the word "whale" but speficies substring search algorithmns to do so. 
+test = "The whale is a magnificent creature. Whales live in the ocean. A blue whale can grow very large. The swordwhale is not a real animal. Whalers used to hunt whales. The whalebone was valuable. Whalewhalewhale is not a word, but whale-watching is a popular activity. Whale appears in this sentence. Is whale capitalized here?"
+def get_book_text(path): # helper function to access moby_dick.txt 
+    with open(path) as f:
+        return f.read()
+    
+def naive_search_with_substrings(s,t): # This version of the naive search is not fit for searching an entire book due to the O(n^2) time-complexity.
+    text = s.lower() # convert the given string/text to lower-case
+    words = text.split() # split the text into list of words 
+    l = len(t)    
+    moby_counter = 0
+    for word in words:
+        k = len(word)
+        for i in range(k-l+1):  # Try each starting position
+            j = 0
+            while j < l and word[i+j] == t[j]: # start beginning of t -> j can be greater the len(t) check all positions of the given suffix from s if it contains t.
+                j += 1
+                if j == l:    # if j is grearter than len(t) than t is in s first at index i.
+                    moby_counter += 1  # Pattern found at position i
+    return moby_counter
+
+def naive_search_words_only(s,t):
+    text = s.lower() # convert the given string/text to lower-case
+    words = text.split() # split the text into list of words 
+    count_moby = 0
+    for word in words:
+        if word == t:
+            count_moby += 1
+    return count_moby
+
+
+def get_lower_case_alpha_list(): # helper function to get a list of the latin alphabet
+    # initialise an empty list
+    list = []
+    # filling the list with lowercase letter in alphabetical order
+    alpha = 'a'
+    for i in range(0, 26):
+        list.append(alpha)
+        alpha = chr(ord(alpha) + 1)
+    return list
+
+def rabin_karp(s, t):
+    l = len(t)
+    alphabet = get_lower_case_alpha_list() # assigning values a:0 ... z = 25
+    
+    # Base for the rolling hash
+    base = len(alphabet)  # Size of the alphabet
+    # Large prime to reduce collisions
+    prime = 101
+    text = s.lower() # convert the given string/text to lower-case
+    words = text.split() # split the text into list of words 
+    count_moby = 0
+    # Precompute base^(m-1) for the rolling hash
+    h = pow(base, l-1) % prime
+    # Compute initial hash values
+    t_hash = 0
+    #s_hash = 0
+    for i in range(l):
+        t_hash = (base*t_hash + ord(t[i]))%prime # calculate t_hash for all words in s.
+    for word in words:
+        k = len(word)
+        s_hash = 0
+        # Calculate initial hash value of current word.
+        if k < l:
+            continue
+        for i in range(l):
+            s_hash = (base * s_hash + ord(word[i])) % prime
+        # Check each potential match
+        for i in range(k - l + 1):
+            # If hashes match, verify character by character
+            if s_hash == t_hash:
+                # Verify match (in case of hash collision)
+                match = True
+                for j in range(l):
+                    if word[i+j] != t[j]:
+                        match = False
+                        break
+                if match:
+                    count_moby += 1  # Pattern found at position i
+            # Compute hash for next window
+            if i < k - l:
+                # Remove leading digit, add trailing digit, multiply by base
+                s_hash = (base * (s_hash - ord(word[i]) * h) + ord(word[i+l])) % prime
+                
+                # Make sure hash is positive
+                if s_hash < 0:
+                    s_hash += prime
+        
+    return count_moby
+
+def main():
+    book_path = "moby_dick.txt" # I assume that the book moby dick is present as a .txt file in the same directory as the code.
+    moby_dick = get_book_text(book_path)
+    print(rabin_karp(test,"whale"))
+    print(naive_search_with_substrings(moby_dick,"whale"))
+    print(naive_search_words_only(moby_dick,"whale"))
+    print(rabin_karp(moby_dick,"whale"))
+
+main()
+
+```
+
+Aufgabe 1 Suche in Zeichenketten I
+Auswertung: Beide Algorithmen finden den substring "whale" 1702 mal und 529 mal den string "whale" im Buch Moby Dick.
+Einen merkbaren Unterschied für die Laufzeit bzw. Berechnungszeit der Algorithmen konnten wir (auf unseren Systemen/ Rechnern) nicht feststellen.
+Laufzeitkomplexität naiver Algorithmus: O(k·l*|mb|) -> O(k·l) ist der Average-case des naiven Algorithmus, wobei k die Länge des aktuellen Strings ist und l die Länge des gesuchten Substrings. |mb| ist die Länge des Buches Moby Dick.
+Laufzeitkomplexität Rabin-Karp Algorithmus: O(|mb|*(k+l)) -> O(k+l) ist der Average-case des Rabin-Karp Algorithmus, wobei k die Länge des aktuellen Strings ist und l die Länge des gesuchten Substrings. |mb| ist die Länge des Buches Moby Dick.
+Obwohl ein theoretischer Unterschied besteht, ist das Buch Moby Dick nicht lang genug, um diesen deutlich zumachen. Im Fall von Moby Dick bewegen sich die Unterschiede im nano- bis Millisekunden Bereich (auf unseren Systemen).

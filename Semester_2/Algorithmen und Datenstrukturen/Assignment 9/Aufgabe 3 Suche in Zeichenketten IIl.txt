@@ -1,0 +1,47 @@
+Aufgabe 1 Suche in Zeichenketten I
+Auswertung: Beide Algorithmen finden den substring "whale" 1702 mal und 529 mal den string "whale" im Buch Moby Dick.
+Einen merkbaren Unterschied für die Laufzeit bzw. Berechnungszeit der Algorithmen konnten wir (auf unseren Systemen/ Rechnern) nicht feststellen.
+Laufzeitkomplexität naiver Algorithmus: O(k·l*|mb|) -> O(k·l) ist der Average-case des naiven Algorithmus, wobei k die Länge des aktuellen Strings ist und l die Länge des gesuchten Substrings. |mb| ist die Länge des Buches Moby Dick.
+Laufzeitkomplexität Rabin-Karp Algorithmus: O(|mb|*(k+l)) -> O(k+l) ist der Average-case des Rabin-Karp Algorithmus, wobei k die Länge des aktuellen Strings ist und l die Länge des gesuchten Substrings. |mb| ist die Länge des Buches Moby Dick.
+Obwohl ein theoretischer Unterschied besteht, ist das Buch Moby Dick nicht lang genug, um diesen deutlich zumachen. Im Fall von Moby Dick bewegen sich die Unterschiede im nano- bis Millisekunden Bereich (auf unseren Systemen).
+
+
+Aufgabe 3 Suche in Zeichenketten III 
+Sei Σ = C, G, T, A. Sei s = CTTGGATTA und t = TTA.
+(a) Verwenden Sie den naiven Algorithmus, um festzustellen, ob/wo das Muster t
+in der Zeichenkette s vorkommt.
+Zeigen Sie die einzelnen Schritte.
+```
+1. i = 0, j = 0 --> s[0], t[0]: C != T
+2. i = 1, j = 0 --> s[1], t[0]: T == T
+   2.2. i = 2, j = 1 --> s[2], t[1]: T == T
+   2.3. i = 3, j = 2 --> s[3], t[2]: G != T
+3. i = 4, j = 0 --> s[4], t[0]: G != T
+4. i = 5, j = 0 --> s[5], t[0]: A != T
+5. i = 6, j = 0 --> s[6], t[0]: T == T
+   5.2. i = 7, j = 1 --> s[7], t[1]: T == T
+   5.3. i = 8, j = 2 --> s[8], t[2]: A == A ==> t found.
+Der String t kommt am Index 6/ 7. Position in s vor.
+
+A : 0, T : 1, G : 2, C : 3 und die Primzahl 5
+
+b)
+s = CTTGGATTA und t = TTA
+h(t) = h(TTA) = 4^2+4^1+0 = 4^2+4 = 20 mod 5 = 0
+1. h(CTT) = 3*4^2+4^1+4^0 = 56 mod 5 = 1 --> 0 != 1 -> not found
+2. h(TTG) = 4^2+4+2 = 22 mod 5 = 2 --> 0 != 2 -> not found
+3. h(TGG) = 4^2+2*4+2 = 26 mod 5 = 1 --> 0 != 1 -> not found
+4. h(GGA) = 2*4^2+2*4 = 40 mod 5 = 0 --> 0 == 0 -> found at position 4 / index 3
+	Charaktervergleich nach dem naiven Algorithmus:
+	1. i = 0, j = 0 --> s'[0], t[0]: G != T -> not found t ist nicht an der Position 4 in s.
+5. h(GAT) = 2*16+1 = 17 mod 5 = 2 --> 0 != 2 -> not found
+6. h(ATT) = 4+1 = 5 mod 5 = 0 --> 0 == 0 -> found at position 6 / index 5
+	Charaktervergleich nach dem naiven Algorithmus:
+	1. i = 0, j = 0 --> s'[0], t[0]: A != T -> not found t ist nicht an der Position 6 in s.
+7. h(TTA) = 16+4 = 20 mod 5 = 0 --> 0 == 0 found at position 6/ Index 7
+	Charaktervergleich nach dem naiven Algorithmus:
+	1. i = 0, j = 0 --> s'[0], t[0]: T == T
+	2. i = 1, j = 1 --> s'[1], t[1]: T == T
+	3. i = 2, j = 2 --> s'[2], t[2]: A == A
+	s' == t
+	Der String t kommt am Index 6/ 7. Position in s vor.
