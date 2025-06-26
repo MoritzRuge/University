@@ -28,7 +28,7 @@
 %{\color{blue}
 %Dies ist ein ganzer Absatz in Blau.
 %}
-\usepackage{xcolor}
+%\RequirePackage{xcolor} % wird vom Paket {easyReview} geladen
 
 %%%%% draws layout frames %%%%%
 %\usepackage{showframe}
@@ -46,6 +46,7 @@
 %\lipsum[3]
 \usepackage{scrextend}
 
+\usepackage{easyReview} % for \comment, \alert, etc.
 
 \hypersetup{
     colorlinks=true,

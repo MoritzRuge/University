@@ -18,7 +18,7 @@ Gegeben:
 \end{itemize}
 
 \subsubsection{Lösung:}
-\paragraph{Rabin-Karp vorgehen:}
+\subparagraph{Rabin-Karp vorgehen:}
 \begin{itemize}
 	\item Wir berechnen den Hashwert des Musters $t$
 	\item Wir Iterieren über den Text $s$ mit einem Fenster/Bereich der Länge $m$
@@ -26,7 +26,7 @@ Gegeben:
 	\item Wenn die Hashwerte übereinstimmen, vergleichen wir den Text-ausschnitt und Muster direkt, um Kollisionen zu umgehen
 \end{itemize}
 
-\paragraph{Rabin-Karb für mehrere Muster:}\cite{Stackoverflow-Rabin-Karp}
+\subparagraph{Rabin-Karb für mehrere Muster:}\cite{Stackoverflow-Rabin-Karp}
 \begin{itemize}
 	\item Wir berechnen den Hashwert für alle Suchmuster $t_1,t_2, \dots, t_k$
 	\begin{itemize}
@@ -38,6 +38,52 @@ Gegeben:
 	\item Vergleichen, ob dieser Hashwert in der Menge der HashSets zu finden ist
 	\item Wenn die Hashwerte übereinstimmen, verlgeichen wir wieder direkt
 \end{itemize}
+
+\subparagraph{Eigenschaften eines HashSets in Scala:}
+
+Eine HashSet-Struktur ist eine Datenstruktur, die eine Menge von eindeutigen Werten speichert und sehr schnelle Einfüge-, Such- und Löschoperationen erlaubt - im Schnitt in konstanter Zeit $o(1)$
+
+\begin{itemize}
+	\item HashSets haben die Eigentschaft keine Duplikate zu erlauben, d.h. jeder Wert wird nur einmal gespeichert, doppelte werden ignoriert
+	\item Schnelle Suche von Werten (sofern keine Kollision)
+	\item Ein HashSet verwendet intern eine Hashfunktion um die Werte zu speichern und zu finden
+\end{itemize}
+
+\noindent
+Um HashSets zu benutzten importieren wir folgende Bibliothek:
+\begin{lstlisting}[language=Scala]
+import scala.collection.mutable.HashSet
+\end{lstlisting}
+
+\subparagraph{Pseudocode} könnte wie folgt aussehen:
+
+\begin{lstlisting}[language=Scala]
+import scala.collection.mutable.HashSet
+
+// Hashfunktion mit Rolling Hash 
+def hash(s: String): Int = ...
+
+val musterHashes = HashSet[Int]() // Initialisiere HashSet
+val muster = List("bob", "tim", "leo") // Suchmuster s[i ... i+m-1]
+val m = muster.length // m = Laenge des Musters bei unterschiedlicher musterlaenge sollte m die wenigsten charaktere haben
+
+// Rabin-Karb vorgehen fuer mehrere Muster:
+// 1. Wir berechnen den Hashwert fuer alle Suchmuster t1,t2,...,tk
+for muster <- muster do
+	musterHashes.add(hash(muster)) //speicher die Hashwerte im Set
+	
+// wir Iterieren ueber den Text s mit der Fenstergroesse von m
+for i <- 0 to s.lenght - m do
+	val fenster = s.fenster(i, i + m)
+	cal fensterHash = hash(fenster)
+	
+	if musterHashes.contains(fensterHash) then
+		// Direkte kontrolle ob die muster(string) und Text uebereinstimmen
+		if muster.contains(fenster) then
+			return i
+\end{lstlisting}
+
+\subparagraph{Heuristische Laufzeit:}\alert{TODO}
 
 
 
