@@ -2,26 +2,22 @@ import scala.collection.mutable.HashSet
 import scala.compiletime.ops.double
 
 @main def rabinKarpMultiPattern(): Unit = 
-    // modulo Value
+    // RabinKarp Values
     val mod: Long = 1000000007L // sehr lange zahl die zufaellig eine Primzahl ist lul 
     val base: Int = 31 // Primzahl zur eindeutigen gewichtung der Hashwerte
 
     // Importiert die Text Datei des Buches, nachdem try succseded, close file
     val source = scala.io.Source.fromFile("Sense and Sensibility.txt")
-    val lines = try source.mkString finally source.close()
-    
-    val suchmuster = List("abc", "def", "ghi") // Suchmuster
-    val text = lines//"abcdefghijklmnghiopdefqrsabc"
-    val m = suchmuster.head.length // Setzt den ersten Eintrag als feste laenge von m
+    val text = try source.mkString finally source.close()
+    val cleanText = text.toLowerCase().replaceAll("[^a-z]", "") // Entfernt Satzzeichen und Leerzeichen
 
-
-
-
-
+    // Muster vorbereiten
+    val musterA = List("sense")
+    val musterB = List("sensibility")
+    val musterC = List("sensible")
 
     // Umwandeln der Zeichen in Zahlenwerte (a=1, b=2 usw.)
     def charValue(c: Char): Int = c - 'a' + 1
-
 
     // Hashfunktion 
     def Hash(s: String): Long = 
@@ -32,36 +28,50 @@ import scala.compiletime.ops.double
             hash = (hash + charValue(s(i)) * expow) % mod
         hash
 
-    // Berechnung des Base Hashes: base^(m-1) fuer den Rolling Hash
-    val basePower: Long = math.pow(base, m-1).toLong % mod
+    // Rolling hash und zaehlen der Woerter
+    def rollingMatchCount(text: String, muster: List[String]): Int =
+        if muster.isEmpty then return 0
+        val m = muster.head.length // Setzt den ersten Eintrag als feste laenge von m
+        val musterSet = muster.toSet // Wandeln muster: List zu muster: Set um, um O(1) laufzeit zu kriegen
+        val musterHashes = HashSet.from(muster.map(Hash)) // Bauen ein HashSet aus musters
 
+        // Berechnung des Base Hashes: base^(m-1) fuer den Rolling Hash
+        val basePower: Long = math.pow(base, m-1).toLong % mod
+        var hash = Hash(text.take(m))
+        var count = 0
+        var i = 0
 
-    // 1. Muster Hashes berechnen
-    val musterHash = HashSet[Long]() // Initialisiere die Datenstruktur HashSet
-    for muster <- suchmuster do
-        musterHash.add(Hash(muster)) // fuer jeden Eintrag in der Liste suchmuster berechnen wir den Hash und speichern ihn im Hashset
+        // Rolling hash loop
+        while i <= text.length - m do
+            if musterHashes.contains(hash) then 
+                val fenster = text.substring(i, i + m) // setzt das Fenster
+                if musterSet.contains(fenster) then  // Wenn Fenster in Set vorhanden count +1
+                    count += 1
 
-    // 2. Rolling Hashe fuer alle Fenster berechnen
-    var hash = Hash(text.substring(0, m))
+            // Rolling hash updaten entferne alten Char und fuege neuen ein
+            if i + m < text.length then 
+                val oldChar = charValue(text(i))
+                val newChar = charValue(text(i + m))
+                hash = (hash - oldChar * basePower % mod + mod) % mod
+                hash = (hash * base + newChar) % mod
+            i += 1
 
-    // Loop fuer den Rolling Hash
-    var i = 0
-    while i <= text.length - m do
-        // Pruefen ob der Hash passt
-        if musterHash.contains(hash) then
-            val fenster = text.substring(i, i + m) // setzen des neuen Fensters
-            if suchmuster.contains(fenster) then 
-                println(s"Treffer bei Index $i: $fenster")
-        
-        // Verschiebung des Fensterbereichs fuer den Rolling Hash
-        if i + m < text.length then 
-            val oldChar = charValue(text(i))
-            val newChar = charValue(text(i+m))
+        count // return value
 
-            // Rolling Hash - entferne das erste Zeichen, mal der Base, addiere neues Zeichen
-            hash = (hash - oldChar * basePower % mod + mod) % mod
-            hash = (hash * base + newChar) % mod
+    // Funktionsaufruf und Zaehlung der Woerter
+    val countSense = rollingMatchCount(cleanText, musterA)
+    val countSensibility = rollingMatchCount(cleanText, musterB)
+    val countSensible = rollingMatchCount(cleanText, musterC)
+    val countOther = countSensible + countSensibility
 
-        i += 1
-    
-    println("Finished: Kein Muster gefunden.")
+    println(s"sense kommt $countSense mal vor.")
+    println(s"sensible kommt $countSensible mal vor.")
+    println(s"Sensibility kommt $countSensibility mal vor.")
+    println(s"sensibility und sensible kommen $countOther mal vor")
+
+    if countSense > countOther then
+        println("sense kommt oefter vor")
+    else if countSense < countOther then
+        println("sensibility/sensible kommt oefter vor")
+    else
+        println("Beide Muster kommen gleich oft vor.")
