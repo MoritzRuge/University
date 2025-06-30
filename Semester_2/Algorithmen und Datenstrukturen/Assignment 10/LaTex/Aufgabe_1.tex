@@ -1,0 +1,27 @@
+\section{Problem: Dynamisches Programmieren}
+
+Sei s eine Zeichenkette der Länge n. Sie vermuten, dass es sich bei s um einen
+deutschsprachigen Text handelt, bei dem die Leer- und Satzzeichen verloren gegan-
+gen sind (also zum Beispiel s = “werreitetsospaetdurchnachtundwind”), und Sie
+möchten den ursprünglichen Text rekonstruieren.
+
+\vspace{1em}
+
+\noindent
+Dazu steht Ihnen ein Wörterbuch zur Verfügung, das in Form einer Funktion
+$$dict : String \rightarrow Boolean$$
+
+\noindent
+implementiert ist. dict(w) liefert true für ein gültiges Wort w, und false sonst
+(z.B. dict(“blau”) = true und dict(“bsau”) = false).
+Verwenden Sie dynamisches Programmieren, um einen schnellen Algorithmus zu
+entwickeln, der entscheidet, ob sich s als eine Aneinanderreihung von gültigen
+Wörtern darstellen lässt. Gehen Sie dabei folgendermaßen vor:
+
+\begin{enumerate}
+	\item Definieren Sie geeignete Teilprobleme und geben Sie eine geeignete Rekursion an. Erklären Sie Ihre Rekursion in einem Satz.
+	\item Geben Sie Pseudocode für Ihren Algorithmus an.
+	\item Analysieren Sie die Laufzeit und Speicherplatzbedarf Ihres Algorithmus unter der Annahme, dass ein Aufruf von dict konstante Zeit benötigt.
+	\item Beschreiben Sie in einem Satz, wie man eine gültige Wortfolge finden kann,
+	falls sie existiert.
+\end{enumerate}

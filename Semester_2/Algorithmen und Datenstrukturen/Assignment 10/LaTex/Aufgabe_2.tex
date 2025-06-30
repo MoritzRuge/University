@@ -1,0 +1,10 @@
+\section{Problem: Editierabstand}
+
+
+Der Editierabstand zwischen zwei Zeichenketten s und t ist die minimale Anzahl
+von Editieroperationen, um s nach t zu überführen. Es gibt drei Editieroperationen: (i) Einfügen eines Zeichens; (ii) Löschen eines Zeichens; und (iii) Ersetzen eines Zeichens durch ein anderes. Zum Beispiel beträgt der Editierabstand zwischen “APFEL” und “PFERD” drei: Lösche A, ersetze L durch R, füge D ein.
+
+Beschreiben Sie einen Algorithmus, der den Editierabstand zwischen zwei Zeichenketten s und t in $O(k_l)$ Zeit berechnet, wobei s Länge k und t Länge $l$ hat. Erklären Sie außerdem, wie man eine optimale Folge von Editieroperationen findet.
+
+Hinweis: Benutzen Sie dynamisches Programmieren analog zum LCS-Problem. Betrachten Sie das jeweils letzte Zeichen in s und t und unterscheiden Sie drei Möglichkeiten: (a) überführe s nach $t'$ und füge dann ein Zeichen an; (b) überführe $s'$ nach t
+und lösche dann ein Zeichen; (c) überführe $s'$ nach $t'$ und ersetze dann ein Zeichen, falls nötig. Hierbei bezeichnen $s'$ und $t'$ jeweils s und t ohne den letzten Buchstaben.

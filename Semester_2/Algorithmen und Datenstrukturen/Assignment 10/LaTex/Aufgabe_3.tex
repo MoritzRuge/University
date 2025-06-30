@@ -1,0 +1,11 @@
+\section{Problem: Finden von Senken in Graphen}
+
+Betrachtet man die Adjazenzmatrixdarstellung eines Graphen $G = (V, E)$, dann
+haben viele Algorithmen Laufzeit $|V|2$ . Es gibt aber Ausnahmen. Zeigen Sie, dass
+die Frage, ob ein gerichteter Graph $G$ eine globale Senke — einen Knoten vom
+Eingrad $|V | - 1$ und Ausgrad 0 $-$ hat, in Zeit $O(|V|)$ beantwortet werden kann,
+selbst wenn man die Adjazenzmatrixdarstellung von $G$ (die ja selbst schon die Größe
+$O(|V|2$ ) hat) verwendet. Beweisen Sie Korrektheit und Laufzeit Ihres Algorithmus.
+
+Hinweis: Sei A die Adjazenzmatrix von G und $u, v \in V , u \neq v$. Was folgt über u
+und v, wenn $A_{uv} = 1$ ist? Was, wenn $A_{uv} = 0$ ist?
