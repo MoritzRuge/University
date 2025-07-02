@@ -25,3 +25,66 @@ Wörtern darstellen lässt. Gehen Sie dabei folgendermaßen vor:
 	\item Beschreiben Sie in einem Satz, wie man eine gültige Wortfolge finden kann,
 	falls sie existiert.
 \end{enumerate}
+
+**Teilproblem Definition:**  
+Betrachte `dp[i]` als boolsche Tabelle, wobei `dp[i] = true`, wenn das Präfix der Länge `i` in 
+gültige Wörter aufgeteilt werden kann.  
+
+**Rekursion:**  
+Ein Präfix bis Index `i` ist gültig (`dp[i] = true`), wenn es einen Index `j < i` gibt, so dass:  
+1. Das Präfix bis `j` gültig ist (`dp[j] = true`).  
+2. Die Zeichenkette von `j` zu `i` ein gültiges Wort bildet (durch Aufruf der Funktion `dict`).  
+
+**Pseudocode:**  
+```
+function wordBreak(s):
+n = s.length
+dp[0..n] boolesch, alle auf false initialisieren
+prev[0..n] integer-Array mit -1, speichert Startposition des letzten Wortes
+
+if dict(s) == true: return [true], []  // Vollständiges Wort ohne Aufteilung
+
+dp[0] = true   // leeres Präfix ist gültig
+for i from 1 to n:
+dp[i] = false
+for j from 0 to i-1:
+if dp[j]:
+wort = s.substr(j, i-j)
+if dict(wort) == true:
+dp[i] = true
+prev[i] = j   // Startposition des aktuellen Wortes speichern
+break        // Ersten gültigen Splitpunkt finden
+
+return dp[n], prev           // Wenn true, gibt es einen gültigen Split
+```
+
+**Laufzeitanalyse:**  
+- **Zeitkomplexität:** O(n²), da für jede Position `i` alle vorherigen Positionen `j < i` geprüft 
+werden. Jeder Schritt erfordert maximal `n - j + 1` Zeichenvergleiche (Substrings Erzeugung).  
+- **Raumkomplexität:** O(n) für die Arrays `dp` und `prev`.  
+
+**Wortfolge finden mit `prev`:**  
+Falls `dp[n] == true`, folgt eine gültige Aufteilung durch Rücktracking:  
+\begin{lstlisting}[language=Python]
+function getWordList(s, prev):
+	i = n
+	word_list = []
+	while i > 0:
+	start_index = prev[i]
+	wort_start = s.substr(start_index, i - start_index)
+	wordBreakHelper(i)         // Extrahiere Woerter vom Ende zu Anfang durch Rueckwaertsgang
+
+\end{lstlisting}
+~~~
+
+**Erklärung zur Rückschlusskonstruktion:**  
+- Das `prev`-Array speichert die Startposition des vorletzten gültigen Wortes. Indem man bei `i = n` 
+beginnt und sich schrittweise zu den vorherigen Splitpunkten bewegt, kann das letzte gültige Wort 
+bestimmt werden (Startindex `j`, Endindex `i`).  
+- Beispiel:  
+- `prev[5] = 2` → Zeichenkette von Index `2` bis `5` ist das letzte gültige Wort.  
+- Setze dann `i := j` und wiederhole, um die vorherigen Wörter zu finden.  
+
+**Ergänzung:**  
+- Das Problem prüft nur auf Existenz eines gültigen Splits. Wenn ein komplettes Wort ohne Aufteilung 
+möglich ist (`dict(s) == true`), wird sofort `true` zurückgegeben.
