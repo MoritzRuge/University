@@ -1,0 +1,58 @@
+Aufgabe 3 Finden von Senken in Graphen
+ 10 Punkte
+ Betrachtet man die Adjazenzmatrixdarstellung eines Graphen G = (V,E), dann
+ haben viele Algorithmen Laufzeit |V |2. Es gibt aber Ausnahmen. Zeigen Sie, dass
+ die Frage, ob ein gerichteter Graph G eine globale Senke — einen Knoten vom
+ Eingrad |V | − 1 und Ausgrad 0 — hat, in Zeit O(|V|) beantwortet werden kann,
+ selbst wenn man die Adjazenzmatrixdarstellung von G (die ja selbst schon die Gr¨ oße
+ Θ(|V |2) hat) verwendet. Beweisen Sie Korrektheit und Laufzeit Ihres Algorithmus.
+ Hinweis: Sei A die Adjazenzmatrix von G und u,v ∈ V, u= v. Was folgt ¨ uber u
+ und v, wenn Auv = 1 ist? Was, wenn Auv = 0 ist
+
+example: triangle
+
+```
+  | A B C D   i
+--+----------
+A | 0 1 0 1
+B | 0 0 1 1
+C | 1 0 0 1
+D | 0 0 0 0
+j
+```
+Ein Knoten kann in diesem Fall keine Kante zu sich selbst haben (keine Kreise)
+Darüber hinaus, kann es maximal nur eine globale Senke geben. Dies ergibt sich aus der Definition von globalen Senken.
+
+
+directed Graph matrix[v][*] row outgoing edges, matrix[*][v] coloumn incoming edges. -> we care about matrix[*][v]
+```py
+i = 0 # row
+j = 0 # cols
+while i < len(matrix) and j < len(matrix): 	# solange i und j kleiner gleich der Anzahl von Knoten in der Matrix sind.
+	if matrix[i][j] == 0:			# wenn der Knoten i keine ausgehende Kante zum Knoten j hat gehe nach rechts in der Matrix.		   
+		i += 1
+	else:					# Der Knoten i hat eine ausgehende Kante, kann also keine globale Senke sein. 
+		j += 1		
+gol_snk = i					# mögliche globale Senke Befindet sich am Index i bzw. j, da diese in einer quadratischen Matrix, auf den identischen Knoten zeigen.
+Im ersten Squentiellen Loop werden alle außer einem Knoten als mögliche globale Senke ausgeschlossen. 
+Ist ein matrix[i][j] == 1, ist der Knoten matrix[i] als Kandidat ausgeschlossen, da dieser eine ausgehende Kante hat. Die Suche wird für den nächsten Knoten fortgesetzt.
+Der Knoten i, bei dem die Schleifen bedigung i < len(matrix) and j < len(matrix) verletzt wird ist der Kandidate für die globale Senke. Dies geschiet nur wenn matrix[i] nur aus 0 besteht oder wenn i = len(matrix)-1 und beim unten weiter suchen matrix[i][j] die erste 0 gefunden wird.
+
+# Überprüfe erneut, ob matrix[gol_snk] keine ausgehenden Kanten hat
+for k in range(len(matrix)):
+    if matrix[candidate][k] == 1: # es gibt doch eine ausgehende Kante -> es gibt keine globale Senke. 
+        return -1  # std error code
+
+# Überprüfe ob der Kandidat (matrix[*][gol_snk]) wirklich eine eingehende Kanten von jedem anderen Knoten hat, außer von sich selbst.
+for k in range(len(matrix)):
+    if k != gol_snk and matrix[k][gol_snk] == 0: # alle Einträge der Kandidatenspalte (außer von sich selbst) müssen 1 sein. 
+        return -1  # Not a sink
+
+return candidate  # wenn alle Überprüfungen durchlaufen wurden, und nicht vorher abgebrochen wurde, wurde die globale Senke gefunden.
+
+Laufzeitkomplexität im worst-case: O(2|V|-1 +|V| + |V|) -> dominate Klasse ist O(|V|)
+Die Überprüfungen dauern: |V|
+Die erste Suche kann 2|V|-1 dauern, da man |V|-1 mal nach rechts und unten gehen kann.
+Es ist also mögliche die globale Senke in linearer Zeit zufinden. O() worst-case: O(n) 
+Die globale Senke garantiert und korrekt in nur |V| Iterationen / Schritten zu finden ist nicht möglich.
+

@@ -26,65 +26,43 @@ Wörtern darstellen lässt. Gehen Sie dabei folgendermaßen vor:
 	falls sie existiert.
 \end{enumerate}
 
-**Teilproblem Definition:**  
-Betrachte `dp[i]` als boolsche Tabelle, wobei `dp[i] = true`, wenn das Präfix der Länge `i` in 
-gültige Wörter aufgeteilt werden kann.  
+\subsection{Teilproblem Definieren und Rekursion}
 
-**Rekursion:**  
-Ein Präfix bis Index `i` ist gültig (`dp[i] = true`), wenn es einen Index `j < i` gibt, so dass:  
-1. Das Präfix bis `j` gültig ist (`dp[j] = true`).  
-2. Die Zeichenkette von `j` zu `i` ein gültiges Wort bildet (durch Aufruf der Funktion `dict`).  
+\paragraph{Teilproblem:} Betrachte dp[i] als boolsche Tabelle, wobei dp[i] = true, wenn das Präfix der Länge i in gültige Wörter aufgeteilt werden kann.  
 
-**Pseudocode:**  
-```
-function wordBreak(s):
-n = s.length
-dp[0..n] boolesch, alle auf false initialisieren
-prev[0..n] integer-Array mit -1, speichert Startposition des letzten Wortes
+\paragraph{Rekursion:} Ein Präfix $s[0 \dots i]$ bis Index i ist gültig (dp[i] = true), wenn es einen Index $j<i$ gibt, so dass: 
+\begin{enumerate}
+	\item Das Präfix bis j gültig ist (dp[j] = true)
+	\item Die Zeichenkette von j zu i ein gültiges Wort bildet (durch Aufruf der Funktion dict)
+\end{enumerate} 
 
-if dict(s) == true: return [true], []  // Vollständiges Wort ohne Aufteilung
 
-dp[0] = true   // leeres Präfix ist gültig
-for i from 1 to n:
-dp[i] = false
-for j from 0 to i-1:
-if dp[j]:
-wort = s.substr(j, i-j)
-if dict(wort) == true:
-dp[i] = true
-prev[i] = j   // Startposition des aktuellen Wortes speichern
-break        // Ersten gültigen Splitpunkt finden
-
-return dp[n], prev           // Wenn true, gibt es einen gültigen Split
-```
-
-**Laufzeitanalyse:**  
-- **Zeitkomplexität:** O(n²), da für jede Position `i` alle vorherigen Positionen `j < i` geprüft 
-werden. Jeder Schritt erfordert maximal `n - j + 1` Zeichenvergleiche (Substrings Erzeugung).  
-- **Raumkomplexität:** O(n) für die Arrays `dp` und `prev`.  
-
-**Wortfolge finden mit `prev`:**  
-Falls `dp[n] == true`, folgt eine gültige Aufteilung durch Rücktracking:  
-\begin{lstlisting}[language=Python]
-function getWordList(s, prev):
-	i = n
-	word_list = []
-	while i > 0:
-	start_index = prev[i]
-	wort_start = s.substr(start_index, i - start_index)
-	wordBreakHelper(i)         // Extrahiere Woerter vom Ende zu Anfang durch Rueckwaertsgang
-
+\subsection{Pseudocode:}
+\begin{lstlisting}[language=Scala]
+def funktion(s: String, dict: String => Boolean): Boolean =
+	val n = s.length
+	Rval dp = Array.fill(n+1)(flase) // erzeugt Array mit False als default Value
+	dp(0) = ture // leere Zeichenkette ist guetig
+	
+	for i <- 1 to n do
+		for j <- 0 until i do
+			if dp(j) && dict(s.substring(j, i)) then
+				dp(i) = true
+				
+	dp(n)
 \end{lstlisting}
-~~~
 
-**Erklärung zur Rückschlusskonstruktion:**  
-- Das `prev`-Array speichert die Startposition des vorletzten gültigen Wortes. Indem man bei `i = n` 
-beginnt und sich schrittweise zu den vorherigen Splitpunkten bewegt, kann das letzte gültige Wort 
-bestimmt werden (Startindex `j`, Endindex `i`).  
-- Beispiel:  
-- `prev[5] = 2` → Zeichenkette von Index `2` bis `5` ist das letzte gültige Wort.  
-- Setze dann `i := j` und wiederhole, um die vorherigen Wörter zu finden.  
+\subsection{Laufzeitanalyse}
 
-**Ergänzung:**  
-- Das Problem prüft nur auf Existenz eines gültigen Splits. Wenn ein komplettes Wort ohne Aufteilung 
-möglich ist (`dict(s) == true`), wird sofort `true` zurückgegeben.
+\begin{itemize}
+	\item \textbf{Laufzeit:}\\
+	Die Äußere Schleife läuft von 1 bis n, also n mal, die innere Schleife bis i Mal $\rightarrow$ also insgesamt:
+	$$\sum_{i=1}^{n}i = O(n^2)$$
+	
+	\item \textbf{Speicherplatz:}\\ 
+	Wie haben ein Array dp der Länge n+1 $\rightarrow$ also braucht der Speicher  $O(n)$
+\end{itemize}
+
+\subsection{Wortfolge}
+
+Man merkt sich bei jeder erfolgreichen Trennung die Position $j$ und rekonstruiert die Wortgrenzen rückwärts von $dp[n]$ aus, um die Wortfolge zu erhalten.
