@@ -1,0 +1,14 @@
+\section{Problem: Der kürzeste Weg in DAGs}
+
+\vspace{0.5em}
+Sei $G = (V, E)$ ein gewichteter gerichteter azyklischer Graph. Seien $s, t \in V$ . Geben
+Sie einen Algorithmus, der einen kürzesten Weg von $s$ nach $t$ in Zeit $O(|V | + |E|)$
+berechnet. Beweisen Sie die Korrektheit und die Laufzeit Ihres Algorithmus.
+Hinweis: Beachten Sie Aufgabe 2(b) und verfahren Sie ähnlich zum Algorithmus
+von Dijkstra.
+
+\begin{enumerate}
+	\item[a.] Führen Sie den Algorithmus auf dem untigen Graphen aus. Gehen Sie dabei davon aus, dass die Knoten in vertices und outgoingEdges gemäß der Knotennummern angeordnet sind. Zeigen Sie die einzelnen Schritte. Wie erhält man im Anschluss die topologische Sortierung?
+	\item[b.] Beweisen Sie, dass der Algorithmus aus (a) funktioniert.\\
+	\textit{Hinweis: Führen Sie einen Widerspruchsbeweis. Nehmen Sie an, es gäbe eine Kante e von einem späteren zu einem früheren Knoten in topoSort, und überlegen Sie sich, was passiert, wenn dfs die Kante e untersucht. Beachten Sie dabei, dass es einen Unterschied macht, ob die Tiefensuche für den Endpunkt von e noch aktiv ist.}
+\end{enumerate}
