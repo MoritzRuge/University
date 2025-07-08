@@ -44,9 +44,9 @@ void printStatus(){
 int main() {
 
     struct sigaction sa;
-    sa.sa_handler = handler;
-    sigemptyset(&sa.sa_mask);
-    sa.sa_flags = 0; // oder z.B.: SA_RESTART
+    sa.sa_handler = handler; // setzt die Handler Funktion
+    sigemptyset(&sa.sa_mask); // Leere Make: keine anderen Signale blockieren 
+    sa.sa_flags = 0; // Keine speziellen Flags setzen
 
     printf("PID: %d\n", getpid());
     sigaction(SIGINT, &sa, NULL);
