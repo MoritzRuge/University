@@ -1,8 +1,113 @@
-\section{Problem: Topologisches Sortieren} 
+\section{Problem: Topologisches Sortieren}
 
 \vspace{0.5em}
-\noindent
-\paragraph{Sei} $G = (V, E)$ ein kreisfreier gerichteter Graph. Ein solcher Graph heißt DAG (für
-directed acyclic graph). Eine topologische Sortierung von G ist eine Anordnung
-der Knoten von G, so dass keine Kante in G von einem späteren zu einem früheren
-Knoten verläuft. Betrachten Sie den folgenden Algorithmus:
+Sei $G = (V, E)$ ein gewichteter gerichteter azyklischer Graph. Seien $s, t \in V$ . Geben
+Sie einen Algorithmus, der einen kürzesten Weg von $s$ nach $t$ in Zeit $O(|V | + |E|)$
+berechnet. Beweisen Sie die Korrektheit und die Laufzeit Ihres Algorithmus.
+Hinweis: Beachten Sie Aufgabe 2(b) und verfahren Sie ähnlich zum Algorithmus
+von Dijkstra.
+
+\begin{enumerate}
+	\item[a.] Führen Sie den Algorithmus auf dem untigen Graphen aus. Gehen Sie dabei davon aus, dass die Knoten in vertices und outgoingEdges gemäß der Knotennummern angeordnet sind. Zeigen Sie die einzelnen Schritte. Wie erhält man im Anschluss die topologische Sortierung?
+	\item[b.] Beweisen Sie, dass der Algorithmus aus (a) funktioniert.\\
+	\textit{Hinweis: Führen Sie einen Widerspruchsbeweis. Nehmen Sie an, es gäbe eine Kante e von einem späteren zu einem früheren Knoten in topoSort, und überlegen Sie sich, was passiert, wenn dfs die Kante e untersucht. Beachten Sie dabei, dass es einen Unterschied macht, ob die Tiefensuche für den Endpunkt von e noch aktiv ist.}
+\end{enumerate}
+
+\subsection*{2a)}
+
+\textbf{Schritte der Topologischen Sortierung (DFS-basiert):}
+
+\begin{enumerate}
+	\item visited: $\{\}$, topoorder: $\{\}$, Start bei 1
+	
+	\begin{itemize}
+		\item visited: $\{1\}$, topoorder: $\{\}$
+		\item 1 hat Kante zu 3 $\rightarrow$ \texttt{dfs(3)}
+	\end{itemize}
+	
+	\item visited: $\{1,3\}$
+	
+	\begin{itemize}
+		\item 3 hat Kanten zu 2 und 5 → 2 kommt zuerst → \texttt{dfs(2)}
+	\end{itemize}
+	
+	\item visited: $\{1,3,2\}$
+	
+	\begin{itemize}
+		\item 2 hat Kante zu 5 → \texttt{dfs(5)}
+	\end{itemize}
+	
+	\item visited: $\{1,3,2,5\}$
+	
+	\begin{itemize}
+		\item 5 hat keine Nachfolger → push(5), zurück zu 2 → push(2), zurück zu 3 → push(3), zurück zu 1 → push(1)
+	\end{itemize}
+	
+	\item visited: $\{1,3,2,5\}$, topoorder bisher: $\{1,3,2,5\}$
+	
+	\item 2, 3 bereits besucht → nichts weiter tun
+	
+	\item \texttt{dfs(4)}:
+	
+	\begin{itemize}
+		\item visited: $\{1,3,2,5,4\}$, 4 hat Kante zu 5 (bereits besucht) → push(4)
+	\end{itemize}
+	
+	\item \texttt{dfs(6)}:
+	
+	\begin{itemize}
+		\item visited: $\{1,3,2,5,4,6\}$, 6 hat Kante zu 5 (bereits besucht) → push(6)
+	\end{itemize}
+	
+\end{enumerate}
+
+\vspace{1em}
+\textbf{Topologische Sortierung (Stack-LIFO):}  
+\[
+\text{topoorder} = [6, 4, 1, 3, 2, 5]
+\]
+
+Alle Knoten sind besucht. Die Reihenfolge ergibt sich durch Rückgabe vom Stack (LIFO).
+
+\vspace{1.5em}
+\subsection*{2b)}
+
+\textbf{Beweis durch Widerspruch:}  
+
+Angenommen, es existiert ein Knoten $w$ mit einer ausgehenden Kante zu einem Knoten $v$, wobei $v$ in der TopoSort \textbf{vor} $w$ liegt. Dies würde bedeuten, dass die Kante $(w, v)$ \textbf{gegen} die topologische Ordnung verläuft.
+
+\textbf{Verhalten bei DFS:}
+
+Während der Tiefensuche wird ein Knoten $w$ nur dann rekursiv besucht, wenn er noch nicht als "found" markiert wurde, also:
+
+\begin{verbatim}
+	if !w.found then
+	dfs(w)
+\end{verbatim}
+
+Ebenso für die Nachfolger $v$:
+
+\begin{verbatim}
+	if !v.found then
+	dfs(v)
+\end{verbatim}
+
+Wurde ein Knoten bereits gefunden, wird er \textbf{nicht erneut besucht}, weder direkt noch indirekt.  
+→ Eine Kante $(w, v)$, bei der $v$ bereits vollständig bearbeitet und aus dem DFS-Call zurückgekehrt ist (also bereits im Stack liegt), darf \textbf{nicht von einem späteren Knoten $w$ ausgehen}, da dies sonst auf einen Zyklus hindeuten würde.
+
+\vspace{0.5em}
+\textbf{Zwei Fälle:}
+
+\begin{enumerate}
+	\item \textbf{$w$ und $v$ liegen im gleichen Pfad:}  
+	Dann wird $w$ im DFS vor $v$ besucht. In diesem Fall ist $v$ automatisch nach $w$ in der topoSort, wie es sein soll.
+	
+	\item \textbf{Es gibt einen Zyklus:}  
+	Falls $v$ bereits abgeschlossen ist und $w$ eine ausgehende Kante auf $v$ hat, entsteht ein Rückwärtsbezug im Pfad → Zyklus! Dies widerspricht der Voraussetzung, dass $G$ ein DAG ist.
+\end{enumerate}
+
+\vspace{0.5em}
+\textbf{Fazit:}  
+Eine Kante $(w, v)$, bei der $v$ vor $w$ in der TopoSort steht, ist in einem DAG \textbf{nicht möglich}.  
+→ Die topologische Sortierung funktioniert korrekt, da DFS nur Knoten verarbeitet, deren Nachfolger noch nicht vollständig besucht wurden.
+

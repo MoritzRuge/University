@@ -1,14 +1,50 @@
-\section{Problem: Der kürzeste Weg in DAGs}
+\section{Problem: Kürzeste Weg in DAGs} 
 
 \vspace{0.5em}
-Sei $G = (V, E)$ ein gewichteter gerichteter azyklischer Graph. Seien $s, t \in V$ . Geben
-Sie einen Algorithmus, der einen kürzesten Weg von $s$ nach $t$ in Zeit $O(|V | + |E|)$
-berechnet. Beweisen Sie die Korrektheit und die Laufzeit Ihres Algorithmus.
-Hinweis: Beachten Sie Aufgabe 2(b) und verfahren Sie ähnlich zum Algorithmus
-von Dijkstra.
+\noindent
+\paragraph{Sei} Sei $G = (V, E)$ ein gewichteter gerichteter azyklischer Graph. Seien $s, t \in V$ . Geben Sie einen Algorithmus, der einen kürzesten Weg von s nach t in Zeit $O(|V | + |E|)$ berechnet. Beweisen Sie die Korrektheit und die Laufzeit Ihres Algorithmus.\\
+\textit{Hinweis: Beachten Sie Aufgabe 2(b) und verfahren Sie ähnlich zum Algorithmus
+von Dijkstra.}
 
-\begin{enumerate}
-	\item[a.] Führen Sie den Algorithmus auf dem untigen Graphen aus. Gehen Sie dabei davon aus, dass die Knoten in vertices und outgoingEdges gemäß der Knotennummern angeordnet sind. Zeigen Sie die einzelnen Schritte. Wie erhält man im Anschluss die topologische Sortierung?
-	\item[b.] Beweisen Sie, dass der Algorithmus aus (a) funktioniert.\\
-	\textit{Hinweis: Führen Sie einen Widerspruchsbeweis. Nehmen Sie an, es gäbe eine Kante e von einem späteren zu einem früheren Knoten in topoSort, und überlegen Sie sich, was passiert, wenn dfs die Kante e untersucht. Beachten Sie dabei, dass es einen Unterschied macht, ob die Tiefensuche für den Endpunkt von e noch aktiv ist.}
-\end{enumerate}
+\subsection{Gegeben/Gesucht:}
+
+\paragraph{Gegeben:} Ein gewichteter, gerichteter, azyklischer Graph (DAG) $G=(V,E)$, und zwei Knoten $s,t \in V$
+\paragraph{Gesucht:} Ein Algorithmus, der den kürzesten Pfad von $s$ nach $t$ in $O(|V| + |E|)$ Zeit berechnet.
+\paragraph{Zusätzlich:} Beweis für Korrektheit und Laufzeit.
+
+\subsection{Lösung}
+\subsubsection{Algorithmus:}
+Wir benutzen Topologisches Sortieren, um den kürzesten Pfad einfach durch einmaliges Durchgehen und Relaxieren zu berechnen. Das geht, weil DAGs keine Zyklen haben.\cite{guru99}
+
+\begin{lstlisting}[language=Python]
+#1. Fuehre eine topologische Sortierung von G durch -> Liste topoOrder
+
+#2. Initialisiere:
+	dist[v] = infinty fuer alle v in V
+	dist[s] = 0
+	prev[v] = None fuer alle v in V
+
+#3. Fuer jeden Knoten u in topoOrder:
+	Fuer jede ausgehende Kante (u, v) in E mit Gewicht w:
+		Wenn dist[u] + w < dist[v]:
+			dist[v] = dist[u] + w
+			prev[v] = u
+
+4. Rueckgabe:
+	- dist[t] ist die Laenge des kuerzesten Pfads
+	- Der Pfad selbst kann ueber prev[] rekonstruiert werden
+\end{lstlisting}
+
+\subsubsection{Beweis:}
+\textbf{Korrektheit:}  
+Die topologische Sortierung stellt sicher, dass jeder Knoten \( v \) erst bearbeitet wird, nachdem alle Vorgänger \( u \) betrachtet wurden. Da jede Kante nur einmal betrachtet wird und alle kürzesten Distanzen korrekt propagiert werden, liefert der Algorithmus den korrekten kürzesten Pfad.
+
+\vspace{1em}
+
+\textbf{Laufzeit:}
+\begin{itemize}
+	\item Topologische Sortierung: \( O(|V| + |E|) \)
+	\item Initialisierung: \( O(|V|) \)
+	\item Relaxierung jeder Kante: \( O(|E|) \)
+\end{itemize}
+\textbf{→ Gesamt: \( O(|V| + |E|) \)}

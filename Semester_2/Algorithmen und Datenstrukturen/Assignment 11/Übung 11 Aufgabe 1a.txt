@@ -1,0 +1,37 @@
+PSEUDOCODE: (In einem ungerichteten zusammenhängenden Graph findet der normaler DFS alle Knoten und durchläuft jede Kante zwei-mal (hin und zurück))
+
+1. initialisiere ein leeres Set visited (speichert ob ein Knoten bereichts besucht wurde) und ein Dictionary edge_visits{} welches speichert wie oft eine Kante benutzt wurde. 
+	1.2 initialisiere die Anzahl von Traversierungen / Durchläufe aller Kanten zunächst als 0 
+2. führe DFS mit dem Startknoten durch.
+ 	2.1. Ist der Aktuelle Knoten bereits besucht worden inkrementiere den Eintrag edge_visit[aktuller_Knoten][Vorgänger] um 1. 
+	(Backtracking gehe den Pfad den genommen wurde wieder zurück). Da der erste Knoten keinen Vorgänger hat kann von diesem auch nicht weiter gebacktracked werden. 
+	2.2 wenn der aktuelle Knoten noch nicht besucht wurde füge ihn in das Set visited() ein. 
+	2.3 Inkrementiere den Dictionary Eintrag edge_visits[aktueller_Knoten][Nachbar] um 1.
+	2.4. für jeden Nachbarn vom aktuellen Knoten führe den DFS aus. 
+3. in einem ungerichteten Knoten gilt: {v,u} == {u,v}, für v,u in V und {v,u},{u,v} in E 
+4. Jetzt sollten alle Kanten 2-mal traversiert worden sein, mittels der Tiefensuche.
+
+Jede Kante wurde 2-mal verwendet einmal hin und einmal zurück. das rückwärts traversieren passiert im normalen DFS normalerweise indirekt. Durch: besuche Nachbar->Nachbar wurde bereits besucht->starte keine weiter tiefensuche->gehe den Weg wieder zurück.
+
+Beispiel:
+```
+
+A---B---C---D
+    |   |
+    E---F
+
+```
+in einem ungerichteten Graph gilt: {v,u} == {u,v}, für v,u in V und {v,u},{u,v} in E
+DFS: start 1: visited:{A} edges_num_visits:{A-B:0,B-C:0,C-D:0,B-E:0,E-F:0,C-F:0}
+A-B visited:{A,B} edges_num_visits:{A-B:1,B-C:0,C-D:0,B-E:0,E-F:0,C-F:0}
+A-B-C visited:{A,B,C} edges_num_visits:{A-B:1,B-C:1,C-D:0,B-E:0,E-F:0,C-F:0}
+A-B-C-D visited:{A,B,C,D} edges_num_visits:{A-B:1,B-C:1,C-D:1,B-E:0,E-F:0,C-F:0}
+A-B-C-D-C visited:{A,B,C,D} edges_num_visits:{A-B:1,B-C:1,C-D:2,B-E:0,E-F:0,C-F:0}
+A-B-C-D-C-F visited:{A,B,C,D,F} edges_num_visits:{A-B:1,B-C:1,C-D:2,B-E:0,E-F:0,C-F:1}
+A-B-C-D-C-F-E visited:{A,B,C,D,F,E} edges_num_visits:{A-B:1,B-C:1,C-D:2,B-E:0,E-F:1,C-F:1}
+A-B-C-D-C-F-E-B visited:{A,B,C,D,F,E} edges_num_visits:{A-B:1,B-C:1,C-D:2,B-E:1,E-F:1,C-F:1}
+A-B-C-D-C-F-E-B-E visited:{A,B,C,D,F,E} edges_num_visits:{A-B:1,B-C:1,C-D:2,B-E:2,E-F:1,C-F:1}
+A-B-C-D-C-F-E-B-E-F visited:{A,B,C,D,F,E} edges_num_visits:{A-B:1,B-C:1,C-D:2,B-E:2,E-F:2,C-F:1}
+A-B-C-D-C-F-E-B-E-F-C visited:{A,B,C,D,F,E} edges_num_visits:{A-B:1,B-C:1,C-D:2,B-E:2,E-F:2,C-F:2}
+A-B-C-D-C-F-E-B-E-F-C-B visited:{A,B,C,D,F,E} edges_num_visits:{A-B:1,B-C:2,C-D:2,B-E:2,E-F:2,C-F:2}
+A-B-C-D-C-F-E-B-E-F-C-B-A visited:{A,B,C,D,F,E} edges_num_visits:{A-B:2,B-C:2,C-D:2,B-E:2,E-F:2,C-F:2}
