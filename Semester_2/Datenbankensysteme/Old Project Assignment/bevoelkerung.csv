@@ -1,0 +1,586 @@
+GENESIS-Tabelle: 12411-01-01-4
+Bevölkerung nach Geschlecht - Stichtag 31.12. - regionale;;;;
+Tiefe: Kreise und krfr. Städte;;;;
+Fortschreibung des Bevölkerungsstandes;;;;
+Bevölkerungsstand (Anzahl);;;;
+;;Stichtag;Stichtag;Stichtag
+;;31.12.2022;31.12.2022;31.12.2022
+;;Insgesamt;männlich;weiblich
+DG;Deutschland;84358845;41559052;42799793
+01;  Schleswig-Holstein;2953270;1443269;1510001
+01001;      Flensburg, kreisfreie Stadt;92550;45874;46676
+01002;      Kiel, kreisfreie Stadt;247717;120149;127568
+01003;      Lübeck, kreisfreie Stadt, Hansestadt;218095;104723;113372
+01004;      Neumünster, kreisfreie Stadt;79502;39256;40246
+01051;      Dithmarschen, Kreis;135252;66561;68691
+01053;      Herzogtum Lauenburg, Kreis;203712;99689;104023
+01054;      Nordfriesland, Kreis;169043;82669;86374
+01055;      Ostholstein, Kreis;203606;97822;105784
+01056;      Pinneberg, Kreis;322130;157663;164467
+01057;      Plön, Kreis;131266;63357;67909
+01058;      Rendsburg-Eckernförde, Kreis;278979;137154;141825
+01059;      Schleswig-Flensburg, Kreis;206038;101614;104424
+01060;      Segeberg, Kreis;284988;140654;144334
+01061;      Steinburg, Kreis;132419;65268;67151
+01062;      Stormarn, Kreis;247973;120816;127157
+02;  Hamburg;1892122;925616;966506
+03;  Niedersachsen;8140242;4009822;4130420
+031;    Braunschweig, Statistische Region;1610865;796058;814807
+03101;      Braunschweig, kreisfreie Stadt;251804;124770;127034
+03102;      Salzgitter, kreisfreie Stadt;104548;51829;52719
+03103;      Wolfsburg, kreisfreie Stadt;125961;62441;63520
+03151;      Gifhorn, Landkreis;180232;89675;90557
+03152;      Göttingen, Landkreis;-;-;-
+03153;      Goslar, Landkreis;134672;66690;67982
+03154;      Helmstedt, Landkreis;92470;45648;46822
+03155;      Northeim, Landkreis;133258;65576;67682
+03156;      Osterode am Harz, Landkreis;-;-;-
+03157;      Peine, Landkreis;138931;68750;70181
+03158;      Wolfenbüttel, Landkreis;120531;59652;60879
+03159;      Göttingen, Landkreis;328458;161027;167431
+032;    Hannover, Statistische Region;2180058;1067013;1113045
+03241;      Region Hannover, Landkreis;1173891;573513;600378
+03241001;      Hannover, Landeshauptstadt;545045;266093;278952
+03251;      Diepholz, Landkreis;222816;110415;112401
+03252;      Hameln-Pyrmont, Landkreis;150640;72781;77859
+03254;      Hildesheim, Landkreis;278371;135757;142614
+03255;      Holzminden, Landkreis;70911;35112;35799
+03256;      Nienburg (Weser), Landkreis;123469;61060;62409
+03257;      Schaumburg, Landkreis;159960;78375;81585
+033;    Lüneburg, Statistische Region;1757157;864122;893035
+03351;      Celle, Landkreis;181994;89138;92856
+03352;      Cuxhaven, Landkreis;201413;98150;103263
+03353;      Harburg, Landkreis;261890;128854;133036
+03354;      Lüchow-Dannenberg, Landkreis;49178;23981;25197
+03355;      Lüneburg, Landkreis;187552;91180;96372
+03356;      Osterholz, Landkreis;116551;56813;59738
+03357;      Rotenburg (Wümme), Landkreis;167604;83960;83644
+03358;      Heidekreis;145394;72697;72697
+03359;      Stade, Landkreis;210306;104302;106004
+03360;      Uelzen, Landkreis;94362;45906;48456
+03361;      Verden, Landkreis;140913;69141;71772
+034;    Weser-Ems, Statistische Region;2592162;1282629;1309533
+03401;      Delmenhorst, kreisfreie Stadt;78385;38557;39828
+03402;      Emden, kreisfreie Stadt;50535;25071;25464
+03403;      Oldenburg (Oldenburg), kreisfreie Stadt;172830;82742;90088
+03404;      Osnabrück, kreisfreie Stadt;167366;80755;86611
+03405;      Wilhelmshaven, kreisfreie Stadt;76089;37268;38821
+03451;      Ammerland, Landkreis;128253;62498;65755
+03452;      Aurich, Landkreis;192072;94234;97838
+03453;      Cloppenburg, Landkreis;177701;89720;87981
+03454;      Emsland, Landkreis;338052;171160;166892
+03455;      Friesland, Landkreis;100277;48749;51528
+03456;      Grafschaft Bentheim, Landkreis;141269;70508;70761
+03457;      Leer, Landkreis;174348;86640;87708
+03458;      Oldenburg, Landkreis;133913;66240;67673
+03459;      Osnabrück, Landkreis;366221;181603;184618
+03460;      Vechta, Landkreis;146924;73728;73196
+03461;      Wesermarsch, Landkreis;89568;44652;44916
+03462;      Wittmund, Landkreis;58359;28504;29855
+04;  Bremen;684864;338233;346631
+04011;      Bremen, kreisfreie Stadt;569396;280842;288554
+04012;      Bremerhaven, kreisfreie Stadt;115468;57391;58077
+05;  Nordrhein-Westfalen;18139116;8890200;9248916
+051;    Düsseldorf, Regierungsbezirk;5261157;2565963;2695194
+05111;      Düsseldorf, kreisfreie Stadt;629047;303510;325537
+05112;      Duisburg, kreisfreie Stadt;502211;247892;254319
+05113;      Essen, kreisfreie Stadt;584580;284152;300428
+05114;      Krefeld, kreisfreie Stadt;228426;111189;117237
+05116;      Mönchengladbach, kreisfreie Stadt;268465;132961;135504
+05117;      Mülheim an der Ruhr, kreisfreie Stadt;172404;83069;89335
+05119;      Oberhausen, kreisfreie Stadt;210824;102910;107914
+05120;      Remscheid, kreisfreie Stadt;112613;55709;56904
+05122;      Solingen, kreisfreie Stadt;160643;78038;82605
+05124;      Wuppertal, kreisfreie Stadt;358876;175788;183088
+05154;      Kleve, Kreis;319290;158966;160324
+05158;      Mettmann, Kreis;489794;236563;253231
+05162;      Rhein-Kreis Neuss;457264;221712;235552
+05166;      Viersen, Kreis;300882;146635;154247
+05170;      Wesel, Kreis;465838;226869;238969
+053;    Köln, Regierungsbezirk;4527594;2216694;2310900
+05314;      Bonn, kreisfreie Stadt;336465;160769;175696
+05315;      Köln, kreisfreie Stadt;1084831;526588;558243
+05316;      Leverkusen, kreisfreie Stadt;165748;80681;85067
+05334;      Städteregion Aachen, Kreis;562559;283670;278889
+05334002;      Aachen, kreisfreie Stadt;252136;131493;120643
+05354;      Aachen, Kreis;-;-;-
+05358;      Düren, Kreis;270833;134058;136775
+05362;      Rhein-Erft-Kreis;478126;232974;245152
+05366;      Euskirchen, Kreis;197247;97449;99798
+05370;      Heinsberg, Kreis;261833;129489;132344
+05374;      Oberbergischer Kreis;275404;135188;140216
+05378;      Rheinisch-Bergischer Kreis;286213;138313;147900
+05382;      Rhein-Sieg-Kreis;608335;297515;310820
+055;    Münster, Regierungsbezirk;2664280;1309671;1354609
+05512;      Bottrop, kreisfreie Stadt;118113;57364;60749
+05513;      Gelsenkirchen, kreisfreie Stadt;263000;130545;132455
+05515;      Münster, kreisfreie Stadt;320946;153935;167011
+05554;      Borken, Kreis;379070;189377;189693
+05558;      Coesfeld, Kreis;224692;110765;113927
+05562;      Recklinghausen, Kreis;619732;301126;318606
+05566;      Steinfurt, Kreis;456464;227186;229278
+05570;      Warendorf, Kreis;282263;139373;142890
+057;    Detmold, Regierungsbezirk;2085331;1028145;1057186
+05711;      Bielefeld, kreisfreie Stadt;338332;163149;175183
+05754;      Gütersloh, Kreis;371309;184955;186354
+05758;      Herford, Kreis;253551;124664;128887
+05762;      Höxter, Kreis;141819;70597;71222
+05766;      Lippe, Kreis;350588;171767;178821
+05770;      Minden-Lübbecke, Kreis;315974;156058;159916
+05774;      Paderborn, Kreis;313758;156955;156803
+059;    Arnsberg, Regierungsbezirk;3600754;1769727;1831027
+05911;      Bochum, kreisfreie Stadt;365742;178377;187365
+05913;      Dortmund, kreisfreie Stadt;593317;290847;302470
+05914;      Hagen, kreisfreie Stadt;189783;92810;96973
+05915;      Hamm, kreisfreie Stadt;180849;89104;91745
+05916;      Herne, kreisfreie Stadt;157368;77053;80315
+05954;      Ennepe-Ruhr-Kreis;325193;157717;167476
+05958;      Hochsauerlandkreis;261647;130454;131193
+05962;      Märkischer Kreis;410346;201533;208813
+05966;      Olpe, Kreis;134439;67321;67118
+05970;      Siegen-Wittgenstein, Kreis;277136;137437;139699
+05974;      Soest, Kreis;306068;152175;153893
+05978;      Unna, Kreis;398866;194899;203967
+06;  Hessen;6391360;3151158;3240202
+064;    Darmstadt, Regierungsbezirk;4088107;2013342;2074765
+06411;      Darmstadt, kreisfreie Stadt, Wissenschaftsstadt;162243;82530;79713
+06412;      Frankfurt am Main, kreisfreie Stadt;773068;380566;392502
+06413;      Offenbach am Main, kreisfreie Stadt;134170;66650;67520
+06414;      Wiesbaden, kreisfreie Stadt, Landeshauptstadt;283083;135153;147930
+06431;      Bergstraße, Landkreis;275205;135926;139279
+06432;      Darmstadt-Dieburg, Landkreis;300658;148978;151680
+06433;      Groß-Gerau, Landkreis;280308;140349;139959
+06434;      Hochtaunuskreis;239488;115782;123706
+06435;      Main-Kinzig-Kreis;430838;212330;218508
+06436;      Main-Taunus-Kreis;242420;118745;123675
+06437;      Odenwaldkreis;97577;48156;49421
+06438;      Offenbach, Landkreis;362137;178293;183844
+06439;      Rheingau-Taunus-Kreis;189614;92814;96800
+06440;      Wetteraukreis;317298;157070;160228
+065;    Gießen, Regierungsbezirk;1067354;525963;541391
+06531;      Gießen, Landkreis;278664;136879;141785
+06532;      Lahn-Dill-Kreis;257289;126692;130597
+06533;      Limburg-Weilburg, Landkreis;174884;86675;88209
+06534;      Marburg-Biedenkopf, Landkreis;249684;122463;127221
+06535;      Vogelsbergkreis;106833;53254;53579
+066;    Kassel, Regierungsbezirk;1235899;611853;624046
+06611;      Kassel, kreisfreie Stadt, documenta-Stadt;204202;99986;104216
+06631;      Fulda, Landkreis;227456;113060;114396
+06632;      Hersfeld-Rotenburg, Landkreis;121566;60827;60739
+06633;      Kassel, Landkreis;240718;117984;122734
+06634;      Schwalm-Eder-Kreis;182595;91370;91225
+06635;      Waldeck-Frankenberg, Landkreis;159154;79226;79928
+06636;      Werra-Meißner-Kreis;100208;49400;50808
+07;  Rheinland-Pfalz;4159150;2054254;2104896
+071;    Koblenz, Statistische Region;1522508;751360;771148
+07111;      Koblenz, kreisfreie Stadt;115268;56506;58762
+07131;      Ahrweiler, Landkreis;128161;63413;64748
+07132;      Altenkirchen (Westerwald), Landkreis;131467;64960;66507
+07133;      Bad Kreuznach, Landkreis;161307;78730;82577
+07134;      Birkenfeld, Landkreis;81760;40508;41252
+07135;      Cochem-Zell, Landkreis;62666;31329;31337
+07137;      Mayen-Koblenz, Landkreis;218210;107696;110514
+07138;      Neuwied, Landkreis;187440;92274;95166
+07140;      Rhein-Hunsrück-Kreis;105566;52384;53182
+07141;      Rhein-Lahn-Kreis;124381;61390;62991
+07143;      Westerwaldkreis;206282;102170;104112
+072;    Trier, Statistische Region;546565;272767;273798
+07211;      Trier, kreisfreie Stadt;112195;55489;56706
+07231;      Bernkastel-Wittlich, Landkreis;115099;57453;57646
+07232;      Eifelkreis Bitburg-Prüm;103642;52202;51440
+07233;      Vulkaneifel, Landkreis;61769;30928;30841
+07235;      Trier-Saarburg, Landkreis;153860;76695;77165
+073;    Rheinhessen-Pfalz, Statistische Region;2090077;1030127;1059950
+07311;      Frankenthal (Pfalz), kreisfreie Stadt;49051;23923;25128
+07312;      Kaiserslautern, kreisfreie Stadt;101228;50948;50280
+07313;      Landau in der Pfalz, kreisfreie Stadt;47610;22627;24983
+07314;      Ludwigshafen am Rhein, kreisfreie Stadt;174265;87539;86726
+07315;      Mainz, kreisfreie Stadt;220552;107358;113194
+07316;      Neustadt an der Weinstraße, kreisfreie Stadt;53981;26306;27675
+07317;      Pirmasens, kreisfreie Stadt;40682;19921;20761
+07318;      Speyer, kreisfreie Stadt;51368;25130;26238
+07319;      Worms, kreisfreie Stadt;84646;41957;42689
+07320;      Zweibrücken, kreisfreie Stadt;34534;17075;17459
+07331;      Alzey-Worms, Landkreis;132536;65697;66839
+07332;      Bad Dürkheim, Landkreis;134546;65716;68830
+07333;      Donnersbergkreis;76208;37684;38524
+07334;      Germersheim, Landkreis;130793;64990;65803
+07335;      Kaiserslautern, Landkreis;108216;53113;55103
+07336;      Kusel, Landkreis;71462;35694;35768
+07337;      Südliche Weinstraße, Landkreis;112631;55379;57252
+07338;      Rhein-Pfalz-Kreis;155921;76581;79340
+07339;      Mainz-Bingen, Landkreis;214948;105745;109203
+07340;      Südwestpfalz, Landkreis;94899;46744;48155
+08;  Baden-Württemberg;11280257;5595424;5684833
+081;    Stuttgart, Regierungsbezirk;4205849;2093955;2111894
+08111;      Stuttgart, Stadtkreis;632865;315634;317231
+08115;      Böblingen, Landkreis;398528;197762;200766
+08116;      Esslingen, Landkreis;540226;269180;271046
+08117;      Göppingen, Landkreis;261857;130139;131718
+08118;      Ludwigsburg, Landkreis;551051;272828;278223
+08119;      Rems-Murr-Kreis, Landkreis;432397;213396;219001
+08121;      Heilbronn, Stadtkreis;128334;64610;63724
+08125;      Heilbronn, Landkreis;353283;177094;176189
+08126;      Hohenlohekreis, Landkreis;115063;57914;57149
+08127;      Schwäbisch Hall, Landkreis;202834;101772;101062
+08128;      Main-Tauber-Kreis, Landkreis;134745;67267;67478
+08135;      Heidenheim, Landkreis;135035;67292;67743
+08136;      Ostalbkreis, Landkreis;319631;159067;160564
+082;    Karlsruhe, Regierungsbezirk;2848400;1413296;1435104
+08211;      Baden-Baden, Stadtkreis;57025;27240;29785
+08212;      Karlsruhe, Stadtkreis;308707;157553;151154
+08215;      Karlsruhe, Landkreis;454613;226144;228469
+08216;      Rastatt, Landkreis;234981;116683;118298
+08221;      Heidelberg, Stadtkreis;162273;77561;84712
+08222;      Mannheim, Stadtkreis;315554;157130;158424
+08225;      Neckar-Odenwald-Kreis, Landkreis;145493;72949;72544
+08226;      Rhein-Neckar-Kreis, Landkreis;555352;272531;282821
+08231;      Pforzheim, Stadtkreis;127849;62926;64923
+08235;      Calw, Landkreis;162853;81700;81153
+08236;      Enzkreis, Landkreis;202536;100318;102218
+08237;      Freudenstadt, Landkreis;121164;60561;60603
+083;    Freiburg, Regierungsbezirk;2322689;1143714;1178975
+08311;      Freiburg im Breisgau, Stadtkreis;236140;112382;123758
+08315;      Breisgau-Hochschwarzwald, Landkreis;269948;132897;137051
+08316;      Emmendingen, Landkreis;170996;84495;86501
+08317;      Ortenaukreis, Landkreis;441885;220341;221544
+08325;      Rottweil, Landkreis;142593;71335;71258
+08326;      Schwarzwald-Baar-Kreis, Landkreis;217181;107434;109747
+08327;      Tuttlingen, Landkreis;144891;72930;71961
+08335;      Konstanz, Landkreis;292568;141939;150629
+08336;      Lörrach, Landkreis;233027;114220;118807
+08337;      Waldshut, Landkreis;173460;85741;87719
+084;    Tübingen, Regierungsbezirk;1903319;944459;958860
+08415;      Reutlingen, Landkreis;291696;144375;147321
+08416;      Tübingen, Landkreis;232803;113022;119781
+08417;      Zollernalbkreis, Landkreis;193235;95712;97523
+08421;      Ulm, Stadtkreis;128928;63803;65125
+08425;      Alb-Donau-Kreis, Landkreis;202476;101989;100487
+08426;      Biberach, Landkreis;206513;104027;102486
+08435;      Bodenseekreis, Landkreis;222712;109351;113361
+08436;      Ravensburg, Landkreis;290911;144799;146112
+08437;      Sigmaringen, Landkreis;134045;67381;66664
+09;  Bayern;13369393;6620203;6749190
+091;    Oberbayern, Regierungsbezirk;4801769;2370431;2431338
+09161;      Ingolstadt, kreisfreie Stadt;141029;71308;69721
+09162;      München, kreisfreie Stadt;1512491;736806;775685
+09163;      Rosenheim, kreisfreie Stadt;64403;31922;32481
+09171;      Altötting, Landkreis;113798;56238;57560
+09172;      Berchtesgadener Land, Landkreis;107667;52850;54817
+09173;      Bad Tölz-Wolfratshausen, Landkreis;129511;63758;65753
+09174;      Dachau, Landkreis;156982;78276;78706
+09175;      Ebersberg, Landkreis;146830;73169;73661
+09176;      Eichstätt, Landkreis;135591;68634;66957
+09177;      Erding, Landkreis;141680;71117;70563
+09178;      Freising, Landkreis;184433;94031;90402
+09179;      Fürstenfeldbruck, Landkreis;221612;108617;112995
+09180;      Garmisch-Partenkirchen, Landkreis;88840;42925;45915
+09181;      Landsberg am Lech, Landkreis;123032;61199;61833
+09182;      Miesbach, Landkreis;101346;49603;51743
+09183;      Mühldorf a.Inn, Landkreis;119878;60544;59334
+09184;      München, Landkreis;355890;176060;179830
+09185;      Neuburg-Schrobenhausen, Landkreis;99957;50240;49717
+09186;      Pfaffenhofen a.d.Ilm, Landkreis;132082;67028;65054
+09187;      Rosenheim, Landkreis;266945;131878;135067
+09188;      Starnberg, Landkreis;138785;66902;71883
+09189;      Traunstein, Landkreis;180779;89067;91712
+09190;      Weilheim-Schongau, Landkreis;138208;68259;69949
+092;    Niederbayern, Regierungsbezirk;1273955;637936;636019
+09261;      Landshut, kreisfreie Stadt;75457;36833;38624
+09262;      Passau, kreisfreie Stadt;53907;26167;27740
+09263;      Straubing, kreisfreie Stadt;49164;24797;24367
+09271;      Deggendorf, Landkreis;122121;61353;60768
+09272;      Freyung-Grafenau, Landkreis;79286;39459;39827
+09273;      Kelheim, Landkreis;125701;63520;62181
+09274;      Landshut, Landkreis;164773;83050;81723
+09275;      Passau, Landkreis;196963;97778;99185
+09276;      Regen, Landkreis;78035;38968;39067
+09277;      Rottal-Inn, Landkreis;124436;62503;61933
+09278;      Straubing-Bogen, Landkreis;103806;52035;51771
+09279;      Dingolfing-Landau, Landkreis;100306;51473;48833
+093;    Oberpfalz, Regierungsbezirk;1133741;564751;568990
+09361;      Amberg, kreisfreie Stadt;42534;20920;21614
+09362;      Regensburg, kreisfreie Stadt;157443;76690;80753
+09363;      Weiden i.d.OPf., kreisfreie Stadt;43052;20833;22219
+09371;      Amberg-Sulzbach, Landkreis;104436;52328;52108
+09372;      Cham, Landkreis;130193;65441;64752
+09373;      Neumarkt i.d.OPf., Landkreis;138086;69843;68243
+09374;      Neustadt a.d.Waldnaab, Landkreis;95954;47697;48257
+09375;      Regensburg, Landkreis;198160;99038;99122
+09376;      Schwandorf, Landkreis;151711;76171;75540
+09377;      Tirschenreuth, Landkreis;72172;35790;36382
+094;    Oberfranken, Regierungsbezirk;1073783;529160;544623
+09461;      Bamberg, kreisfreie Stadt;79935;39117;40818
+09462;      Bayreuth, kreisfreie Stadt;74506;36399;38107
+09463;      Coburg, kreisfreie Stadt;41842;20328;21514
+09464;      Hof, kreisfreie Stadt;46656;22663;23993
+09471;      Bamberg, Landkreis;149122;74606;74516
+09472;      Bayreuth, Landkreis;104702;51923;52779
+09473;      Coburg, Landkreis;87103;43107;43996
+09474;      Forchheim, Landkreis;117948;58401;59547
+09475;      Hof, Landkreis;94589;46307;48282
+09476;      Kronach, Landkreis;66393;32798;33595
+09477;      Kulmbach, Landkreis;71653;35199;36454
+09478;      Lichtenfels, Landkreis;67328;33189;34139
+09479;      Wunsiedel i.Fichtelgebirge, Landkreis;72006;35123;36883
+095;    Mittelfranken, Regierungsbezirk;1805791;889544;916247
+09561;      Ansbach, kreisfreie Stadt;42221;20194;22027
+09562;      Erlangen, kreisfreie Stadt;116562;57940;58622
+09563;      Fürth, kreisfreie Stadt;131433;64348;67085
+09564;      Nürnberg, kreisfreie Stadt;523026;255250;267776
+09565;      Schwabach, kreisfreie Stadt;41227;20110;21117
+09571;      Ansbach, Landkreis;188623;94550;94073
+09572;      Erlangen-Höchstadt, Landkreis;140994;69977;71017
+09573;      Fürth, Landkreis;119923;58382;61541
+09574;      Nürnberger Land, Landkreis;172665;84864;87801
+09575;      Neustadt a.d.Aisch-Bad Windsheim, Landkreis;103303;51799;51504
+09576;      Roth, Landkreis;128694;63723;64971
+09577;      Weißenburg-Gunzenhausen, Landkreis;97120;48407;48713
+096;    Unterfranken, Regierungsbezirk;1334376;660476;673900
+09661;      Aschaffenburg, kreisfreie Stadt;72444;35160;37284
+09662;      Schweinfurt, kreisfreie Stadt;54675;27041;27634
+09663;      Würzburg, kreisfreie Stadt;127810;61008;66802
+09671;      Aschaffenburg, Landkreis;176958;87610;89348
+09672;      Bad Kissingen, Landkreis;104567;51477;53090
+09673;      Rhön-Grabfeld, Landkreis;80341;39954;40387
+09674;      Haßberge, Landkreis;84984;42626;42358
+09675;      Kitzingen, Landkreis;93247;46806;46441
+09676;      Miltenberg, Landkreis;129835;64503;65332
+09677;      Main-Spessart, Landkreis;127132;63281;63851
+09678;      Schweinfurt, Landkreis;117044;59107;57937
+09679;      Würzburg, Landkreis;165339;81903;83436
+097;    Schwaben, Regierungsbezirk;1945978;967905;978073
+09761;      Augsburg, kreisfreie Stadt;301033;148355;152678
+09762;      Kaufbeuren, kreisfreie Stadt;45792;22583;23209
+09763;      Kempten (Allgäu), kreisfreie Stadt;70056;34669;35387
+09764;      Memmingen, kreisfreie Stadt;45857;22647;23210
+09771;      Aichach-Friedberg, Landkreis;137334;68380;68954
+09772;      Augsburg, Landkreis;261342;129390;131952
+09773;      Dillingen a.d.Donau, Landkreis;99109;49626;49483
+09774;      Günzburg, Landkreis;130112;65595;64517
+09775;      Neu-Ulm, Landkreis;180425;89639;90786
+09776;      Lindau (Bodensee), Landkreis;83393;41121;42272
+09777;      Ostallgäu, Landkreis;145378;72362;73016
+09778;      Unterallgäu, Landkreis;150068;75833;74235
+09779;      Donau-Ries, Landkreis;137137;69586;67551
+09780;      Oberallgäu, Landkreis;158942;78119;80823
+10;  Saarland;992666;487101;505565
+10041;      Saarbrücken, Regionalverband;330848;162630;168218
+10041100;      Saarbrücken, Landeshauptstadt;181959;90445;91514
+10042;      Merzig-Wadern, Landkreis;104425;51552;52873
+10043;      Neunkirchen, Landkreis;132283;65064;67219
+10044;      Saarlouis, Landkreis;195749;95910;99839
+10045;      Saarpfalz-Kreis;142419;69192;73227
+10046;      St. Wendel, Landkreis;86942;42753;44189
+11;  Berlin;3755251;1843196;1912055
+11001001;      Berlin-Mitte;.;.;.
+11002002;      Berlin-Friedrichshain-Kreuzberg;.;.;.
+11003003;      Berlin-Pankow;.;.;.
+11004004;      Berlin-Charlottenburg-Wilmersdorf;.;.;.
+11005005;      Berlin-Spandau;.;.;.
+11006006;      Berlin-Steglitz-Zehlendorf;.;.;.
+11007007;      Berlin-Tempelhof-Schöneberg;.;.;.
+11008008;      Berlin-Neukölln;.;.;.
+11009009;      Berlin-Treptow-Köpenick;.;.;.
+11010010;      Berlin-Marzahn-Hellersdorf;.;.;.
+11011011;      Berlin-Lichtenberg;.;.;.
+11012012;      Berlin-Reinickendorf;.;.;.
+12;  Brandenburg;2573135;1265151;1307984
+12051;      Brandenburg an der Havel, kreisfreie Stadt;73609;36106;37503
+12052;      Cottbus, kreisfreie Stadt;99515;48535;50980
+12053;      Frankfurt (Oder), kreisfreie Stadt;58230;28223;30007
+12054;      Potsdam, kreisfreie Stadt;185750;89442;96308
+12060;      Barnim, Landkreis;191849;94508;97341
+12061;      Dahme-Spreewald, Landkreis;178967;88512;90455
+12062;      Elbe-Elster, Landkreis;100902;50011;50891
+12063;      Havelland, Landkreis;169334;83473;85861
+12064;      Märkisch-Oderland, Landkreis;200292;99079;101213
+12065;      Oberhavel, Landkreis;218551;107236;111315
+12066;      Oberspreewald-Lausitz, Landkreis;108263;53007;55256
+12067;      Oder-Spree, Landkreis;182401;89338;93063
+12068;      Ostprignitz-Ruppin, Landkreis;99871;49583;50288
+12069;      Potsdam-Mittelmark, Landkreis;222570;109781;112789
+12070;      Prignitz, Landkreis;76045;37625;38420
+12071;      Spree-Neiße, Landkreis;112493;55072;57421
+12072;      Teltow-Fläming, Landkreis;176648;88122;88526
+12073;      Uckermark, Landkreis;117845;57498;60347
+13;  Mecklenburg-Vorpommern;1628378;799695;828683
+13001;      Greifswald, Hansestadt, kreisfreie Stadt;-;-;-
+13002;      Neubrandenburg, Stadt,  kreisfreie Stadt;-;-;-
+13003;      Rostock, kreisfreie Stadt;209920;102800;107120
+13004;      Schwerin, kreisfreie Stadt;98596;47203;51393
+13005;      Stralsund, Hansestadt,  kreisfreie Stadt;-;-;-
+13006;      Wismar, Hansestadt,  kreisfreie Stadt;-;-;-
+13051;      Bad Doberan, Landkreis;-;-;-
+13052;      Landkreis Demmin;-;-;-
+13053;      Güstrow, Landkreis;-;-;-
+13054;      Landkreis Ludwigslust;-;-;-
+13055;      Mecklenburg-Strelitz, Landkreis;-;-;-
+13056;      Landkreis Müritz;-;-;-
+13057;      Nordvorpommern, Landkreis;-;-;-
+13058;      Landkreis Nordwestmecklenburg;-;-;-
+13059;      Ostvorpommern, Landkreis;-;-;-
+13060;      Landkreis Parchim;-;-;-
+13061;      Rügen, Landkreis;-;-;-
+13062;      Landkreis Uecker-Randow;-;-;-
+13071;      Mecklenburgische Seenplatte, Landkreis;259568;127218;132350
+13072;      Landkreis Rostock;220807;109406;111401
+13073;      Vorpommern-Rügen, Landkreis;227683;111156;116527
+13074;      Nordwestmecklenburg, Landkreis;160288;79473;80815
+13075;      Vorpommern-Greifswald, Landkreis;237355;115725;121630
+13076;      Ludwigslust-Parchim, Landkreis;214161;106714;107447
+14;  Sachsen;4086152;2010537;2075615
+141;    Chemnitz, Regierungsbezirk;-;-;-
+14161;      Chemnitz, kreisfreie Stadt;-;-;-
+14166;      Plauen, kreisfreie Stadt;-;-;-
+14167;      Zwickau, kreisfreie Stadt;-;-;-
+14171;      Annaberg, Landkreis;-;-;-
+14173;      Chemnitzer Land, Landkreis;-;-;-
+14177;      Freiberg, Landkreis;-;-;-
+14178;      Vogtlandkreis;-;-;-
+14181;      Mittlerer Erzgebirgskreis;-;-;-
+14182;      Mittweida, Landkreis;-;-;-
+14188;      Stollberg, Landkreis;-;-;-
+14191;      Aue-Schwarzenberg, Landkreis;-;-;-
+14193;      Zwickauer Land, Landkreis;-;-;-
+142;    Dresden, Regierungsbezirk;-;-;-
+14262;      Dresden, kreisfreie Stadt;-;-;-
+14263;      Görlitz, kreisfreie Stadt;-;-;-
+14264;      Hoyerswerda, kreisfreie Stadt;-;-;-
+14272;      Bautzen, Landkreis;-;-;-
+14280;      Meißen, Landkreis;-;-;-
+14284;      Niederschlesischer Oberlausitzkreis;-;-;-
+14285;      Riesa-Großenhain, Landkreis;-;-;-
+14286;      Löbau-Zittau, Landkreis;-;-;-
+14287;      Sächsische Schweiz, Landkreis;-;-;-
+14290;      Weißeritzkreis;-;-;-
+14292;      Kamenz, Landkreis;-;-;-
+143;    Leipzig, Regierungsbezirk;-;-;-
+14365;      Leipzig, kreisfreie Stadt;-;-;-
+14374;      Delitzsch, Landkreis;-;-;-
+14375;      Döbeln, Landkreis;-;-;-
+14379;      Leipziger Land, Landkreis;-;-;-
+14383;      Muldentalkreis;-;-;-
+14389;      Torgau-Oschatz, Landkreis;-;-;-
+145;    Chemnitz, Statistische Region;1411556;693193;718363
+14511;      Chemnitz, kreisfreie Stadt;248563;122678;125885
+14521;      Erzgebirgskreis;328850;160991;167859
+14522;      Mittelsachsen, Landkreis;300639;149223;151416
+14523;      Vogtlandkreis;222666;108488;114178
+14524;      Zwickau, Landkreis;310838;151813;159025
+146;    Dresden, Statistische Region;1598250;788007;810243
+14612;      Dresden, kreisfreie Stadt;563311;279338;283973
+14625;      Bautzen, Landkreis;297711;146982;150729
+14626;      Görlitz, Landkreis;249681;122032;127649
+14627;      Meißen, Landkreis;241343;118391;122952
+14628;      Sächsische Schweiz-Osterzgebirge, Landkreis;246204;121264;124940
+147;    Leipzig, Statistische Region;1076346;529337;547009
+14713;      Leipzig, kreisfreie Stadt;616093;302741;313352
+14729;      Leipzig, Landkreis;260429;127570;132859
+14730;      Nordsachsen, Landkreis;199824;99026;100798
+15;  Sachsen-Anhalt;2186643;1073711;1112932
+15001;      Dessau-Roßlau, kreisfreie Stadt;79655;38509;41146
+15002;      Halle (Saale), kreisfreie Stadt;242083;116835;125248
+15003;      Magdeburg, kreisfreie Stadt, Landeshauptstadt;239364;117729;121635
+15081;      Altmarkkreis Salzwedel;82457;41042;41415
+15082;      Anhalt-Bitterfeld, Landkreis;157235;76971;80264
+15083;      Börde, Landkreis;171393;85383;86010
+15084;      Burgenlandkreis;177212;87200;90012
+15085;      Harz, Landkreis;210381;103454;106927
+15086;      Jerichower Land, Landkreis;90256;44854;45402
+15087;      Mansfeld-Südharz, Landkreis;132034;64916;67118
+15088;      Saalekreis;183974;90866;93108
+15089;      Salzlandkreis;186420;90887;95533
+15090;      Stendal, Landkreis;110291;54172;56119
+15091;      Wittenberg, Landkreis;123888;60893;62995
+151;    Dessau, Statistische Region;-;-;-
+15101;      Dessau, kreisfreie Stadt;-;-;-
+15151;      Anhalt-Zerbst, Kreis;-;-;-
+15153;      Bernburg, Kreis;-;-;-
+15154;      Bitterfeld, Kreis;-;-;-
+15159;      Köthen, Kreis;-;-;-
+15171;      Wittenberg, Kreis;-;-;-
+152;    Halle, Statistische Region;-;-;-
+15202;      Halle (Saale), kreisfreie Stadt;-;-;-
+15256;      Burgenlandkreis;-;-;-
+15260;      Mansfelder Land, Kreis;-;-;-
+15261;      Merseburg-Querfurt, Kreis;-;-;-
+15265;      Saalkreis;-;-;-
+15266;      Sangerhausen, Kreis;-;-;-
+15268;      Weißenfels, Kreis;-;-;-
+153;    Magdeburg, Statistische Region;-;-;-
+15303;      Magdeburg, kreisfreie Stadt;-;-;-
+15352;      Aschersleben-Staßfurt, Kreis;-;-;-
+15355;      Bördekreis;-;-;-
+15357;      Halberstadt, Kreis;-;-;-
+15358;      Jerichower Land, Kreis;-;-;-
+15362;      Ohrekreis;-;-;-
+15363;      Stendal, Kreis;-;-;-
+15364;      Quedlinburg, Kreis;-;-;-
+15367;      Schönebeck, Kreis;-;-;-
+15369;      Wernigerode, Kreis;-;-;-
+15370;      Altmarkkreis Salzwedel, Kreis;-;-;-
+16;  Thüringen;2126846;1051482;1075364
+16051;      Erfurt, kreisfreie Stadt;214969;104205;110764
+16052;      Gera, kreisfreie Stadt;93634;45174;48460
+16053;      Jena, kreisfreie Stadt;111191;55301;55890
+16054;      Suhl, kreisfreie Stadt;37009;18339;18670
+16055;      Weimar, kreisfreie Stadt;65620;31624;33996
+16056;      Eisenach, kreisfreie Stadt;-;-;-
+16061;      Eichsfeld, Landkreis;100091;50150;49941
+16062;      Nordhausen, Landkreis;82444;40782;41662
+16063;      Wartburgkreis;159539;79425;80114
+16064;      Unstrut-Hainich-Kreis;102256;50688;51568
+16065;      Kyffhäuserkreis;73690;36612;37078
+16066;      Schmalkalden-Meiningen, Landkreis;123939;61977;61962
+16067;      Gotha, Landkreis;134941;66997;67944
+16068;      Sömmerda, Landkreis;69646;34846;34800
+16069;      Hildburghausen, Landkreis;61926;31002;30924
+16070;      Ilm-Kreis;106776;53798;52978
+16071;      Weimarer Land, Landkreis;83179;41156;42023
+16072;      Sonneberg, Landkreis;56922;28093;28829
+16073;      Saalfeld-Rudolstadt, Landkreis;101494;49926;51568
+16074;      Saale-Holzland-Kreis;83234;41328;41906
+16075;      Saale-Orla-Kreis;79178;39306;39872
+16076;      Greiz, Landkreis;96381;47487;48894
+16077;      Altenburger Land, Landkreis;88787;43266;45521
+__________
+"zu  ""gesamter Tabelle"":
+Alle Länder: 
+Bei den Bevölkerungsdaten handelt es sich um
+Fortschreibungszahlen, die ab dem Berichtsjahr 2011 auf den
+Ergebnissen des Zensus vom 09. Mai 2011 basieren.
+Bevölkerungsdaten für die Berichtsjahre 1987 bis 2010
+wurden in den alten Bundesländern aufgrund der Ergebnisse
+der Volkszählung vom 25. Mai 1987 erstellt, in den neuen
+Bundesländern bildet die am 3. Oktober 1990 aufgrund eines
+Auszugs des zentralen Einwohnerregisters der ehemaligen DDR
+festgestellte amtliche Einwohnerzahl die Grundlage.
+
+Alle Länder: Die Entwicklung des Bevölkerungsstandes ab dem
+Berichtsjahr 2016 ist aufgrund methodischer Änderungen in
+den zugrunde liegenden Bevölkerungsbewegungsstatistiken nur
+bedingt mit den Werten vor 2016 vergleichbar. Einschrän-
+kungen bei der Genauigkeit der Ergebnisse können aus der er-
+höhten Zuwanderung und den dadurch bedingten Problemen bei
+der melderechtlichen Erfassung Schutzsuchender resultieren.
+
+Baden-Württemberg (Berichtsjahr 2008-2010): Gebietsstand
+01.01.2009
+Baden-Württemberg (ab Berichtsjahr 2011): Gebietsstand
+01.01.2011
+Baden-Württemberg (31.12.2017): Abweichungen zu anderen
+Veröffentlichungen ergeben sich ggf. durch nachträgliche
+Korrekturen.
+Nordrhein-Westfalen (31.12.2016): Für sechs Kommunen ist
+das vorliegende Ergebnis, das u. a. auf Basis der von den
+Meldebehörden erhaltenen Nachrichten ermittelt wurde, un-
+plausibel. Daher ist die Genauigkeit der Ergebnisse der
+übergeordneten Verwaltungsbezirke eingeschränkt. Die Gründe
+hierfür liegen offenbar in der melderechtlichen Behandlung
+von Schutzsuchenden. Die Unstimmigkeiten konnten nicht ab-
+schließend aufgelöst werden."
+"© Statistische Ämter des Bundes und der Länder, Deutschland, 2024.
+Dieses Werk ist lizenziert unter der Datenlizenz Deutschland
+- Namensnennung - Version 2.0."
+Stand: 28.05.2024 / 13:37:10
